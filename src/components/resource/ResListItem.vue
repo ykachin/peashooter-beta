@@ -34,6 +34,7 @@
     /*background-color: #f2f2f2;*/
     margin-top: 16px;
     padding: 12px 20px 15px 13px;
+    border-radius: 8px;
   }
   .user-name {
     position: relative;
@@ -50,6 +51,9 @@
     font-size: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     padding: 10px 11px;
+    margin-top: 10px;
+    background: #DDDDDD;
+    border-radius: 5px;
   }
   .el-icon-paperclip-my-style {
     margin-left: 16px;

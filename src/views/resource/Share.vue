@@ -202,7 +202,6 @@
                 type: 'error',
                 offset: 100
               })
-              console.log(res)
             }
             // 2. 发布成功
             else {
@@ -212,7 +211,6 @@
                 offset: 100
               })
               this.$router.push({path:'/resource'})
-              console.log(res)
             }
           }).catch(err => {
             this.$message({
@@ -220,7 +218,7 @@
               type: 'error',
               offset: 100
             })
-            console.log(err)
+
           });
         }
       },
@@ -232,7 +230,6 @@
       choFile(fileObj) {
         this.formData.set("file", fileObj.file);
         this.fileNull = false
-        console.log(fileObj)
       },
 
       /**

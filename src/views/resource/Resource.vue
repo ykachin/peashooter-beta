@@ -102,8 +102,8 @@
           </div>
 
         </el-main>
-        <!-- 右边侧边栏 人气资源显示 -->
 
+        <!-- 右边侧边栏 人气资源显示 -->
         <el-aside class="m-margin-top">
           <pop-res v-loading="loadingPopRes">
             <pop-res-item v-for="(item, index) in popRes" v-if="index < 15">
@@ -268,8 +268,6 @@
           // // this.resourcesZhIndex[type].list.push(...res.data.data) // 页面使用【加载更多】方式时使用的方法
           this.storeState.resourcesZhIndex[tag].list = res.data.data
           this.loadingResList = false
-          console.log('getResData')
-          console.log(res)
         })
       },
 
@@ -282,7 +280,6 @@
         this.curTag = tag
 
         getResByTag(tag, order, page).then(res => {
-          console.log(res)
           this.storeState.resourcesZhIndex[tag].list = res.data.data
           this.storeState.resourcesZhIndex['所有'].list = this.storeState.resourcesZhIndex[tag].list
         }).catch(err => {
@@ -309,7 +306,6 @@
       getResByTime(page) {
         getResOrderInTime(page).then(res => {
           this.resourcesZhIndex[this.curTag].list = res.data.data
-          console.log(res.data.data)
         }).catch(err => {
           console.log(err)
         })
@@ -321,7 +317,6 @@
       getResByHot(page) {
         getResOrderInDownloads(page).then(res => {
           this.resourcesZhIndex[this.curTag].list = res.data.data
-          console.log(res.data.data)
         }).catch(err => {
           console.log(err)
         })
@@ -375,7 +370,6 @@
         list.forEach((obj) => {
           // 通过资源id拿到该资源对象
           if(obj.id === this.payResId) {
-            console.log(obj.id)
             if (this.hadPayIt === 0) {
               // 1. 用户积分不足
               if (this.storeState.points < points) {
@@ -415,7 +409,6 @@
        * @param page  点击的页码
        */
       pageChange(page) {
-        console.log('当前资源根据：' + this.curBy + '请求页码：' + page)
         if (this.curTag == '所有') {
           if (this.curBy == 'all') {
             this.getResData(this.curTag, page)
@@ -437,7 +430,6 @@
        * @param userId  用户id（当前要下载该资源的用户）
        */
       downloadFile(id, userId) {
-        console.log('downloadFile,id:' + id + 'userId:' + userId)
         downloadFile2(id, userId).then(res => {
           console.log(res)
         }).catch(err => {
@@ -461,7 +453,6 @@
       judUserDownloadRes(id, userId) {
         judUserDownloadRes(id, userId).then(res => {
           this.hadPayIt = res.data.data
-          console.log('判断是否下载过，this.hadpayit:' + this.hadPayIt)
         }).catch(err => {
           console.log(err)
         })
@@ -472,7 +463,6 @@
        */
       initResourceZhIndex() {
         getTags().then(res => {
-          console.log('initResourceZhIndex成功')
           let tmp = this.storeState.resourcesZhIndex
           for (let obj of res.data.data) {
             let index = obj.name
@@ -480,10 +470,7 @@
             tmp[index] = {page:0, list:[]}
           }
           this.storeState.resourcesZhIndex = tmp
-          console.log('resourcesZhIndex 初始化完成：')
-          console.log('allTagName:' + this.allTagName)
         }).catch(err => {
-          console.log('initResourceZhIndex错误')
           console.log(err)
         })
       }
