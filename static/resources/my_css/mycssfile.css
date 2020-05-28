@@ -1,5 +1,42 @@
 /* 可以设置不同的进入和离开动画 */
 /* 设置持续时间和动画函数 */
+#u0
+{
+  background: white;
+}
+#sstitle
+{
+  position: relative;
+  top:-120px;
+}
+#ssform
+{
+  position: relative;
+  top:-120px;
+}
+#base
+{
+  position: relative;
+  top:133px;
+}
+#topsousuolan
+{
+  position: relative;
+  top:-313px;
+}
+#three_click
+{
+  position: relative;
+  top:-289px
+}
+#button_gc
+{
+  position: relative;
+  top:-15px;
+  margin-left:-800px;
+  margin-bottom: 20px;
+
+}
 #detail_img
 {
 
