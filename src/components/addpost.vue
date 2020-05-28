@@ -33,10 +33,10 @@
             <el-form-item label="填写标签" prop="tags">
               <el-input v-model="ruleForm.tags"></el-input>
             </el-form-item>
-            <el-form-item label="发布状态" prop="status">
+            <el-form-item label="选择分类" prop="status">
               <!--<el-input v-model.number="ruleForm.status"></el-input>-->
               <template>
-                <el-select v-model="ruleForm.status" clearable placeholder="请选择状态" style="width: 100%;">
+                <el-select v-model="ruleForm.status" clearable placeholder="请选择分类" style="width: 100%;">
                   <el-option
                     v-for="item in options"
                     :key="item.value"
@@ -166,8 +166,10 @@
           dialogImageUrl: '',
           dialogVisible: false,
           username:'',
-          options:[{label:'发布',value:'0'},
-            {label: '草稿',value: '1'}],
+          options:[{label:'电影',value:'0'},
+            {label: '音乐',value: '1'},
+            {label: '书籍',value: '2'},
+            {label: '电视剧',value: '3'}],
           ruleForm: {
             user_id:window.sessionStorage.getItem('user_id'),
             title:'',

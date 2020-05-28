@@ -36,6 +36,7 @@
                         <div class="ui red horizontal label ">资源地址：</div><div class="m-text" >{{item.url}}</div>
                         <div class="ui orange horizontal label ">评分：<span class="m-text" >{{item.score}}</span></div>
                         <div class="ui yellow horizontal label ">标签：<span class="m-text" >{{item.tags}}</span></div>
+                        <div class="ui purple horizontal label ">类别：<span class="m-text" >{{convert[item.status]}}</span></div>
                         <el-card shadow="hover" style="background-color: #dddddd" class="m-margin-top-small">
                           {{item.content}}
                         </el-card>
@@ -50,7 +51,7 @@
                                 <i class="calendar icon"></i><span >{{formatDate(new Date(item.create_time*1000))}}</span>
                               </div>
                               <div class="item">
-                                <a @click="dianzan(item.id,item)"><img  class="middle aligned" style="width: 18px" :src="likesimage"><span >{{item.likes}}</span></a>
+                                <a @click="dianzan(item.id,item)"><img  class="middle aligned" style="width: 18px" v-if="!hasliked" :src="likesimage"><img  class="middle aligned" style="width: 18px" v-if="hasliked" :src="likedimage"><span >{{item.likes}}</span></a>
                               </div>
                               <div class="item">
                                 <a @click="getcommentbypostid(item.id,index)"><img  class="middle aligned" style="width: 18px" src="../../static/images/comment.png"></a>
@@ -240,8 +241,11 @@
       inject:['reload'],
       data() {
         return {
+          hasliked:false,
+          convert:["电影","音乐","书籍","电视剧"],
           isRouterAlive :false,
           likesimage:'../../static/images/like.png',
+          likedimage:'../../static/images/liked.png',
           allposts:[],
           //page第几页
           page:1,
@@ -357,13 +361,21 @@
           console.log('点赞表参数')
           await this.$axios({
             method: 'post',
-            url: '/api/likes',
+            url: '/api/likes/jud',
             data:this.$qs.stringify(zan)
           }).then(function (res) {
-            _this.$message.success("点赞成功！")
-            console.log(res)
-            console.log('点赞成功')
-            console.log('报错了吗')
+            if(!res.data.data){
+              _this.$message.success("点赞成功！")
+              console.log(res)
+              _this.hasliked=true
+              console.log('点赞成功')
+              console.log('报错了吗')
+            }else{
+              _this.$message.error("点赞失败！您已经点赞！")
+              console.log(res)
+              console.log('点赞失败')
+            }
+
             /*_this.getList()*/
           }).catch(function (res) {
             console.log(res)
@@ -565,19 +577,31 @@
         this.page=window.sessionStorage.getItem('primarypagenum')
         const _this =this
         //全部post
+        const xx={page:1}
         await this.$axios({
+          method: 'post',
+          url: '/api/posts/get',
+          data:this.$qs.stringify(xx)
+        }).then(function (res) {
+          console.log("获取全部post成功")
+          console.log(res)
+          _this.allposts=res.data.data
+        }).catch(function (res) {
+          console.log(res)
+          console.log("获取全部post失败")
+        })
+
+        /*await this.$axios({
           method: 'post',
           url: '/api/posts/getall',
         }).then(function (res) {
           console.log("获取全部post成功")
           console.log(res)
           _this.allposts=res.data.data
-
-
         }).catch(function (res) {
           console.log(res)
           console.log("获取全部post失败")
-        })
+        })*/
         //增加comment
         /*const d={
           content:'好棒啊啊啊',
