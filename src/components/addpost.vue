@@ -258,6 +258,7 @@
               */
 
               //标签添加到tags表
+              //
               const dd={name:_this.tags,frequency:1}
               this.$axios({
                 method: 'post',

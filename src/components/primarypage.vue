@@ -211,8 +211,12 @@
                     </a>
 
                   </div>
+                  <!--<div class="word_cloud_view_id">111</div>-->
                 </div>
 
+                <div class="ui segments m-margin-top-large">
+                  <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+                </div>
 
 
                 <!--二维码-->
@@ -236,11 +240,19 @@
 <script>
     import myhead from "./myhead";
     import myfoot from "./myfoot";
-
+    import wordcloud from 'vue-wordcloud'
+    let echarts = require('echarts/lib/echarts')
+    require('echarts-wordcloud');
     export default {
       inject:['reload'],
+      mounted(){
+        /*//获取词云数据
+        this.drawLine()*/
+      },
       data() {
         return {
+          wordcloud:[],
+
           hasliked:false,
           convert:["电影","音乐","书籍","电视剧"],
           isRouterAlive :false,
@@ -267,6 +279,68 @@
         }
       },
       methods:{
+        //词云在下面
+        drawLine(){
+          var self=this;
+          // 基于准备好的dom，初始化echarts实例
+          let myChart =echarts.init(document.getElementById('myChart'))
+          myChart.setOption({
+            title: {
+              text: '词云',//标题
+              x: 'center',
+              textStyle: {
+                fontSize: 23
+              }
+
+            },
+            backgroundColor: '#F7F7F7',
+            tooltip: {
+              show: true
+            },
+            series: [{
+              name: '热点分析',//数据提示窗标题
+              type: 'wordCloud',
+              sizeRange: [20, 66],//画布范围，如果设置太大会出现少词（溢出屏幕）
+              rotationRange: [-45, 90],//数据翻转范围
+              //shape: 'circle',
+              textPadding: 0,
+              autoSize: {
+                enable: true,
+                minSize: 6
+              },
+              textStyle: {
+                normal: {
+                  color: function() {
+                    return 'rgb(' + [
+                      Math.round(Math.random() * 160),
+                      Math.round(Math.random() * 160),
+                      Math.round(Math.random() * 160)
+                    ].join(',') + ')';
+                  }
+                },
+                emphasis: {
+                  shadowBlur: 10,
+                  shadowColor: '#333'
+                }
+              },
+              data: self.wordcloud/*[{
+                name: "数据一",
+                value: 501
+              }, {
+                name: "数据二",
+                value: 502
+              },
+                {
+                  name: "数据三",
+                  value: 503
+                }]*///name和value建议用小写，大写有时会出现兼容问题
+            }]
+          });
+        },
+        //词云在上面
+        wordClickHandler(name, value, vm) {
+          console.log('wordClickHandler', name, value, vm);
+        },
         gotoAtopic(id){
           console.log("我要跳转了",id)
           var topicid = id+1
@@ -711,19 +785,27 @@
         })
 
         //获取标签
-        this.$axios({
+        await this.$axios({
           method: 'get',
           url: '/api/tags',
         }).then(function (res) {
           const r=res.data
           _this.tags=r.data
           console.log('获取的标签榜')
-          console.log( _this.topics)
+          console.log( _this.tags)
+          for(var c in _this.tags){
+            console.log("c是啥",c)
+            var temp={name:_this.tags[c].name,value:_this.tags[c].frequency}
+            _this.wordcloud.push(temp)
+            console.log("加入词云的数据",_this.wordcloud)
+          }
         }).catch(function (res) {
           console.log("获取标签发生异常！请稍后重试...")
           console.log(res)
         })
 
+        //获取词云数据
+        this.drawLine()
 
       }
     }
