@@ -22,7 +22,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u2" class="ax_default box_1">
-                    <img id="u2_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=494167576,3517200638&fm=58">
+                    <img value="-1" id="u2_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=494167576,3517200638&fm=58">
                     <div id="u2_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -30,7 +30,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u3" class="ax_default box_1">
-                    <img id="u3_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=778783410,527677881&fm=58&app=83&f=JPEG?w=400&h=533&s=EEF1E05EDB10584F0AF1F847030020F1">
+                    <img  value="-1" id="u3_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=778783410,527677881&fm=58&app=83&f=JPEG?w=400&h=533&s=EEF1E05EDB10584F0AF1F847030020F1">
                     <div id="u3_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -38,7 +38,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u4" class="ax_default box_1">
-                    <img id="u4_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=558808288,4201467168&fm=58&s=E6E0F058CF41494F4355676B0300F074">
+                    <img  value="-1" id="u4_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=558808288,4201467168&fm=58&s=E6E0F058CF41494F4355676B0300F074">
                     <div id="u4_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -46,7 +46,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u5" class="ax_default box_1">
-                    <img id="u5_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1015626475,3623922484&fm=58&s=B23A7084089280D4DE7E1D84030070C8">
+                    <img  value="-1" id="u5_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1015626475,3623922484&fm=58&s=B23A7084089280D4DE7E1D84030070C8">
                     <div id="u5_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -54,7 +54,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u6" class="ax_default box_1">
-                    <img id="u6_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3922757577,1976860482&fm=58&s=77BB1DC754054AEC5CBDF17303008071">
+                    <img value="-1"  id="u6_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3922757577,1976860482&fm=58&s=77BB1DC754054AEC5CBDF17303008071">
                     <div id="u6_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -62,7 +62,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u7" class="ax_default box_1">
-                    <img id="u7_div" class="" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3154490288,944524743&fm=58&s=67D25F85CA031AD4643541160100D0C3">
+                    <img value="-1"  id="u7_div" class="" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3154490288,944524743&fm=58&s=67D25F85CA031AD4643541160100D0C3">
                     <div id="u7_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -70,7 +70,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u8" class="ax_default box_1">
-                    <img id="u8_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3454659850,1279319584&fm=58&s=1C07177C1DD0DC491E58BCD60100E0B1">
+                    <img value="-1"  id="u8_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3454659850,1279319584&fm=58&s=1C07177C1DD0DC491E58BCD60100E0B1">
                     <div id="u8_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -78,7 +78,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u9" class="ax_default box_1">
-                    <img id="u9_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1688676229,1191966103&fm=58&app=83&f=JPEG?w=150&h=200&s=D33F39C454AB04B8EF8D2C17030010CA">
+                    <img  value="-1" id="u9_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1688676229,1191966103&fm=58&app=83&f=JPEG?w=150&h=200&s=D33F39C454AB04B8EF8D2C17030010CA">
                     <div id="u9_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -88,7 +88,7 @@
                   <div id="u10" class="ax_default box_1">
                     <div id="u10_div" class=""></div>
                     <div id="u10_text" class="text ">
-                      <p><span id="a9">庆余年</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a9">庆余年</span><span id="app1" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -96,7 +96,7 @@
                   <div id="u11" class="ax_default box_1">
                     <div id="u11_div" class=""></div>
                     <div id="u11_text" class="text ">
-                      <p><span id="a10">切尔诺贝利</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a10">切尔诺贝利</span><span id="app2"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -104,7 +104,7 @@
                   <div id="u12" class="ax_default box_1">
                     <div id="u12_div" class=""></div>
                     <div id="u12_text" class="text ">
-                      <p><span id="a11">锦衣天下</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a11">锦衣天下</span><span  id="app3" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -112,7 +112,7 @@
                   <div id="u13" class="ax_default box_1">
                     <div id="u13_div" class=""></div>
                     <div id="u13_text" class="text ">
-                      <p><span id="a12">我是余欢水</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a12">我是余欢水</span><span id="app4"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -120,7 +120,7 @@
                   <div id="u14" class="ax_default box_1">
                     <div id="u14_div" class=""></div>
                     <div id="u14_text" class="text ">
-                      <p><span id="a13">延禧宫略</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a13">延禧宫略</span><span id="app5"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -128,7 +128,7 @@
                   <div id="u15" class="ax_default box_1">
                     <div id="u15_div" class=""></div>
                     <div id="u15_text" class="text ">
-                      <p><span id="a14">权力的游戏</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a14">权力的游戏</span><span id="app6"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -136,7 +136,7 @@
                   <div id="u16" class="ax_default box_1">
                     <div id="u16_div" class=""></div>
                     <div id="u16_text" class="text ">
-                      <p><span id="a15">西部世界</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a15">西部世界</span><span id="app7"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -144,7 +144,7 @@
                   <div id="u17" class="ax_default box_1">
                     <div id="u17_div" class=""></div>
                     <div id="u17_text" class="text ">
-                      <p><span id="a16">精英律师</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a16">精英律师</span><span id="app8"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
                 </div>
@@ -686,7 +686,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u83" class="ax_default box_1">
-                    <img style="cursor:pointer" value="1" @click="test_method" id="u83_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4234663971,2658748769&fm=58&app=83&f=JPEG?w=400&h=533&s=DF5414C642EA86FE30FDE82C03004051"/>
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u83_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4234663971,2658748769&fm=58&app=83&f=JPEG?w=400&h=533&s=DF5414C642EA86FE30FDE82C03004051"/>
                     <div id="u83_text" class="text">
 
                     </div>
@@ -694,7 +694,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u84" class="ax_default box_1">
-                    <img style="cursor:pointer" value="2" @click="test_method" id="u84_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1774374002,4136586970&fm=58&app=83&f=JPEG?w=300&h=400&s=63AA9F474465490D0EB636730300D07F"/>
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u84_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1774374002,4136586970&fm=58&app=83&f=JPEG?w=300&h=400&s=63AA9F474465490D0EB636730300D07F"/>
                     <div id="u84_text" class="text">
 
                     </div>
@@ -702,7 +702,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u85" class="ax_default box_1">
-                    <img style="cursor:pointer" value="3" @click="test_method" id="u85_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=141395650,1410461605&fm=58&app=83&f=JPEG?w=300&h=400&s=254099469F309DDE1EEDA49D0300C082/">
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u85_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=141395650,1410461605&fm=58&app=83&f=JPEG?w=300&h=400&s=254099469F309DDE1EEDA49D0300C082/">
                     <div id="u85_text" class="text">
 
                     </div>
@@ -710,7 +710,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u86" class="ax_default box_1">
-                    <img style="cursor:pointer" value="4" @click="test_method" id="u86_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=623207089,455845934&fm=58&app=83&f=JPEG?w=400&h=533&s=728D07AE6042D0E79CAF8DA10300704B">
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u86_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=623207089,455845934&fm=58&app=83&f=JPEG?w=400&h=533&s=728D07AE6042D0E79CAF8DA10300704B">
                     <div id="u86_text" class="text">
                       <p><span></span></p>
                     </div>
@@ -718,7 +718,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u87" class="ax_default box_1">
-                    <img style="cursor:pointer" value="5" @click="test_method" id="u87_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3038023691,2568317562&fm=58&app=83&f=JPEG?w=400&h=533&s=1F0A2FC84102BCFE1AC40500030070D3">
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u87_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3038023691,2568317562&fm=58&app=83&f=JPEG?w=400&h=533&s=1F0A2FC84102BCFE1AC40500030070D3">
                     <div id="u87_text" class="text">
                       <p><span>1</span></p>
                     </div>
@@ -726,7 +726,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u88" class="ax_default box_1">
-                    <img style="cursor:pointer" value="6" @click="test_method" id="u88_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3397677588,3071591638&fm=58&app=83&f=JPEG?w=400&h=533&s=FAF009C44A33A6DC0479F1130300F0CA">
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u88_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3397677588,3071591638&fm=58&app=83&f=JPEG?w=400&h=533&s=FAF009C44A33A6DC0479F1130300F0CA">
                     <div id="u88_text" class="text">
                       <p><span>1</span></p>
                     </div>
@@ -734,7 +734,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u89" class="ax_default box_1">
-                    <img style="cursor:pointer" value="7" @click="test_method" id="u89_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3831863255,600067371&fm=58&app=83&f=JPEG?w=400&h=533&s=9340D7A20AE39ACC52D9E524030070C3">
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u89_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3831863255,600067371&fm=58&app=83&f=JPEG?w=400&h=533&s=9340D7A20AE39ACC52D9E524030070C3">
                     <div id="u89_text" class="text">
                       <p><span>1</span></p>
                     </div>
@@ -742,7 +742,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u90" class="ax_default box_1">
-                    <img style="cursor:pointer" value="8" @click="test_method" id="u90_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=949064346,3514604057&fm=58&app=83&f=JPEG?w=400&h=533&s=C8D6EA0BCE3824949898950A0100A091">
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u90_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=949064346,3514604057&fm=58&app=83&f=JPEG?w=400&h=533&s=C8D6EA0BCE3824949898950A0100A091">
                     <div id="u90_text" class="text">
                       <p><span>1</span></p>
                     </div>
@@ -752,7 +752,7 @@
                   <div id="u91" class="ax_default box_1">
                     <div id="u91_div" class=""></div>
                     <div id="u91_text" class="text ">
-                      <p><span class="upload_biaoti" id="a1">牧羊女大冒险 </span><span class="upload_pingfen"  style="color:#DAA51A;"> 8.1</span></p>
+                      <p><span class="upload_biaoti" id="a1">牧羊女大冒险 </span><span id="ap1" class="upload_pingfen" style="color:#DAA51A;"> 8.1</span></p>
                     </div>
                   </div>
 
@@ -760,7 +760,7 @@
                   <div id="u92" class="ax_default box_1">
                     <div id="u92_div" class=""></div>
                     <div id="u92_text" class="text ">
-                      <p><span class="upload_biaoti" id="a2">第一头牛 </span><span  class="upload_pingfen"  style="color:#DAA51A;"> 7.9</span></p>
+                      <p><span class="upload_biaoti" id="a2">第一头牛 </span><span id="ap2" class="upload_pingfen"  style="color:#DAA51A;"> 7.9</span></p>
                     </div>
                   </div>
 
@@ -768,7 +768,7 @@
                   <div id="u93" class="ax_default box_1">
                     <div id="u93_div" class=""></div>
                     <div id="u93_text" class="text ">
-                      <p><span class="upload_biaoti" id="a3">096 </span><span class="upload_pingfen" style="color:#DAA51A;"> 8.3</span></p>
+                      <p><span class="upload_biaoti" id="a3">096 </span><span id="ap3" class="upload_pingfen" style="color:#DAA51A;"> 8.3</span></p>
                     </div>
                   </div>
 
@@ -776,7 +776,7 @@
                   <div id="u94" class="ax_default box_1">
                     <div id="u94_div" class=""></div>
                     <div id="u94_text" class="text ">
-                      <p><span class="upload_biaoti" id="a4">真雄起</span><span class="upload_pingfen" style="color:#DAA51A;"> 7.9</span></p>
+                      <p><span class="upload_biaoti" id="a4">真雄起</span><span id="ap4" class="upload_pingfen" style="color:#DAA51A;"> 7.9</span></p>
                     </div>
                   </div>
 
@@ -784,7 +784,7 @@
                   <div id="u95" class="ax_default box_1">
                     <div id="u95_div" class=""></div>
                     <div id="u95_text" class="text ">
-                      <p><span class="upload_biaoti" id="a5">欧耶芭蕾</span><span class="upload_pingfen" style="color:#DAA51A;"> 7.3</span></p>
+                      <p><span class="upload_biaoti" id="a5">欧耶芭蕾</span><span  id="ap5" class="upload_pingfen" style="color:#DAA51A;"> 7.3</span></p>
                     </div>
                   </div>
 
@@ -792,7 +792,7 @@
                   <div id="u96" class="ax_default box_1">
                     <div id="u96_div" class=""></div>
                     <div id="u96_text" class="text ">
-                      <p><span class="upload_biaoti" id="a6">翻译疑云</span><span class="upload_pingfen" style="color:#DAA51A;"> 7.2</span></p>
+                      <p><span class="upload_biaoti" id="a6">翻译疑云</span><span id="ap6"  class="upload_pingfen" style="color:#DAA51A;"> 7.2</span></p>
                     </div>
                   </div>
 
@@ -800,7 +800,7 @@
                   <div id="u97" class="ax_default box_1">
                     <div id="u97_div" class=""></div>
                     <div id="u97_text" class="text ">
-                      <p><span class="upload_biaoti" id="a7">我想藏起来</span><span class="upload_pingfen" style="color:#DAA51A;"> 7.4</span></p>
+                      <p><span class="upload_biaoti" id="a7">我想藏起来</span><span  id="ap7" class="upload_pingfen" style="color:#DAA51A;"> 7.4</span></p>
                     </div>
                   </div>
 
@@ -808,7 +808,7 @@
                   <div id="u98" class="ax_default box_1">
                     <div id="u98_div" class=""></div>
                     <div id="u98_text" class="text ">
-                      <p><span class="upload_biaoti" id="a8">列夫·朗道:退变</span><span class="upload_pingfen" style="color:#DAA51A;"> 8.1</span></p>
+                      <p><span class="upload_biaoti" id="a8">列夫·朗道:退变</span><span id="ap8"  class="upload_pingfen" style="color:#DAA51A;"> 8.1</span></p>
                     </div>
                   </div>
 
@@ -3850,7 +3850,7 @@
             <div>
               <div id="o1" class="ax_default outside" style="margin-left:56px; left:0px" >
                 <div id="u485" class="">
-                  <img id="u485_div" class="" src="static/resources/images/1.jpg">
+                  <img id="u485_div" class="yidongimg" src="static/resources/images/1.jpg">
                   <div id="u485_text" class="text ">
                     <p><span></span></p>
                   </div>
@@ -3861,14 +3861,14 @@
                 <div id="u486" class="ax_default box_1">
                   <div id="u486_div" class=""></div>
                   <div id="u486_text" class="text ">
-                    <p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span>在森林里住着一群野猫，由四个族群组成：雷族、风族、影族、河族。他们继承祖先（死去的猫，住在天上，是星族猫）留下来的武士传统，为了生存而彼此竞争。猫武士系列长篇小说就是描写族群猫的生活场景，故事随着一些有着特殊命运的猫展开，情节曲折复杂，引人入胜。</span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p>
+                    <p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span class="yidongtext">在森林里住着一群野猫，由四个族群组成：雷族、风族、影族、河族。他们继承祖先（死去的猫，住在天上，是星族猫）留下来的武士传统，为了生存而彼此竞争。猫武士系列长篇小说就是描写族群猫的生活场景，故事随着一些有着特殊命运的猫展开，情节曲折复杂，引人入胜。</span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p>
                   </div>
                 </div>
               </div>
 
               <div id="o2" class="ax_default outside" style="margin-left:56px;left:1000px">
                 <div id="u485" class="">
-                  <img id="u485_div" class="" src="static/resources/images/2.jpg">
+                  <img id="u485_div" class="yidongimg" src="static/resources/images/2.jpg">
                   <div id="u485_text" class="text ">
                     <p><span></span></p>
                   </div>
@@ -3879,7 +3879,7 @@
                 <div id="u486" class="ax_default box_1">
                   <div id="u486_div" class=""></div>
                   <div id="u486_text" class="text ">
-                    <p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span>
+                    <p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span class="yidongtext">
                     《我的同时代人的故事》是柯罗连科的长篇自传小说。书中叙述了他的童年时代、中学生时代、专科学生时代、维亚特边区流放时代、雅库茨克省流放时代的生活，即从19世纪50年代中叶到80年代中叶的情况。</span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p>
                   </div>
                 </div>
@@ -3887,7 +3887,7 @@
 
               <div id="o3" class="ax_default outside" style="margin-left:56px;left:2000px">
                 <div id="u485" class="">
-                  <img id="u485_div" class="" src="static/resources/images/3.jpg">
+                  <img id="u485_div" class="yidongimg" src="static/resources/images/3.jpg">
                   <div id="u485_text" class="text ">
                     <p><span></span></p>
                   </div>
@@ -3896,9 +3896,9 @@
 
                 <!-- Unnamed (矩形) -->
                 <div id="u486" class="ax_default box_1">
-                  <div id="u486_div" class=""></div>
+                  <div id="u486_div" class="yidongimg"></div>
                   <div id="u486_text" class="text ">
-                    <p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span>
+                    <p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span class="yidongtext">
                     《阅读的故事》是专业读书人唐诺谈阅读的经典散文作品，一部诚恳实用的阅读辞海。以马尔克斯《迷宫中的将军》的片段开启每一章的话题，探讨书籍和阅读的本质困境与种种迷思。</span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p>
                   </div>
                 </div>
@@ -3917,7 +3917,7 @@
                 <div id="u486" class="ax_default box_1">
                   <div id="u486_div" class=""></div>
                   <div id="u486_text" class="text ">
-                    <p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span>
+                    <p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span><br></span></p><p style="font-size:19px;"><span class="yidongtext">
                     这是一个既献给伟大音乐家，也献给一颗伟大心灵的故事。<br>
                   贝多芬的一生难称幸福。世人向往的爱情和圆满家庭与他无缘，病痛与磨难始终徘徊不散，健康的体魄也变成奢求，他要借助纸条才能与他人交流。但他从未丧失对生活的热情，始终渴望成为一个善良、高贵，并为人类献身的人。</span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p><p style="font-size:13px;"><span><br></span></p>
                   </div>
@@ -4114,6 +4114,10 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+
 
 
 
@@ -4148,7 +4152,15 @@
       {
         console.log(e.target);
         console.log("点击事件");  
-        this.$router.push("/squareinfo/3")
+        var idstring=e.target.getAttribute("value");
+        if(idstring=="-1")
+         this.$router.push("/*");
+        else
+        {
+         idstring="/squareinfo/"+idstring
+         this.$router.push(idstring);
+        }
+     
       },
       test()
       {
@@ -4371,7 +4383,6 @@
       },
       move_picture()
       {
-
         //var imgs=["images/page_1/69.jpg","images/page_1/70.jpg","images/page_1/71.jpg","images/page_1/72.jpg"];
         var oIpt=document.getElementById("u482");
         var allColor1=document.getElementsByClassName("outside");
@@ -4473,14 +4484,14 @@
       this.click_status();
     },
     created:function(){
-
+      const _this=this;
       var qs = require('qs');
-      //电影读取
+      //新书速递
       this.$axios({
         method: 'post',
-        url: '/api/posts/gethotbytags',
+        url: '/api/posts/getnewbystatus',
         data:qs.stringify({
-          tags:"电影",
+          status:"2",
         }),
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -4489,6 +4500,35 @@
          console.log("获取电影");
         console.log(res);
         const dres=res.data;
+        _this.remen_movie=dres.data;
+        var xinshuimglist=document.getElementsByClassName("yidongimg");
+        var xinshutextlist=document.getElementsByClassName("yidongtext");
+        var i;
+        for(i=0;i<4;i++)
+        {
+          xinshuimglist[i].src="http://129.204.247.165/"+dres.data[i].route;
+          xinshutextlist[i].innerHTML="http://129.204.247.165/"+dres.data[i].content;
+        }
+
+
+      }).catch(function (res) {
+        console.log(res)
+      })
+      //电影读取
+      this.$axios({
+        method: 'post',
+        url: '/api/posts/gethotbystatus',
+        data:qs.stringify({
+          status:"0",
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+         console.log("获取电影");
+        console.log(res);
+        const dres=res.data;
+        _this.remen_movie=dres.data;
         var m,n;
         var temp_data;
         var flag=0;
@@ -4501,7 +4541,8 @@
         var i;
         var sa1="a";
         var sa2=1;
-
+        var sap1="ap";
+        var sap2=1
 
 
         for(i=0;i<8;i++)
@@ -4509,14 +4550,21 @@
 
           var idstring=s1+s3+s2;
           var namestring=sa1+sa2;
+          var pfstring=sap1+sap2;
           var dydiv=document.getElementById(idstring);
           var naspan=document.getElementById(namestring);
-          dydiv.src="http://129.204.247.165/"+dres.data[i].date.route;
-          naspan.innerHTML=dres.data[i].date.title
-          if(dres.data[i].date.title.length>8)
+          var pfspan=document.getElementById(pfstring);
+          dydiv.setAttribute("value",dres.data[i].id);
+          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
+          naspan.innerHTML=dres.data[i].title;
+          pfspan.innerHTML="  "+(dres.data[i].score)/10;
+          if(pfspan.innerHTML=="  10")
+            pfspan.innerHTML=pfspan.innerHTML+"."+"0";
+          if(dres.data[i].title.length>8)
             naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
           s3=s3+1;
           sa2++;
+          sap2++;
         }
 
 
@@ -4527,9 +4575,9 @@
       //电视剧读取
       this.$axios({
         method: 'post',
-        url: '/api/shares/getbytags',
+        url: '/api/posts/gethotbytags',
         data:qs.stringify({
-          tags:"电视剧",
+         status:"3",
         }),
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -4562,23 +4610,32 @@
         var i;
         var sa1="a";
         var sa2=9;
+        var sap1="app";
+        var sap2=1;
 
 
 
-        for(i=0;i<8;i++)
+
+         for(i=0;i<8;i++)
         {
 
           var idstring=s1+s3+s2;
           var namestring=sa1+sa2;
-          console.log(namestring);
+          var pfstring=sap1+sap2;
           var dydiv=document.getElementById(idstring);
           var naspan=document.getElementById(namestring);
+          var pfspan=document.getElementById(pfstring);
+          dydiv.setAttribute("value",dres.data[i].id);
           dydiv.src="http://129.204.247.165/"+dres.data[i].route;
           naspan.innerHTML=dres.data[i].title;
+          pfspan.innerHTML="  "+(dres.data[i].score)/10;
+          if(pfspan.innerHTML=="  10")
+            pfspan.innerHTML=pfspan.innerHTML+"."+"0";
           if(dres.data[i].title.length>8)
             naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
           s3=s3+1;
           sa2++;
+          sap2++;
         }
 
 
@@ -4589,9 +4646,9 @@
       //读取音乐
       this.$axios({
         method: 'post',
-        url: '/api/shares/getbytags',
+        url: '/api/posts/gethotbystatus',
         data:qs.stringify({
-          tags:"音乐",
+          status:"1",
         }),
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -4624,23 +4681,25 @@
         var i;
         var sa1="y";
         var sa2=1;
+        var sap1="appp";
+        var sap2=1;
 
 
 
-        for(i=0;i<6;i++)
+         for(i=0;i<6;i++)
         {
-
           var idstring=s1+s3+s2;
           var namestring=sa1+sa2;
           var dydiv=document.getElementById(idstring);
           var naspan=document.getElementById(namestring);
+          dydiv.setAttribute("value",dres.data[i].id);
           dydiv.src="http://129.204.247.165/"+dres.data[i].route;
           naspan.innerHTML=dres.data[i].title;
           if(dres.data[i].title.length>8)
             naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
-
           s3=s3+1;
           sa2++;
+          sap2++;
         }
 
 
@@ -4650,10 +4709,10 @@
       })
       this.$axios({
         method: 'post',
-        url: '/api/shares/getbytags',
+        url: '/api/posts/getnewbystatus',
         data:qs.stringify({
-          tags:"电影",
-          type:"time"
+          status:"1",
+         
         }),
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -4697,12 +4756,12 @@
       }).catch(function (res) {
         console.log(res)
       })
+      //读取图书
       this.$axios({
         method: 'post',
-        url: '/api/shares/getbytags',
+        url: '/api/posts/gethotbytags',
         data:qs.stringify({
-          tags:"读书",
-          type:"hot",
+          status:"2",
         }),
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'

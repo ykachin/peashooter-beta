@@ -6,14 +6,14 @@
 
     <!--header-->
 <div class="eleven wide column m-container m-padded-tb-large animated fadeIn">
-    <div class="ui attached  segment" >
+    <div id="zuiwaimian" class="ui attached  segment" >
       <div class="ui padded vertical segment m-padded-tb-large" >
           <div id="button_gc"><button class="ui button blue" @click="fhgc">&lt;返回广场页面</button></div>
         <div class="ui middle aligned mobile reversed stackable grid" >
         
           <div class="five wide column center aligned" >
             <a  target="_blank">
-              <img src="https://picsum.photos/1000/1000/?blur=5"   alt="" class="ui rounded image">
+              <img id="jianjieimage" v-bind:src="this.workItem.route"   alt="" class="ui rounded image">
               <br/>
               <div class="ui horizontal label">
                 <p class="ui head">&laquo;{{this.workItem.title}}&raquo;</p>
@@ -23,15 +23,19 @@
             </a>
           </div>
           <div class="eleven wide column">
-            <span class="ui blue horizontal label">简介</span><p class="m-text " style="text-align: left" ><span>&emsp;&emsp;</span>{{this.workItem.introduction}}</p>
+            <span id="jianjiespan" class="ui blue horizontal label">简介</span><p id="jianjiep" class="m-text " style="text-align: left" ><span>&emsp;&emsp;</span>{{this.workItem.content}}</p>
           </div>
 
 
 
         </div>
-        <div class="eleven wide column">
-          <span class="ui blue horizontal label">资源链接:</span>
+        <div id="ziyuanbar1" class="eleven wide column ">
+          <span class="ui yellow horizontal label">分数:{{(this.workItem.score)/10}}</span>
         </div>
+        <div id="ziyuanbar2" class="eleven wide column ">
+          <span class="ui blue horizontal label ">资源链接:</span><span>{{this.workItem.url}}</span>
+        </div>
+
       </div>
       
 
@@ -158,12 +162,13 @@
       //获取对应id的作品内容
       this.$axios({
         method: 'get',
-        url: '/api/works/'+this.workid,
+        url: '/api/posts/'+this.workid,
       }).then(function (res) {
         console.log(res)
         const rs=res.data
         console.log(rs.data)
         _this.workItem=rs.data
+        _this.workItem.route="http://129.204.247.165/"+ _this.workItem.route
       }).catch(function (res) {
         console.log("获取作品发生异常！请稍后重试...")
       })
