@@ -92,7 +92,7 @@
                 border-radius: 3px;
                 margin-left: 8px;"
                 @click="showimg(num.route)"
-                v-show="hadpay === 1">
+                v-show="num.points === 0">
               预览
               </p>
 
