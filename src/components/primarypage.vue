@@ -51,7 +51,7 @@
                                 <i class="calendar icon"></i><span >{{formatDate(new Date(item.create_time*1000))}}</span>
                               </div>
                               <div class="item">
-                                <a @click="dianzan(item.id,item)"><img  class="middle aligned" style="width: 18px" v-if="!hasliked" :src="likesimage"><img  class="middle aligned" style="width: 18px" v-if="hasliked" :src="likedimage"><span >{{item.likes}}</span></a>
+                                <a @click="dianzan(item.id,item)"><img  class="middle aligned" style="width: 18px" v-if="!(item.jud)" :src="likesimage"><img  class="middle aligned" style="width: 18px" v-if="item.jud" :src="likedimage"><span >{{item.likes}}</span></a>
                               </div>
                               <div class="item">
                                 <a @click="getcommentbypostid(item.id,index)"><img  class="middle aligned" style="width: 18px" src="../../static/images/comment.png"></a>
@@ -184,7 +184,7 @@
                   </div>
                   <div class="ui blue segment">
                     <div class="ui fluid vertical menu" v-for="(item,index) in topics">
-                      <a  target="_blank" class="item"  >
+                      <a  target="_blank" class="item"  @click="gotoAtopic(index)">
                         <span >{{item.date.title}}</span>
                         <!--<div class="ui teal basic left pointing label" >13</div>-->
                       </a>
@@ -267,6 +267,11 @@
         }
       },
       methods:{
+        gotoAtopic(id){
+          console.log("我要跳转了",id)
+          var topicid = id+1
+          this.$router.push("/topic/"+topicid)
+        },
         gototopic(){
           this.$router.push("/topic")
         },
@@ -365,11 +370,17 @@
             data:this.$qs.stringify(zan)
           }).then(function (res) {
             if(!res.data.data){
-              _this.$message.success("点赞成功！")
-              console.log(res)
-              _this.hasliked=true
-              console.log('点赞成功')
-              console.log('报错了吗')
+              _this.$axios({
+                method: 'post',
+                url: '/api/likes',
+                data:_this.$qs.stringify(zan)
+              }).then(function (res) {
+                _this.$message.success("点赞成功！")
+                console.log(res)
+                _this.hasliked = true
+                console.log('点赞成功')
+                console.log('报错了吗')
+              })
             }else{
               _this.$message.error("点赞失败！您已经点赞！")
               console.log(res)
@@ -438,10 +449,10 @@
         async hanshu(){
           const _this =this
           //获取post
-          const x={page:window.sessionStorage.getItem('primarypagenum')}
+          const x={page:window.sessionStorage.getItem('primarypagenum'),user_id:window.sessionStorage.getItem('user_id')}
           await this.$axios({
             method: 'post',
-            url: '/api/posts/get',
+            url: '/api/posts/getu',
             data:this.$qs.stringify(x),
           }).then(function (res) {
             const __this =_this
@@ -577,10 +588,10 @@
         this.page=window.sessionStorage.getItem('primarypagenum')
         const _this =this
         //全部post
-        const xx={page:1}
+        const xx={page:1,user_id:window.sessionStorage.getItem('user_id')}
         await this.$axios({
           method: 'post',
-          url: '/api/posts/get',
+          url: '/api/posts/getu',
           data:this.$qs.stringify(xx)
         }).then(function (res) {
           console.log("获取全部post成功")

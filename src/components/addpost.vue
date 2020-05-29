@@ -175,7 +175,7 @@
             title:'',
             tags:'',
             status:'',
-            score:0,
+            score:100,
             url:'',
             content:'',
           },
@@ -279,6 +279,9 @@
               _this.form.append('score',_this.ruleForm.score)
               _this.form.append('url',_this.ruleForm.url)
               _this.form.append('content',_this.ruleForm.content)
+              //增加post
+              console.log("发布前检查表单数据是否正常")
+              console.log(_this.ruleForm)
               this.$axios.post('/api/posts/upload', _this.form).then(res=>{
                 if(res.data.code !== 200) {
                   console.log(res)
