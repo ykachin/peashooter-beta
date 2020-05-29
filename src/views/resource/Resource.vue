@@ -106,7 +106,7 @@
         <!-- 右边侧边栏 人气资源显示 -->
         <el-aside class="m-margin-top">
           <pop-res v-loading="loadingPopRes">
-            <pop-res-item v-for="(item, index) in popRes" v-if="index < 15">
+            <pop-res-item v-for="(item, index) in popRes" v-if="index < 20">
               <el-link
                 v-if="item.points === 0"
                 style="color: #3377AA;
@@ -155,10 +155,6 @@
 </template>
 
 <script>
-  // import Resource from './Resource'
-  // export default {
-  //   ...Resource
-  // }
   import myfoot from "../../components/myfoot";
   import myhead from "../../components/myhead";
   import TopBar from "../../components/resource/TopBar";
@@ -233,7 +229,6 @@
     },
     created() {
       this.initResourceZhIndex()
-
       // 刚进入页面，初始化当前标签为所有
       this.curTag = '所有'
       this.getResData(this.curTag, 1) // 初始化
@@ -378,6 +373,7 @@
               // 2. 用户积分足够
               else {
                 // 2.1 用户扣去相应积分
+
                 this.storeState.points -= points
                 // 2.2 该资源的 points 设为 0
                 obj.points = 0

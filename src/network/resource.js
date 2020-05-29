@@ -10,7 +10,7 @@ export const HOSTURL = 'http://129.204.247.165/'
 export function getResData(page) {
   let formData = new FormData()
   formData.append('page', page)
-  
+
   return request({
     // url: '/shares',
     // method: 'get',
@@ -35,7 +35,7 @@ export function getResByTag(tag, sort, page) {
   formData.append('tags', tag)
   formData.append('type', sort)
   formData.append('page', page)
-  
+
   return request({
     url: '/shares/getbytags',
     method: 'post',
@@ -51,7 +51,7 @@ export function getResByTag(tag, sort, page) {
 export function getResOrderInTime(page) {
   let formData = new FormData()
   formData.append('page', page)
-  
+
   return request({
     url: '/shares/getnew',
     method:'post',
@@ -67,7 +67,7 @@ export function getResOrderInTime(page) {
 export function getResOrderInDownloads(page) {
   let formData = new FormData()
   formData.append('page', page)
-  
+
   return request({
     url: '/shares/gethot',
     method: 'post',
@@ -99,11 +99,6 @@ export function publish(formData) {
   })
 }
 
-// return uploadMusic({
-//   url: '/shares/upload',
-//   method: 'post',
-//   data: formData
-// })
 /**
  * 下载资源, 参数以json的形式
  * @param id  资源id
@@ -132,14 +127,10 @@ export function downloadFile2(id, userId) {
   let formData = new FormData()
   formData.append('id', id)
   formData.append('user_id', userId)
-  
+
   return request({
     url: '/shares/getfile',
     method: 'post',
-    /*data: {
-      id: 10,
-      user_id: 1
-    },  // data: {message: "id不能为空"}*/
     data: formData,
     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
   })
@@ -155,7 +146,7 @@ export function judUserDownloadRes(id, userId) {
   let formData = new FormData()
   formData.append('id', id)
   formData.append('user_id', userId)
-  
+
   return request({
     url: '/shares/jud',
     method: 'post',
