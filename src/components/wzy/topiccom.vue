@@ -158,6 +158,7 @@
           _this.$message.success("添加评论成功！")
           console.log(res)
           console.log("添加评论成功")
+          console.log("当前评论的用户id"+_this.user_id)
         })
         /*setTimeout(this.$router.go(0),1000);*/
         /*this.reload();*/
@@ -186,6 +187,7 @@
         console.log(_this.comments)
         _this.total=_this.comments.length
         console.log(_this.total)
+        console.log("当前用户id为："+_this.user_id)
       })
       //获取topic_id对应的title
       this.$axios({
