@@ -157,7 +157,7 @@
                 <!--logo-->
                 <div class="ui  segments ">
                   <div class="ui blue segment">
-                    <img src="../../static/images/pooshooter.png"  style="width:100%"/>
+                    <img src="../../static/images/peashooter.gif"  style="width:100%"/>
                   </div>
                 </div>
                 <!--最新推荐-->
@@ -165,7 +165,7 @@
                   <div class="ui blue segment ">
                     <i class="bookmark icon"></i>最新发布
                   </div>
-                  <div class="ui segment left aligned"  v-for="(item,index) in allposts">
+                  <div class="ui segment left aligned"  v-for="(item,index) in posts">
                     <div class="ui red horizontal label">New</div><a  target="_blank" class="m-black m-text-thin" >{{item.title}}</a>
                   </div>
 
@@ -215,7 +215,17 @@
                 </div>
 
                 <div class="ui segments m-margin-top-large">
-                  <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+                  <div class="ui blue segment ">
+                    <i class="bookmark icon"></i>标签云
+                  </div>
+                  <div id="myChart" :style="{width: '100%', height: '300px'}"></div>
+                </div>
+
+                <div class="ui segments m-margin-top-large">
+                  <div class="ui blue segment ">
+                    <i class="bookmark icon"></i>类别云
+                  </div>
+                  <div id="myChart2" :style="{width: '100%', height: '300px'}"></div>
                 </div>
 
 
@@ -252,6 +262,7 @@
       data() {
         return {
           wordcloud:[],
+          categorycloud:[],
 
           hasliked:false,
           convert:["电影","音乐","书籍","电视剧"],
@@ -336,6 +347,60 @@
                 }]*///name和value建议用小写，大写有时会出现兼容问题
             }]
           });
+          //类别云
+          let myChart2 =echarts.init(document.getElementById('myChart2'))
+          myChart2.setOption({
+            title: {
+              text: '词云',//标题
+              x: 'center',
+              textStyle: {
+                fontSize: 23
+              }
+
+            },
+            backgroundColor: '#F7F7F7',
+            tooltip: {
+              show: true
+            },
+            series: [{
+              name: '热点分析',//数据提示窗标题
+              type: 'wordCloud',
+              sizeRange: [20, 66],//画布范围，如果设置太大会出现少词（溢出屏幕）
+              rotationRange: [-45, 90],//数据翻转范围
+              //shape: 'circle',
+              textPadding: 0,
+              autoSize: {
+                enable: true,
+                minSize: 6
+              },
+              textStyle: {
+                normal: {
+                  color: function() {
+                    return 'rgb(' + [
+                      Math.round(Math.random() * 160),
+                      Math.round(Math.random() * 160),
+                      Math.round(Math.random() * 160)
+                    ].join(',') + ')';
+                  }
+                },
+                emphasis: {
+                  shadowBlur: 10,
+                  shadowColor: '#333'
+                }
+              },
+              data: self.categorycloud/*[{
+                name: "数据一",
+                value: 501
+              }, {
+                name: "数据二",
+                value: 502
+              },
+                {
+                  name: "数据三",
+                  value: 503
+                }]*///name和value建议用小写，大写有时会出现兼容问题
+            }]
+          });
         },
         //词云在上面
         wordClickHandler(name, value, vm) {
@@ -386,10 +451,10 @@
           console.log('当前页码为')
           console.log(this.page)
           const _this=this
-          const xx={page:this.page}
+          const xx={page:this.page,user_id:window.sessionStorage.getItem('user_id')}
           await this.$axios({
             method: 'post',
-            url: '/api/posts/get',
+            url: '/api/posts/getu',
             data:this.$qs.stringify(xx)
           }).then(function (res) {
             console.log("得到的发布表总信息")
@@ -419,7 +484,6 @@
                   console.log('获取某个post点赞数失败')
                 })
             }
-            _this.updatedata()
           }).catch(function (res) {
             console.log(res)
             console.log("添加isShowComment获取发布信息发生异常！请稍后重试...")
@@ -427,7 +491,8 @@
           console.log('该页下的数据')
           console.log(_this.posts)
           /*this.$router.go(0);*/
-          /*this.reload()*/
+          window.sessionStorage.setItem('primarypagenum',this.page)
+          this.reload()
         },
         async dianzan(postid,thisitem){
           window.sessionStorage.setItem('primarypagenum',this.page)
@@ -456,7 +521,9 @@
                 console.log('报错了吗')
               })
             }else{
-              _this.$message.error("点赞失败！您已经点赞！")
+              _this.$message.error("您已经取消赞！")
+
+              /*_this.$message.error("点赞失败！您已经点赞！")*/
               console.log(res)
               console.log('点赞失败')
             }
@@ -503,7 +570,7 @@
           for(let c in _this.posts){
             _this.posts[c].isShowComment=false
             _this.posts[c].imageurl="http://129.204.247.165/"+_this.posts[c].route
-            _this.posts[c].likesimage='../../static/images/like.png'
+            /*_this.posts[c].likesimage='../../static/images/like.png'*/
             let prepostid=_this.posts[c].id
             const likes={id:prepostid}
             _this.$axios({
@@ -662,7 +729,7 @@
         this.page=window.sessionStorage.getItem('primarypagenum')
         const _this =this
         //全部post
-        const xx={page:1,user_id:window.sessionStorage.getItem('user_id')}
+        /*const xx={page:1,user_id:window.sessionStorage.getItem('user_id')}
         await this.$axios({
           method: 'post',
           url: '/api/posts/getu',
@@ -674,7 +741,7 @@
         }).catch(function (res) {
           console.log(res)
           console.log("获取全部post失败")
-        })
+        })*/
 
         /*await this.$axios({
           method: 'post',
@@ -723,7 +790,7 @@
         }).catch(function (res) {
           console.log("查找全部post条数失败")
         })
-        await this.hanshu()
+        this.hanshu()
 
         console.log('进过这里了吗')
         console.log('加了赞之后的post')
@@ -769,6 +836,25 @@
             console.log('获取某个用户信息失败')
           })
         }*/
+        //获取类别
+
+        for(var i=0;i<4;i++){
+          const uu = {status: i}
+          await this.$axios({
+            method: 'post',
+            url: '/api/posts/getcountbystatus',
+            data:this.$qs.stringify(uu)
+          }).then(function (res) {
+            console.log('获取的分类个数')
+            console.log(res.data.data)
+            var c={name:_this.convert[i],value:res.data.data}
+            _this.categorycloud.push(c)
+          }).catch(function (res) {
+            console.log("获取的分类个数发生异常！请稍后重试...")
+            console.log(res)
+          })
+        }
+        console.log("categorycloud是啥",this.categorycloud)
 
         //获取话题
         this.$axios({
@@ -794,7 +880,7 @@
           console.log('获取的标签榜')
           console.log( _this.tags)
           for(var c in _this.tags){
-            console.log("c是啥",c)
+            /*console.log("c是啥",c)*/
             var temp={name:_this.tags[c].name,value:_this.tags[c].frequency}
             _this.wordcloud.push(temp)
             console.log("加入词云的数据",_this.wordcloud)
