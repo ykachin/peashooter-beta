@@ -22,6 +22,13 @@ import recommend from '../components/wzy/recommend'
 import square from '../components/hrc/square'
 /*const Resource = () => import('../views/resource/Resource.vue')
 const Share = () => import('../views/resource/Share')*/
+//wj
+import personal from "../components/personal";
+import information from "../components/personal/information"
+import comments from "../components/personal/comments"
+import fans from "../components/personal/fans"
+import journal from "../components/personal/journal"
+import photos from "../components/personal/photos"
 
 import VueRouter from 'vue-router'
 
@@ -51,6 +58,38 @@ const router= new Router({
 
        ]
     },
+
+    {
+  path: '/personal',
+  components: {
+    header: myhead,
+    body: personal,
+    footer: myfoot
+  },
+  redirect:'/personal/information',
+  children:[
+    {
+      path:'/personal/information',
+      component:information
+    },
+    {
+      path:'/personal/comments',
+      component:comments
+    },
+    {
+      path:'/personal/fans',
+      component:fans
+    },
+    {
+      path:'/personal/journal',
+      component:journal
+    },
+    {
+      path:'/personal/photos',
+      component:photos
+    },
+   ]
+},
     {
       path:'/login',
       component:login
@@ -117,4 +156,3 @@ router.beforeEach((to,from,next)=>{
 })
 
 export default router;
-
