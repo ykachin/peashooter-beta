@@ -8,7 +8,7 @@
       <span class="title" style="padding-top: 30px;margin-left: 20%;">豌豆</span>
       <span class="title" style="padding-top: 40px;">射手</span>
       <img src="../../../static/images/pea.png" style="width: 30px; height: auto;" />
-      <input id="userinput" type="text" v-model="message" placeholder="搜索你感兴趣的推荐" @keyup.enter="start()" />
+      <input id="userinput" type="text" v-model="search" placeholder="搜索你感兴趣的推荐" @keyup.enter="start()" />
       <input id="startsearch" type="submit" value="搜索" v-on:click="start()" />
     </div>
     <!-- 搜索框代码 -->
@@ -169,7 +169,7 @@
     },
     data:function(){
       return{
-        message:"",//搜索框输入
+        search:"",//搜索框输入
         shares:[],//服务器返回的信息
         hadpayit:0,
         total:0,
@@ -212,9 +212,6 @@
        */
       paypoints() {
         this.hadpayit = 1
-        const formData = new FormData()
-        formData.append('id', this.user_id)
-        formData.append('status' ,this.payDialoguserlast - this.payDialogpoints)
         if (this.payDialogpoints > this.payDialoguserlast) {
           this.message = "您的积分不足"
         } else {
@@ -244,7 +241,7 @@
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function(res) {
           // console.log(res)
-          _this.payDialoguserlast = res.data.data.status
+          _this.payDialoguserlast = res.data.data.points
           // console.log(_this.payDialoguserlast)
         })
       },
