@@ -21,6 +21,7 @@ import recommend from '../components/wzy/recommend'
 //hrc
 import square from '../components/hrc/square'
 import squareinfo from '../components/hrc/squareInfo'
+import sousuoyemian from '../components/hrc/sousuoyemian'
 /*const Resource = () => import('../views/resource/Resource.vue')
 const Share = () => import('../views/resource/Share')*/
 
@@ -51,6 +52,10 @@ const router= new Router({
         }
 
        ]
+    },
+    {
+      path:'/sousuoyemian/:title',
+      component:sousuoyemian
     },
     {
       path:'/squareinfo/:id',

@@ -33,7 +33,7 @@
           <span class="ui yellow horizontal label">分数:{{(this.workItem.score)/10}}</span>
         </div>
         <div id="ziyuanbar2" class="eleven wide column ">
-          <span class="ui blue horizontal label ">资源链接:</span><span>{{this.workItem.url}}</span>
+          <span class="ui blue horizontal label ">资源链接:</span><a :href="this.workItem.url" target="_blank">{{this.workItem.url}}</a>
         </div>
 
       </div>
@@ -158,7 +158,6 @@
     created(){
       const  _this=this
       this.getList()
-
       //获取对应id的作品内容
       this.$axios({
         method: 'get',
@@ -214,6 +213,7 @@
         return y + '-' + MM + '-' + d + ' ' + h + ':' + m + ':' + s;
       },*/
       getList(){
+        var qs = require('qs');
         const _this=this
         console.log(this.$route.path.split('/').length)
         console.log(this.$route.path.split('/')[2])
@@ -222,7 +222,9 @@
           console.log('当前路径'+this.$route.path.split('/')[2])
           this.workid=this.$route.path.split('/')[2]
           //没有对应作品的评论，所以。。。
-          this.addComment.topic_id=this.$route.path.split('/')[2]
+          this.addComment.post_id=this.$route.path.split('/')[2];
+          this.addComment.work_id=0;
+          this.addComment.topic_id=0;
         }
         else{}
         //删除
@@ -277,8 +279,55 @@
         }).catch(function (res) {
           console.log("添加评论失败")
         })*/
-        //获取评论
+        //获取post评论
         this.$axios({
+          method: 'post',
+          url: '/api/posts/getcomment',
+          data:qs.stringify({
+           id:this.workid,
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        }).then(function (res) {
+          console.log(res)
+          const r=res.data
+          _this.comments=r.data
+          console.log("获取全部评论：")
+          console.log(_this.comments)
+          //获取对应id作品的评论
+          console.log('aaaaaaaaaaaaaaaaaa')
+          let data= [];
+          console.log('_this.workid'+_this.workid)
+          console.log(_this.comments)
+        
+          /*console.log('评论为空吗')
+          console.log(data.length)
+          console.log('data')
+          console.log(data)
+          if(data.length+''===0+''){
+            console.log('评论是否为空的状态改了吗？')
+            _this.isemptycomment=true
+            console.log(_this.isemptycomment)
+          }*/
+          if(r.success+''=="false"+'')
+          {
+              console.log("为空")
+              _this.isemptycomment=true;
+          }
+          else
+          {
+                for(let c in _this.comments){
+            data.push(_this.comments[c]);
+          }
+          }
+          _this.thispagecomments=data
+
+        }).catch(function (res) {
+          console.log("获取评论异常！请稍后重试...")
+        })
+        //获取评论
+        /*this.$axios({
           method: 'get',
           url: '/api/comments',
         }).then(function (res) {
@@ -313,7 +362,7 @@
 
         }).catch(function (res) {
           console.log("获取评论异常！请稍后重试...")
-        })
+        })*/
         //获取作品类
         this.$axios({
           method: 'get',

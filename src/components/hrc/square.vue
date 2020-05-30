@@ -22,7 +22,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u2" class="ax_default box_1">
-                    <img value="-1" id="u2_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=494167576,3517200638&fm=58">
+                    <img style="cursor:pointer" value="-1" @click="test_method"  id="u2_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=494167576,3517200638&fm=58">
                     <div id="u2_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -30,7 +30,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u3" class="ax_default box_1">
-                    <img  value="-1" id="u3_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=778783410,527677881&fm=58&app=83&f=JPEG?w=400&h=533&s=EEF1E05EDB10584F0AF1F847030020F1">
+                    <img  style="cursor:pointer" value="-1" @click="test_method"  id="u3_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=778783410,527677881&fm=58&app=83&f=JPEG?w=400&h=533&s=EEF1E05EDB10584F0AF1F847030020F1">
                     <div id="u3_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -38,7 +38,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u4" class="ax_default box_1">
-                    <img  value="-1" id="u4_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=558808288,4201467168&fm=58&s=E6E0F058CF41494F4355676B0300F074">
+                    <img  style="cursor:pointer" value="-1" @click="test_method"  id="u4_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=558808288,4201467168&fm=58&s=E6E0F058CF41494F4355676B0300F074">
                     <div id="u4_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -46,7 +46,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u5" class="ax_default box_1">
-                    <img  value="-1" id="u5_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1015626475,3623922484&fm=58&s=B23A7084089280D4DE7E1D84030070C8">
+                    <img  style="cursor:pointer" value="-1" @click="test_method"  id="u5_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1015626475,3623922484&fm=58&s=B23A7084089280D4DE7E1D84030070C8">
                     <div id="u5_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -54,7 +54,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u6" class="ax_default box_1">
-                    <img value="-1"  id="u6_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3922757577,1976860482&fm=58&s=77BB1DC754054AEC5CBDF17303008071">
+                    <img  style="cursor:pointer" value="-1" @click="test_method"   id="u6_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3922757577,1976860482&fm=58&s=77BB1DC754054AEC5CBDF17303008071">
                     <div id="u6_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -62,7 +62,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u7" class="ax_default box_1">
-                    <img value="-1"  id="u7_div" class="" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3154490288,944524743&fm=58&s=67D25F85CA031AD4643541160100D0C3">
+                    <img  style="cursor:pointer" value="-1" @click="test_method"   id="u7_div" class="" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3154490288,944524743&fm=58&s=67D25F85CA031AD4643541160100D0C3">
                     <div id="u7_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -70,7 +70,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u8" class="ax_default box_1">
-                    <img value="-1"  id="u8_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3454659850,1279319584&fm=58&s=1C07177C1DD0DC491E58BCD60100E0B1">
+                    <img  style="cursor:pointer" value="-1" @click="test_method"   id="u8_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3454659850,1279319584&fm=58&s=1C07177C1DD0DC491E58BCD60100E0B1">
                     <div id="u8_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -78,7 +78,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u9" class="ax_default box_1">
-                    <img  value="-1" id="u9_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1688676229,1191966103&fm=58&app=83&f=JPEG?w=150&h=200&s=D33F39C454AB04B8EF8D2C17030010CA">
+                    <img   style="cursor:pointer" value="-1" @click="test_method"  id="u9_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1688676229,1191966103&fm=58&app=83&f=JPEG?w=150&h=200&s=D33F39C454AB04B8EF8D2C17030010CA">
                     <div id="u9_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -686,7 +686,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u83" class="ax_default box_1">
-                    <img style="cursor:pointer" value="-1" @click="test_method" id="u83_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4234663971,2658748769&fm=58&app=83&f=JPEG?w=400&h=533&s=DF5414C642EA86FE30FDE82C03004051"/>
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u83_div" class="upload_div" src="">
                     <div id="u83_text" class="text">
 
                     </div>
@@ -694,7 +694,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u84" class="ax_default box_1">
-                    <img style="cursor:pointer" value="-1" @click="test_method" id="u84_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1774374002,4136586970&fm=58&app=83&f=JPEG?w=300&h=400&s=63AA9F474465490D0EB636730300D07F"/>
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u84_div" class="upload_div" src="">
                     <div id="u84_text" class="text">
 
                     </div>
@@ -702,15 +702,14 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u85" class="ax_default box_1">
-                    <img style="cursor:pointer" value="-1" @click="test_method" id="u85_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=141395650,1410461605&fm=58&app=83&f=JPEG?w=300&h=400&s=254099469F309DDE1EEDA49D0300C082/">
-                    <div id="u85_text" class="text">
-
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u85_div" class="upload_div" src="">
+                     <div id="u85_text" class="text">
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u86" class="ax_default box_1">
-                    <img style="cursor:pointer" value="-1" @click="test_method" id="u86_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=623207089,455845934&fm=58&app=83&f=JPEG?w=400&h=533&s=728D07AE6042D0E79CAF8DA10300704B">
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u86_div" class="upload_div" src="">
                     <div id="u86_text" class="text">
                       <p><span></span></p>
                     </div>
@@ -718,33 +717,33 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u87" class="ax_default box_1">
-                    <img style="cursor:pointer" value="-1" @click="test_method" id="u87_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3038023691,2568317562&fm=58&app=83&f=JPEG?w=400&h=533&s=1F0A2FC84102BCFE1AC40500030070D3">
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u87_div" class="upload_div" src="">
                     <div id="u87_text" class="text">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u88" class="ax_default box_1">
-                    <img style="cursor:pointer" value="-1" @click="test_method" id="u88_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3397677588,3071591638&fm=58&app=83&f=JPEG?w=400&h=533&s=FAF009C44A33A6DC0479F1130300F0CA">
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u88_div" class="upload_div" src="">
                     <div id="u88_text" class="text">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u89" class="ax_default box_1">
-                    <img style="cursor:pointer" value="-1" @click="test_method" id="u89_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3831863255,600067371&fm=58&app=83&f=JPEG?w=400&h=533&s=9340D7A20AE39ACC52D9E524030070C3">
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u89_div" class="upload_div" src="">
                     <div id="u89_text" class="text">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u90" class="ax_default box_1">
-                    <img style="cursor:pointer" value="-1" @click="test_method" id="u90_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=949064346,3514604057&fm=58&app=83&f=JPEG?w=400&h=533&s=C8D6EA0BCE3824949898950A0100A091">
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u90_div" class="upload_div" src="">
                     <div id="u90_text" class="text">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
@@ -752,7 +751,7 @@
                   <div id="u91" class="ax_default box_1">
                     <div id="u91_div" class=""></div>
                     <div id="u91_text" class="text ">
-                      <p><span class="upload_biaoti" id="a1">牧羊女大冒险 </span><span id="ap1" class="upload_pingfen" style="color:#DAA51A;"> 8.1</span></p>
+                      <p><span class="upload_biaoti" id="a1"></span><span id="ap1" class="upload_pingfen" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -760,7 +759,7 @@
                   <div id="u92" class="ax_default box_1">
                     <div id="u92_div" class=""></div>
                     <div id="u92_text" class="text ">
-                      <p><span class="upload_biaoti" id="a2">第一头牛 </span><span id="ap2" class="upload_pingfen"  style="color:#DAA51A;"> 7.9</span></p>
+                      <p><span class="upload_biaoti" id="a2"></span><span id="ap2" class="upload_pingfen"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -768,7 +767,7 @@
                   <div id="u93" class="ax_default box_1">
                     <div id="u93_div" class=""></div>
                     <div id="u93_text" class="text ">
-                      <p><span class="upload_biaoti" id="a3">096 </span><span id="ap3" class="upload_pingfen" style="color:#DAA51A;"> 8.3</span></p>
+                      <p><span class="upload_biaoti" id="a3"></span><span id="ap3" class="upload_pingfen" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -776,7 +775,7 @@
                   <div id="u94" class="ax_default box_1">
                     <div id="u94_div" class=""></div>
                     <div id="u94_text" class="text ">
-                      <p><span class="upload_biaoti" id="a4">真雄起</span><span id="ap4" class="upload_pingfen" style="color:#DAA51A;"> 7.9</span></p>
+                      <p><span class="upload_biaoti" id="a4"></span><span id="ap4" class="upload_pingfen" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -784,7 +783,7 @@
                   <div id="u95" class="ax_default box_1">
                     <div id="u95_div" class=""></div>
                     <div id="u95_text" class="text ">
-                      <p><span class="upload_biaoti" id="a5">欧耶芭蕾</span><span  id="ap5" class="upload_pingfen" style="color:#DAA51A;"> 7.3</span></p>
+                      <p><span class="upload_biaoti" id="a5"></span><span  id="ap5" class="upload_pingfen" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -792,7 +791,7 @@
                   <div id="u96" class="ax_default box_1">
                     <div id="u96_div" class=""></div>
                     <div id="u96_text" class="text ">
-                      <p><span class="upload_biaoti" id="a6">翻译疑云</span><span id="ap6"  class="upload_pingfen" style="color:#DAA51A;"> 7.2</span></p>
+                      <p><span class="upload_biaoti" id="a6"></span><span id="ap6"  class="upload_pingfen" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -800,7 +799,7 @@
                   <div id="u97" class="ax_default box_1">
                     <div id="u97_div" class=""></div>
                     <div id="u97_text" class="text ">
-                      <p><span class="upload_biaoti" id="a7">我想藏起来</span><span  id="ap7" class="upload_pingfen" style="color:#DAA51A;"> 7.4</span></p>
+                      <p><span class="upload_biaoti" id="a7"></span><span  id="ap7" class="upload_pingfen" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -808,7 +807,7 @@
                   <div id="u98" class="ax_default box_1">
                     <div id="u98_div" class=""></div>
                     <div id="u98_text" class="text ">
-                      <p><span class="upload_biaoti" id="a8">列夫·朗道:退变</span><span id="ap8"  class="upload_pingfen" style="color:#DAA51A;"> 8.1</span></p>
+                      <p><span class="upload_biaoti" id="a8"></span><span id="ap8"  class="upload_pingfen" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -829,15 +828,15 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u101" class="ax_default box_1">
-                    <img id="u101_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1995132370,2416037737&fm=58&app=83&f=JPEG?w=300&h=400&s=ADD07E84C08390F4D4DD59B603005010">
+                    <img style="cursor:pointer" value="-1" @click="test_method" id="u101_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1995132370,2416037737&fm=58&app=83&f=JPEG?w=300&h=400&s=ADD07E84C08390F4D4DD59B603005010">
                     <div id="u101_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u102" class="ax_default box_1">
-                    <img id="u102_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2721338182,1892654165&fm=58&app=83&f=JPEG?w=200&h=266&s=A4C0954EC01238751671C5080300A013">
+                    <img style="cursor:pointer" value="-1" @click="test_method"  id="u102_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2721338182,1892654165&fm=58&app=83&f=JPEG?w=200&h=266&s=A4C0954EC01238751671C5080300A013">
                     <div id="u102_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -845,7 +844,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u103" class="ax_default box_1">
-                    <img id="u103_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1301289550,599929985&fm=58&app=83&f=JPEG?w=400&h=533&s=1EB043860E1302D4551C63A903007086">
+                    <img  style="cursor:pointer" value="-1" @click="test_method" id="u103_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1301289550,599929985&fm=58&app=83&f=JPEG?w=400&h=533&s=1EB043860E1302D4551C63A903007086">
                     <div id="u103_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -853,7 +852,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u104" class="ax_default box_1">
-                    <img id="u104_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=665585189,2635653064&fm=58&app=83&f=JPEG?w=400&h=533&s=2E1209CB46E2B14F48DC8C2B03007041">
+                    <img style="cursor:pointer" value="-1" @click="test_method"  id="u104_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=665585189,2635653064&fm=58&app=83&f=JPEG?w=400&h=533&s=2E1209CB46E2B14F48DC8C2B03007041">
                     <div id="u104_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -861,7 +860,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u105" class="ax_default box_1">
-                    <img id="u105_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3799128446,3984384322&fm=58&app=83&f=JPEG?w=400&h=533&s=B000DA14ED116BDC0B314DC10300E0A2">
+                    <img style="cursor:pointer" value="-1" @click="test_method"  id="u105_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3799128446,3984384322&fm=58&app=83&f=JPEG?w=400&h=533&s=B000DA14ED116BDC0B314DC10300E0A2">
                     <div id="u105_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -869,7 +868,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u106" class="ax_default box_1">
-                    <img id="u106_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2194932477,2744133998&fm=58&app=83&f=JPEG?w=400&h=533&s=EAA224C5E0D673DE860185B403001023">
+                    <img  style="cursor:pointer" value="-1" @click="test_method" id="u106_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2194932477,2744133998&fm=58&app=83&f=JPEG?w=400&h=533&s=EAA224C5E0D673DE860185B403001023">
                     <div id="u106_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -877,15 +876,15 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u107" class="ax_default box_1">
-                    <img id="u107_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1212063745,1636221305&fm=58&app=83&f=JPEG?w=300&h=400&s=DD6029C45AFA90DE527CF4810300E091">
+                    <img style="cursor:pointer" value="-1" @click="test_method"  id="u107_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1212063745,1636221305&fm=58&app=83&f=JPEG?w=300&h=400&s=DD6029C45AFA90DE527CF4810300E091">
                     <div id="u107_text" class="text ">
-                      <p><span></span>img</p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u108" class="ax_default box_1">
-                    <img id="u108_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3817490574,3259262617&fm=58&app=83&f=JPEG?w=400&h=533&s=B79B7587801173CC18B5C9E10300F001">
+                    <img style="cursor:pointer" value="-1" @click="test_method"  id="u108_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3817490574,3259262617&fm=58&app=83&f=JPEG?w=400&h=533&s=B79B7587801173CC18B5C9E10300F001">
                     <div id="u108_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -895,14 +894,14 @@
                   <div id="u109" class="ax_default box_1">
                     <div id="u109_div" class=""></div>
                     <div id="u109_text" class="text ">
-                      <p><span id="a17">伏虎武松</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a17">伏虎武松</span><span id="zuixin1" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
                   <div id="u110" class="ax_default box_1">
                     <div id="u110_div" class=""></div>
                     <div id="u110_text" class="text ">
-                      <p><span id="a18">奔跑吧甜心</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a18">奔跑吧甜心</span><span  id="zuixin2" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -910,7 +909,7 @@
                   <div id="u111" class="ax_default box_1">
                     <div id="u111_div" class=""></div>
                     <div id="u111_text" class="text ">
-                      <p><span id="a19">如何培养一个女孩</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a19">如何培养一个女孩</span><span id="zuixin3"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -918,7 +917,7 @@
                   <div id="u112" class="ax_default box_1">
                     <div id="u112_div" class=""></div>
                     <div id="u112_text" class="text ">
-                      <p><span id="a20">波斯语课程</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a20">波斯语课程</span><span id="zuixin4"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -926,7 +925,7 @@
                   <div id="u113" class="ax_default box_1">
                     <div id="u113_div" class=""></div>
                     <div id="u113_text" class="text ">
-                      <p><span id="a21">军民大生产</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a21">军民大生产</span><span id="zuixin5"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -934,7 +933,7 @@
                   <div id="u114" class="ax_default box_1">
                     <div id="u114_div" class=""></div>
                     <div id="u114_text" class="text ">
-                      <p><span id="a22">在街上</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a22">在街上</span><span id="zuixin6"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -942,7 +941,7 @@
                   <div id="u115" class="ax_default box_1">
                     <div id="u115_div" class=""></div>
                     <div id="u115_text" class="text ">
-                      <p><span id="a23">欢乐的精灵</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a23">欢乐的精灵</span><span id="zuixin7"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -950,7 +949,7 @@
                   <div id="u116" class="ax_default box_1">
                     <div id="u116_div" class=""></div>
                     <div id="u116_text" class="text ">
-                      <p><span id="a24">梦想之马</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="a24">梦想之马</span><span id="zuixin8"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -2435,7 +2434,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u307" class="ax_default box_1">
-                    <img id="u307_div" class="" src="static/resources/images/y2.jpg" >
+                    <img style="cursor:pointer" value="-1" @click="test_method"  id="u307_div" class="" src="static/resources/images/y2.jpg" >
                     <div id="u307_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -2443,7 +2442,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u308" class="ax_default box_1">
-                    <img id="u308_div" class="" src="static/resources/images/y3.jpg" >
+                    <img style="cursor:pointer" value="-1" @click="test_method"  id="u308_div" class="" src="static/resources/images/y3.jpg" >
                     <div id="u308_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -2451,7 +2450,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u309" class="ax_default box_1">
-                    <img id="u309_div" class="" src="static/resources/images/y4.jpg" >
+                    <img style="cursor:pointer" value="-1" @click="test_method"  id="u309_div" class="" src="static/resources/images/y4.jpg" >
                     <div id="u309_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -2459,7 +2458,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u310" class="ax_default box_1">
-                    <img id="u310_div" class="" src="static/resources/images/y5.jpg" >
+                    <img style="cursor:pointer" value="-1" @click="test_method"  id="u310_div" class="" src="static/resources/images/y5.jpg" >
                     <div id="u310_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -2467,7 +2466,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u311" class="ax_default box_1">
-                    <img id="u311_div" class="" src="static/resources/images/y6.jpg" >
+                    <img style="cursor:pointer" value="-1" @click="test_method"  id="u311_div" class="" src="static/resources/images/y6.jpg" >
                     <div id="u311_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -2475,7 +2474,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u312" class="ax_default box_1">
-                    <img id="u312_div" class="" src="static/resources/images/y7.jpg" >
+                    <img style="cursor:pointer" value="-1" @click="test_method"  id="u312_div" class="" src="static/resources/images/y7.jpg" >
                     <div id="u312_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -3571,7 +3570,7 @@
 
             <!-- Unnamed (矩形) -->
             <div id="u450" class="ax_default box_1">
-              <img id="u450_div" class="" src="static/resources/images/h6.jpg">
+              <img style="cursor:pointer" value="-1" @click="test_method"  id="u450_div" class="" src="static/resources/images/h6.jpg">
               <div id="u450_text" class="text ">
                 <p><span></span></p>
               </div>
@@ -3579,7 +3578,7 @@
 
             <!-- Unnamed (矩形) -->
             <div id="u451" class="ax_default box_1">
-              <img id="u451_div" class="" src="static/resources/images/h2.jpg">
+              <img style="cursor:pointer" value="-1" @click="test_method" id="u451_div" class="" src="static/resources/images/h2.jpg">
               <div id="u450_text" class="text ">
                 <p><span></span></p>
               </div>
@@ -3587,7 +3586,7 @@
 
             <!-- Unnamed (矩形) -->
             <div id="u452" class="ax_default box_1">
-              <img id="u452_div" class="" src="static/resources/images/h3.jpg">
+              <img style="cursor:pointer" value="-1" @click="test_method" id="u452_div" class="" src="static/resources/images/h3.jpg">
               <div id="u450_text" class="text ">
                 <p><span></span></p>
               </div>
@@ -3595,7 +3594,7 @@
 
             <!-- Unnamed (矩形) -->
             <div id="u453" class="ax_default box_1">
-              <img id="u453_div" class="" src="static/resources/images/h4.jpg">
+              <img style="cursor:pointer" value="-1" @click="test_method" id="u453_div" class="" src="static/resources/images/h4.jpg">
               <div id="u450_text" class="text ">
                 <p><span></span></p>
               </div>
@@ -3603,7 +3602,7 @@
 
             <!-- Unnamed (矩形) -->
             <div id="u454" class="ax_default box_1">
-              <img id="u454_div" class="" src="static/resources/images/h5.jpg">
+              <img style="cursor:pointer" value="-1" @click="test_method" id="u454_div" class="" src="static/resources/images/h5.jpg">
               <div id="u450_text" class="text ">
                 <p><span></span></p>
               </div>
@@ -3611,7 +3610,7 @@
 
             <!-- Unnamed (矩形) -->
             <div id="u455" class="ax_default box_1">
-              <img id="u455_div" class="" src="static/resources/images/h1.jpg">
+              <img style="cursor:pointer" value="-1" @click="test_method" id="u455_div" class="" src="static/resources/images/h1.jpg">
               <div id="u450_text" class="text ">
                 <p><span></span></p>
               </div>
@@ -3619,7 +3618,7 @@
 
             <!-- Unnamed (矩形) -->
             <div id="u456" class="ax_default box_1">
-              <img id="u456_div" class="" src="static/resources/images/h7.jpg">
+              <img style="cursor:pointer" value="-1" @click="test_method" id="u456_div" class="" src="static/resources/images/h7.jpg">
               <div id="u450_text" class="text ">
                 <p><span></span></p>
               </div>
@@ -3627,7 +3626,7 @@
 
             <!-- Unnamed (矩形) -->
             <div id="u457" class="ax_default box_1">
-              <img id="u457_div" class="" src="static/resources/images/h8.jpg">
+              <img style="cursor:pointer" value="-1" @click="test_method" id="u457_div" class="" src="static/resources/images/h8.jpg">
               <div id="u450_text" class="text ">
                 <p><span></span></p>
               </div>
@@ -3848,7 +3847,7 @@
 
 
             <div>
-              <div id="o1" class="ax_default outside" style="margin-left:56px; left:0px" >
+              <div id="o1" class="ax_default outside" style=" cursor:pointer;margin-left:56px; left:0px" >
                 <div id="u485" class="">
                   <img id="u485_div" class="yidongimg" src="static/resources/images/1.jpg">
                   <div id="u485_text" class="text ">
@@ -3866,7 +3865,7 @@
                 </div>
               </div>
 
-              <div id="o2" class="ax_default outside" style="margin-left:56px;left:1000px">
+              <div id="o2" class="ax_default outside" style="cursor:pointer;margin-left:56px;left:1000px">
                 <div id="u485" class="">
                   <img id="u485_div" class="yidongimg" src="static/resources/images/2.jpg">
                   <div id="u485_text" class="text ">
@@ -3885,7 +3884,7 @@
                 </div>
               </div>
 
-              <div id="o3" class="ax_default outside" style="margin-left:56px;left:2000px">
+              <div id="o3" class="ax_default outside" style="cursor:pointer;margin-left:56px;left:2000px">
                 <div id="u485" class="">
                   <img id="u485_div" class="yidongimg" src="static/resources/images/3.jpg">
                   <div id="u485_text" class="text ">
@@ -3904,7 +3903,7 @@
                 </div>
               </div>
 
-              <div id="o4" class="ax_default outside" style="margin-left:56px;left:-1000px">
+              <div id="o4" class="ax_default outside" style="cursor:pointer;margin-left:56px;left:-1000px">
                 <div id="u485" class="">
                   <img id="u485_div" class="" src="static/resources/images/4.jpg">
                   <div id="u485_text" class="text ">
@@ -3958,8 +3957,8 @@
                 <div class="right m-item item m-mobile-hide">
                   <form id="ssform" name="search" action="#"  method="post" target="_blank">
                     <div class="ui icon inverted white input m-margin-tb-tiny">
-                      <input type="text" name="query" :query='query' v-model="query"  placeholder="书名、电影名、歌曲名..." style="width: 500px">
-                      <i @click="search" class="search link icon"></i>
+                      <input id="input1" type="text" name="query" :query='query' v-model="query"  placeholder="书名、影视名、歌曲名..." style="width: 500px">
+                      <i @click="search_post" class="search link icon"></i>
                     </div>
                   </form>
                 </div>
@@ -4161,6 +4160,40 @@
          this.$router.push(idstring);
         }
      
+      },
+      search_post:function()
+      {
+         var qs = require('qs');
+        document.getElementById("input1");
+        console.log(input1.value);
+        const _this=this;
+       this.$axios({
+        method: 'post',
+        url: '/api/posts/getbytitle',
+        data:qs.stringify({
+          title:input1.value,
+          pagesize:1,
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+          console.log(res);
+          const dres=res.data;
+          if(dres.data.length==0)  
+          {
+            _this.$message.info("未找到此作品!");
+          }
+          else
+          {
+            _this.$message.success("找到作品!");
+            _this.$router.push("/squareinfo/"+dres.data[0].id);
+          }
+
+
+      }).catch(function (res) {
+        console.log(res)
+      })
       },
       test()
       {
@@ -4507,7 +4540,7 @@
         for(i=0;i<4;i++)
         {
           xinshuimglist[i].src="http://129.204.247.165/"+dres.data[i].route;
-          xinshutextlist[i].innerHTML="http://129.204.247.165/"+dres.data[i].content;
+          xinshutextlist[i].innerHTML=dres.data[i].content;
         }
 
 
@@ -4557,9 +4590,11 @@
           dydiv.setAttribute("value",dres.data[i].id);
           dydiv.src="http://129.204.247.165/"+dres.data[i].route;
           naspan.innerHTML=dres.data[i].title;
-          pfspan.innerHTML="  "+(dres.data[i].score)/10;
-          if(pfspan.innerHTML=="  10")
-            pfspan.innerHTML=pfspan.innerHTML+"."+"0";
+          var pscore=(dres.data[i].score)/10;
+          var s=(pscore.toString()).indexOf('.');
+          if(s<0)
+          pscore=pscore+".0";
+          pfspan.innerHTML="  "+pscore;
           if(dres.data[i].title.length>8)
             naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
           s3=s3+1;
@@ -4575,7 +4610,7 @@
       //电视剧读取
       this.$axios({
         method: 'post',
-        url: '/api/posts/gethotbytags',
+        url: '/api/posts/gethotbystatus',
         data:qs.stringify({
          status:"3",
         }),
@@ -4588,22 +4623,6 @@
         var m,n;
         var temp_data;
         var flag=0;
-        for(m=0;m<dres.data.length;m++)
-        {
-          flag=0
-          for(n=0;n<dres.data.length-1;n++)
-          {
-            if(dres.data[n].times<dres.data[n+1].times)
-            {
-              dres.temp_data=dres.data[n];
-              dres.data[n]=dres.data[n+1];
-              dres.data[n+1]=dres.temp_data;
-              flag=1;
-            }
-          }
-          if(flag==0)
-            break;
-        }
         var s1="u";
         var s2="_div";
         var s3=2;
@@ -4628,9 +4647,11 @@
           dydiv.setAttribute("value",dres.data[i].id);
           dydiv.src="http://129.204.247.165/"+dres.data[i].route;
           naspan.innerHTML=dres.data[i].title;
-          pfspan.innerHTML="  "+(dres.data[i].score)/10;
-          if(pfspan.innerHTML=="  10")
-            pfspan.innerHTML=pfspan.innerHTML+"."+"0";
+          var pscore=(dres.data[i].score)/10;
+          var s=(pscore.toString()).indexOf('.');
+          if(s<0)
+          pscore=pscore+".0";
+          pfspan.innerHTML="  "+pscore;
           if(dres.data[i].title.length>8)
             naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
           s3=s3+1;
@@ -4659,22 +4680,6 @@
         var m,n;
         var temp_data;
         var flag=0;
-        for(m=0;m<dres.data.length;m++)
-        {
-          flag=0
-          for(n=0;n<dres.data.length-1;n++)
-          {
-            if(dres.data[n].times<dres.data[n+1].times)
-            {
-              dres.temp_data=dres.data[n];
-              dres.data[n]=dres.data[n+1];
-              dres.data[n+1]=dres.temp_data;
-              flag=1;
-            }
-          }
-          if(flag==0)
-            break;
-        }
         var s1="u";
         var s2="_div";
         var s3=307;
@@ -4707,11 +4712,12 @@
       }).catch(function (res) {
         console.log(res)
       })
+      //读取最新电影
       this.$axios({
         method: 'post',
         url: '/api/posts/getnewbystatus',
         data:qs.stringify({
-          status:"1",
+          status:"0",
          
         }),
         headers: {
@@ -4733,7 +4739,8 @@
         var i;
         var sa1="a";
         var sa2=17;
-
+        var sap1="zuixin";
+        var sap2=1
 
 
         for(i=0;i<8;i++)
@@ -4741,15 +4748,25 @@
 
           var idstring=s1+s3+s2;
           var namestring=sa1+sa2;
+          var pfstring=sap1+sap2;
           var dydiv=document.getElementById(idstring);
           var naspan=document.getElementById(namestring);
+          var pfspan=document.getElementById(pfstring);
+          dydiv.setAttribute("value",dres.data[i].id);
           dydiv.src="http://129.204.247.165/"+dres.data[i].route;
           naspan.innerHTML=dres.data[i].title;
+          var pscore=(dres.data[i].score)/10;
+          var s=(pscore.toString()).indexOf('.');
+          if(s<0)
+          pscore=pscore+".0";
+          pfspan.innerHTML="  "+pscore;
           if(dres.data[i].title.length>8)
             naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
           s3=s3+1;
           sa2++;
+          sap2++;
         }
+
 
 
 
@@ -4759,7 +4776,7 @@
       //读取图书
       this.$axios({
         method: 'post',
-        url: '/api/posts/gethotbytags',
+        url: '/api/posts/gethotbystatus',
         data:qs.stringify({
           status:"2",
         }),
@@ -4771,23 +4788,6 @@
         const dres=res.data;
         var m,n;
         var temp_data;
-        var flag=0;
-        for(m=0;m<dres.data.length;m++)
-        {
-          flag=0
-          for(n=0;n<dres.data.length-1;n++)
-          {
-            if(dres.data[n].times<dres.data[n+1].times)
-            {
-              dres.temp_data=dres.data[n];
-              dres.data[n]=dres.data[n+1];
-              dres.data[n+1]=dres.temp_data;
-              flag=1;
-            }
-          }
-          if(flag==0)
-            break;
-        }
         var s1="u";
         var s2="_div";
         var s3=450;
@@ -4804,6 +4804,7 @@
           var namestring=sa1+sa2;
           var dydiv=document.getElementById(idstring);
           var naspan=document.getElementById(namestring);
+          dydiv.setAttribute("value",dres.data[i].id);
           dydiv.src="http://129.204.247.165/"+dres.data[i].route;
           naspan.innerHTML=dres.data[i].title;
           if(dres.data[i].title.length>8)
