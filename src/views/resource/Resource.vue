@@ -34,7 +34,7 @@
           <div style="padding-top: 1em !important;border-radius: 10px">
 
           <res-list v-loading="loadingResList" style="text-align: left;">
-            <div slot="cho-button">
+            <div slot="cho-button" id="res-list-top">
               <el-button type="primary" round><router-link to="/resource/share" class="router-link-btn">去分享<i class="el-icon-share" style="color: white"></i></router-link></el-button>
               <el-button @click="getResBy('time', 1)">最新</el-button>
               <el-button @click="getResBy('hot', 1)">精华</el-button>
@@ -59,20 +59,21 @@
               <el-tag type="success" size="mini" slot="tag">{{ item.tags }}</el-tag>
               <i v-if="item.points === 0" slot="route-icon" class="el-icon-paperclip el-icon-paperclip-my-style"></i>
               <i v-else slot="route-icon" class="el-icon-lock el-icon-paperclip-my-style"></i>
+
               <!-- 不需积分 | 已经支付过 -->
               <el-link
-                v-if="item.points === 0"
-                slot="route" type="primary"
-                :href="HOSTURL + item.route"
-                target="_blank">
-                  <p @click="downloadFile(item.id, storeState.userId)">资源链接</p>
+                      v-if="item.points === 0"
+                      slot="route" type="primary"
+                      :href="HOSTURL + item.route"
+                      target="_blank">
+                <p @click="downloadFile(item.id, storeState.userId)">资源链接</p>
               </el-link>
               <!-- 需要积分 -->
               <el-link
-                v-else
-                slot="route"
-                type="warning"
-                @click="readyPay(item.id, item.title, item.points)">
+                      v-else
+                      slot="route"
+                      type="warning"
+                      @click="readyPay(item.id, item.title, item.points)">
                 需要积分:{{ item.points }}
               </el-link>
             </res-list-item>
@@ -106,7 +107,7 @@
         <!-- 右边侧边栏 人气资源显示 -->
         <el-aside class="m-margin-top">
           <pop-res v-loading="loadingPopRes">
-            <pop-res-item v-for="(item, index) in popRes" v-if="index < 20">
+            <pop-res-item v-for="(item, index) in popRes" v-if="index < 15">
               <el-link
                 v-if="item.points === 0"
                 style="color: #3377AA;
@@ -136,6 +137,8 @@
       :visible.sync="payDialogVisible"
       width="30%"
       :before-close="handleClose">
+
+      <!-- 内容提示 -->
       <div v-show="hadPayIt === 1">
         您已支付过此资源
       </div>
@@ -144,10 +147,12 @@
         所需积分： {{ payResPoints }} <br>
         我的积分： {{ curUserPoints }}
       </div>
+
       <span slot="footer" class="dialog-footer">
         <el-button @click="payDialogVisible = false">取 消</el-button>
         <el-button type="primary" @click="payPoints(curResId, payResPoints)">确 定</el-button>
       </span>
+
     </el-dialog>
     </div>
     <myfoot></myfoot>
@@ -229,8 +234,8 @@
     },
     created() {
       this.initResourceZhIndex()
-      // 刚进入页面，初始化当前标签为所有
-      this.curTag = '所有'
+      // console.log(this.storeState().resourcesZhIndex['所有'])
+      this.curTag = '所有'  // 刚进入页面，初始化当前标签为所有
       this.getResData(this.curTag, 1) // 初始化
       this.getPopRes()
     },
@@ -262,6 +267,9 @@
         getResData(page).then(res => {
           // // this.resourcesZhIndex[type].list.push(...res.data.data) // 页面使用【加载更多】方式时使用的方法
           this.storeState.resourcesZhIndex[tag].list = res.data.data
+          console.log(tag)
+          console.log(res.data.data)
+          console.log(this.storeState.resourcesZhIndex[tag].list)
           this.loadingResList = false
         })
       },
@@ -300,7 +308,13 @@
        */
       getResByTime(page) {
         getResOrderInTime(page).then(res => {
+          console.log("-----------获得按时间排序的资源--------------开始")
+          console.log(res)
           this.resourcesZhIndex[this.curTag].list = res.data.data
+          var list = JSON.parse(JSON.stringify(this.resourcesZhIndex[this.curTag].list))
+          console.log(this.resourcesZhIndex[this.curTag].list)
+          console.log(list)
+          console.log("-----------获得按时间排序的资源--------------结束")
         }).catch(err => {
           console.log(err)
         })
@@ -328,6 +342,7 @@
         else {
           switch (type) {
             case 'time':
+              console.log("进入了time")
               this.getResByTime(page)
               break
             case 'hot' :
@@ -362,6 +377,40 @@
 
         var targetObj = {}
         var list = this.storeState.resourcesZhIndex[this.curTag].list
+        // var list = JSON.parse(JSON.stringify(this.storeState.resourcesZhIndex[this.curTag].list))
+
+        console.log(this.curTag)
+        console.log("list:")
+        console.log(list)
+
+        // for (var i=0; i<list.length; i++) {
+        //   var obj = list[i]
+        //   if(obj.id === this.payResId) {
+        //     console.log("单个对象")
+        //     console.log(obj)
+        //     if (this.hadPayIt === 0) {
+        //       // 1. 用户积分不足
+        //       if (this.storeState.points < points) {
+        //         alert('积分不足')
+        //       }
+        //       // 2. 用户积分足够
+        //       else {
+        //         // 2.1 用户扣去相应积分
+        //
+        //         this.storeState.points -= points
+        //         // 2.2 该资源的 points 设为 0
+        //         obj.points = 0
+        //         this.downloadFile(obj.id, this.storeState.userId)
+        //         alert('支付成功')
+        //       }
+        //     }
+        //     else {
+        //       obj.points = 0
+        //       list[i] = obj
+        //     }
+        //   }
+        // }
+
         list.forEach((obj) => {
           // 通过资源id拿到该资源对象
           if(obj.id === this.payResId) {
@@ -405,6 +454,9 @@
        * @param page  点击的页码
        */
       pageChange(page) {
+
+        console.log("页面变化函数：" + this.curTag + this.curBy)
+
         if (this.curTag == '所有') {
           if (this.curBy == 'all') {
             this.getResData(this.curTag, page)
@@ -418,6 +470,21 @@
         }
 
         this.curPage = page
+
+        // window.scrollTo(0,0)
+        document.getElementById("res-list-top").scrollIntoView(true)
+        // var topDiv = document.getElementById("res-list-top")
+        // var x = topDiv.offsetTop
+        // var timer = setInterval(function () {
+        //   window.scrollBy(0, 20)
+        // }, 30)
+        //
+        // window.onscroll(function () {
+        //   var distanc = document.body.scrollTop || document.documentElement.scrollTop
+        //   if (distanc === x) {
+        //     clearInterval(timer)
+        //   }
+        // }, false)
       },
 
       /**
