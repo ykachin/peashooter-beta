@@ -1,23 +1,7 @@
 <template>
-  <!-- 该组件为推荐页面 -->
-  <!--
-  该页该页的主要功能为:
-  显示所有分享,即share表中 热门 的内容(已经实现)
-  搜索指定的分享(未完成,只做了搜索框的样式,
-          原计划通过start函数获取输入信息,进而对服务器进行信息查询,再渲染到页面)
-  内容分页(未完成,
-          只引入了elementUI的分页样式,然后绑定了页数)
-  进入个人主页功能(未完成,
-          原计划通过tomypage函数获取指定的用户id,然后传递参数进而实现页面跳转)
-
-  该页样式:不建议修改.
-
-  该页业务说明:主页页面是将share当中的数据通过gethot方法获取直接渲染到页面当中,和mainpage页面(主页页面)有些不同
-  -->
   <div id="recommend">
     <!-- 页首 -->
     <myhead></myhead>
-    <!-- 搜做框代码 -->
     <!-- 搜索框代码 -->
     <div class="searchbody" style="background-color: white;opacity:0.8">
       <!-- <img src="../assets/teamlogo.png" style="padding-left: 20%; width: 60px; height: auto;"/> -->
@@ -28,42 +12,28 @@
       <input id="startsearch" type="submit" value="搜索" v-on:click="start()" />
     </div>
     <!-- 搜索框代码 -->
-    <!--<div class="searchbody">
-      &lt;!&ndash; <img src="../assets/teamlogo.png" style="padding-left: 20%; width: 60px; height: auto;"/> &ndash;&gt;
-      <span class="title" style="padding-top: 30px;margin-left: 20%;">豌豆</span>
-      <span class="title" style="padding-top: 40px;">射手</span>
-      <img src="../../../static/images/pea.png" style="width: 30px; height: auto;" />
-      <input id="userinput" type="text" v-model="message" placeholder="搜索你感兴趣的话题" @keyup.enter="start()" />
-      <input id="startsearch" type="submit" value="搜索" v-on:click="start()" />
-    </div>-->
-    <!-- 搜做框代码 -->
 
     <!-- 主题代码 -->
     <div class="mybody">
       <div class="bodyleft">
         <div class="item1" v-for="num in shares"> <!-- 限制十个推荐 -->
           <div id="itemleft">
-            <!-- <img v-bind:src="img"/> .slice(pagenum,pagenum+onepagelinum)-->
             <img src="../../../static/images/pea.png" v-on:click="tomypage(num.user_id)"/>
-            <p align="center">{{num.username}}</p>
+            <p align="center"><strong>{{num.username}}</strong></p>
           </div>
           <div id="itemright">
             <div class="name">{{num.title}}</div>
             <div class="tag">{{num.tags}}</div>
             <div class="article">
               <strong>一句话分享：</strong>{{num.content}}
+              <!-- <div  v-if="num.content.length >= 36 && more === 0" title="点击查看更多" @click="showmore()">
+                <strong>一句话分享：</strong>{{num.content.slice(0,36)+"... ..."}}
+              </div>
+              <div v-if="num.content.length < 36 && more === 1" @click="showless()">
+                <strong>一句话分享：</strong>{{num.content}}
+              </div> -->
             </div>
             <div class="article" >
-              <!-- <strong>内容链接：</strong> -->
-              <!-- <a v-bind:href="'http://129.204.247.165/'+num.route"
-                title="点击打开链接"
-                @click="checkpoint(num.points)"
-                target="_blank">
-                <strong>内容链接</strong>
-              </a>
-              <label readonly="readonly" style="background-color:white">http://129.204.247.165/{{num.route}}</label> -->
-
-
               <!-- 内容链接 -->
               <p style="float: left;
                 padding: 3px;
@@ -73,17 +43,7 @@
                 v-bind:title="'http://129.204.247.165/'+num.route">
               内容链接
               </p>
-              <!-- 文件下载 -->
-              <!-- <p style="float: left;
-                padding: 3px;
-                background-color: #6BC4E0;
-                color: #F2F2F2;
-                border-radius: 3px;
-                margin-left: 8px;"
-                @click="downloadfile(num.id,user_id)"
-                :title="'累计下载'+num.times+'次'">
-              下载
-              </p> -->
+
               <!-- 内容预览 -->
               <p style="float: left;
                 padding: 3px;
@@ -96,41 +56,33 @@
               预览
               </p>
 
+              <!-- 需要积分支付 -->
               <div v-if="num.points > 0">
-                <!-- <strong>分享到：</strong> 微博、微信、QQ -->
-                <p style="padding: 3px;
-                    background-color: #CD0A0A;
-                    float: left;
-                    color: #F2F2F2;
-                    border-radius: 4px;
-                    margin-left: 8px;"
-                    v-show="hadpay === 0">
-                  需要 {{num.points}} 积分
-                </p>
-
-                <p style="padding: 3px;
-                    background-color: #4CAF50;
-                    float: left;
-                    color: #F2F2F2;
-                    border-radius: 4px;
-                    margin-left: 8px;"
-                    v-show="hadpay === 1">
-                  已经支付{{num.points}}积分，可点击下载
-                </p>
-              </div>
-              <div v-if="num.points === 0">
-                <!-- <strong>分享到：</strong> 微博、微信、QQ -->
-                <!-- <p style="float: right; color: #D39819">无需积分</p> -->
                 <p style="padding: 3px;
                     background-color: #D39819;
                     float: left;
                     color: #F2F2F2;
                     border-radius: 4px;
                     margin-left: 8px;"
-                    @click="downloadfile(num.id,user_id)"
+                    @click="readpay(num.title, user_id, num.points, num.route, num.id)"
                     :title="'累计下载'+num.times+'次'">
-                    无需积分/点击下载
+                  需要 {{num.points}} 积分/点击支付
                 </p>
+              </div>
+                <!-- 无需积分下载 -->
+              <div v-if="num.points === 0">
+                <a target="_blank" :href="'http://129.204.247.165/'+num.route">
+                  <p style="padding: 3px;
+                      background-color: #42B983;
+                      float: left;
+                      color: #F2F2F2;
+                      border-radius: 4px;
+                      margin-left: 8px;"
+                      @click="downloadfile(num.id,user_id)"
+                      :title="'累计下载'+num.times+'次'">
+                      无需积分/点击下载
+                  </p>
+                </a>
               </div>
               <!-- <p style="float: right;color: #8F949A;">下载次数:{{num.times}}</p> -->
             </div>
@@ -141,18 +93,32 @@
 
         <!-- 支付积分提示窗口 -->
         <el-dialog
-          title="付给积分提示"
+          :before-close = "cancel"
+          title="当前进行积分支付"
           :visible.sync="payDialogVisible"
           width="30%">
-          <div>
-            资源标题：  <br>
-            所需积分：  <br>
-            我的积分：
+          <div v-show="hadpayit === 0">
+            <div>
+              <strong style="font-size: x-large;"> 每次积分支付仅允许一次下载 </strong><br /><br />
+              资源标题：{{this.payDialogtitle}}<br />
+              所需积分：{{this.payDialogpoints}}<br />
+              我的积分：{{this.payDialoguserlast}}<br /><br />
+            </div>
+            <span slot="footer" class="dialog-footer">
+              <el-button @click="cancel()">取 消</el-button>
+              <el-button type="primary" @click="paypoints()">支 付</el-button>
+            </span>
           </div>
-          <span slot="footer" class="dialog-footer">
-            <el-button @click="payDialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="payPoints(curResId, payResPoints)">确 定</el-button>
-          </span>
+          <div v-show="hadpayit === 1" style="text-align: center; margin: auto;">
+            <strong style="font-size: x-large;"> {{this.message}} </strong><br /><br />
+            <span slot="footer" class="dialog-footer">
+              <el-button type="primary" @click="cancel()">
+                <a target="_blank" :href="'http://129.204.247.165/'+this.route">
+                  <p style="color:#DDDDDD" @click="downloadfile(num.id, this.user_id)">点击下载</p>
+                </a>
+              </el-button>
+            </span>
+          </div>
         </el-dialog>
 
         <!-- 图片预览窗口 -->
@@ -205,18 +171,84 @@
       return{
         message:"",//搜索框输入
         shares:[],//服务器返回的信息
-        pagenum:0,//
-        onepagelinum:5,
+        hadpayit:0,
         total:0,
         payDialogVisible:false,
         documentView:false,
-        hadpay:0,
         imgroute:"",
+        payDialogtitle:"",
+        payDialogpoints:"",
+        payDialoguserlast:"",
+        payDialogdocuid:"",
+        route:"",
+        message:"",
+        more:0,
         user_id:window.sessionStorage.getItem('user_id'),//登录用户id
         // pagetotal:this.shares.length,
       }
     },
     methods:{
+      showless() {
+        this.more = 0
+      },
+      showmore() {
+        this.more = 1
+      },
+
+      /**
+       * 支付弹窗的取消按钮
+       */
+      cancel() {
+        this.payDialogVisible = false
+        this.hadpayit = 0
+        this.payDialogdocuid = ""
+        this.payDialogpoints = ""
+        this.payDialogtitle = ""
+        this.payDialoguserlast = ""
+      },
+
+      /**
+       * 支付弹窗的确认支付按钮
+       */
+      paypoints() {
+        this.hadpayit = 1
+        const formData = new FormData()
+        formData.append('id', this.user_id)
+        formData.append('status' ,this.payDialoguserlast - this.payDialogpoints)
+        if (this.payDialogpoints > this.payDialoguserlast) {
+          this.message = "您的积分不足"
+        } else {
+          this.message = "已支付"
+        }
+      },
+
+
+      /**点击资源的支付按钮
+       * @param {Object} title 资源标题
+       * @param {Object} userid 支付积分的用户id
+       * @param {Object} point 资源消耗的积分
+       */
+      readpay(title, userid, point, route, id){
+        const _this = this
+        this.payDialogVisible = true
+        this.payDialogtitle = title
+        this.payDialogpoints = point
+        this.route = route
+        this.payDialogdocuid = id
+        const formData = new FormData()
+        formData.append('id', userid)
+        this.$axios({
+          url:'/api/user/searchbyid',
+          method:'post',
+          data:formData,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function(res) {
+          // console.log(res)
+          _this.payDialoguserlast = res.data.data.status
+          // console.log(_this.payDialoguserlast)
+        })
+      },
+
       /**判断是否支付过改资源
        * @param {Object} id
        * @param {Object} userid
@@ -234,8 +266,9 @@
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function (res) {
           console.log("id="+id+",user_id="+userid)
-          console.log(res.data.data)
-          _this.hadpay = res.data.data
+          var getpayres = {id:id, user_id:userid, hadpay:res.data.data}
+          _this.hadpayit.push(getpayres)
+          console.log(_this.hadpayit)
         })
       },
 
@@ -308,6 +341,7 @@
     },
     async created() {
       const _this=this;
+      console.log(_this.hadpayit)
       this.$axios({
         method: 'post',
         url: '/api/shares/gethot',
@@ -337,6 +371,28 @@
       })
     }
   }
+
+  //设置页面无法进行鼠标右键，防止预览图片时可以对图片进行下载
+  if (window.Event)
+    document.captureEvents(Event.MOUSEUP);
+  function nocontextmenu() {
+    event.cancelBubble = true
+    event.returnValue = false;
+    return false;
+  }
+  function norightclick(e) {
+    if (window.Event) {
+      if (e.which == 2 || e.which == 3)
+        return false;
+    }
+    else if (event.button == 2 || event.button == 3) {
+      event.cancelBubble = true
+      event.returnValue = false;
+      return false;
+    }
+  }
+  document.oncontextmenu = nocontextmenu; // for IE5+
+  document.onmousedown = norightclick; // for all others
 </script>
 
 <style scoped>
@@ -462,16 +518,6 @@
     width: 96%;
     /* background-color: #CCCCCC; */
     padding: 2%;
-  }
-  #itemright .article a {
-    padding: 3px;
-    background-color: lightseagreen;
-    float: left;
-    border-radius: 5px;
-    color: #CCCCCC;
-  }
-  #itemright .article a:hover {
-    color: black;
   }
  #itemright .shareto{
     text-align: right;
