@@ -193,6 +193,7 @@
     data() {
       return {
         resourcesZhIndex : this.$store.state.resourcesZhIndex,
+        curList: [],
         // 人气资源
         popRes : [],
         // 当前资源列表的标签，默认：all 有 电影 音乐 ....
@@ -308,13 +309,7 @@
        */
       getResByTime(page) {
         getResOrderInTime(page).then(res => {
-          console.log("-----------获得按时间排序的资源--------------开始")
-          console.log(res)
           this.resourcesZhIndex[this.curTag].list = res.data.data
-          var list = JSON.parse(JSON.stringify(this.resourcesZhIndex[this.curTag].list))
-          console.log(this.resourcesZhIndex[this.curTag].list)
-          console.log(list)
-          console.log("-----------获得按时间排序的资源--------------结束")
         }).catch(err => {
           console.log(err)
         })
@@ -377,17 +372,36 @@
 
         var targetObj = {}
         var list = this.storeState.resourcesZhIndex[this.curTag].list
-        // var list = JSON.parse(JSON.stringify(this.storeState.resourcesZhIndex[this.curTag].list))
 
-        console.log(this.curTag)
-        console.log("list:")
-        console.log(list)
+        for (var index in list) {
+          var obj = list[index]
+          if(obj.id === this.payResId) {
+            if (this.hadPayIt === 0) {
+              // 1. 用户积分不足
+              if (this.storeState.points < points) {
+                alert('积分不足')
+              }
+              // 2. 用户积分足够
+              else {
+                // 2.1 用户扣去相应积分
+                this.storeState.points -= points
+                // 2.2 该资源的 points 设为 0
+                obj.points = 0
+                this.downloadFile(obj.id, this.storeState.userId)
+                alert('支付成功')
+              }
+            }
+            else {
+              obj.points = 0
+            }
+          }
+          list[index] = obj
+        }
 
-        // for (var i=0; i<list.length; i++) {
-        //   var obj = list[i]
+        // 当 list 类型不为数组（如__ob__:Observer）的时候该方法便不可用
+        // list.forEach((obj) => {
+        //   // 通过资源id拿到该资源对象
         //   if(obj.id === this.payResId) {
-        //     console.log("单个对象")
-        //     console.log(obj)
         //     if (this.hadPayIt === 0) {
         //       // 1. 用户积分不足
         //       if (this.storeState.points < points) {
@@ -406,35 +420,9 @@
         //     }
         //     else {
         //       obj.points = 0
-        //       list[i] = obj
         //     }
         //   }
-        // }
-
-        list.forEach((obj) => {
-          // 通过资源id拿到该资源对象
-          if(obj.id === this.payResId) {
-            if (this.hadPayIt === 0) {
-              // 1. 用户积分不足
-              if (this.storeState.points < points) {
-                alert('积分不足')
-              }
-              // 2. 用户积分足够
-              else {
-                // 2.1 用户扣去相应积分
-
-                this.storeState.points -= points
-                // 2.2 该资源的 points 设为 0
-                obj.points = 0
-                this.downloadFile(obj.id, this.storeState.userId)
-                alert('支付成功')
-              }
-            }
-            else {
-              obj.points = 0
-            }
-          }
-        })
+        // })
       },
 
       /**
@@ -455,8 +443,6 @@
        */
       pageChange(page) {
 
-        console.log("页面变化函数：" + this.curTag + this.curBy)
-
         if (this.curTag == '所有') {
           if (this.curBy == 'all') {
             this.getResData(this.curTag, page)
@@ -473,18 +459,6 @@
 
         // window.scrollTo(0,0)
         document.getElementById("res-list-top").scrollIntoView(true)
-        // var topDiv = document.getElementById("res-list-top")
-        // var x = topDiv.offsetTop
-        // var timer = setInterval(function () {
-        //   window.scrollBy(0, 20)
-        // }, 30)
-        //
-        // window.onscroll(function () {
-        //   var distanc = document.body.scrollTop || document.documentElement.scrollTop
-        //   if (distanc === x) {
-        //     clearInterval(timer)
-        //   }
-        // }, false)
       },
 
       /**
