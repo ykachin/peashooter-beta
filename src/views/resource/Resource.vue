@@ -108,6 +108,7 @@
         <el-aside class="m-margin-top">
           <pop-res v-loading="loadingPopRes">
             <pop-res-item v-for="(item, index) in popRes" v-if="index < 15">
+              <!-- 该人气资源不需要积分 -->
               <el-link
                 v-if="item.points === 0"
                 style="color: #3377AA;
@@ -121,6 +122,20 @@
                 :href="HOSTURL + item.route"
                 target="_blank">
                 <p @click="downloadFile(item.id, storeState.userId)">{{ item.title }}</p>
+              </el-link>
+              <!-- 该人气资源需要积分 -->
+              <el-link
+                v-else
+                style="color: #ebb563;
+                  text-decoration: none;
+                  font-size: 14px;
+                  display: block;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis"
+                  slot="title"
+                  type="primary">
+                <p @click="readyPay(item.id, item.title, item.points)">{{ item.title }}</p>
               </el-link>
               <!--<a :href="HOSTURL + item.route" slot="title" class="title" target="_blank">{{ item.title }}</a>-->
               <span slot="download-times" class="download-times">下载次数 {{ item.times }} </span>
@@ -268,9 +283,6 @@
         getResData(page).then(res => {
           // // this.resourcesZhIndex[type].list.push(...res.data.data) // 页面使用【加载更多】方式时使用的方法
           this.storeState.resourcesZhIndex[tag].list = res.data.data
-          console.log(tag)
-          console.log(res.data.data)
-          console.log(this.storeState.resourcesZhIndex[tag].list)
           this.loadingResList = false
         })
       },
@@ -301,6 +313,8 @@
         getResOrderInDownloads(1).then(res => {
           this.popRes.push(...res.data.data)
           this.loadingPopRes = false
+          console.log("人气资源数据：")
+          console.log(this.popRes)
         })
       },
 
@@ -372,6 +386,7 @@
 
         var targetObj = {}
         var list = this.storeState.resourcesZhIndex[this.curTag].list
+        var listPopRes = this.popRes
 
         for (var index in list) {
           var obj = list[index]
@@ -396,6 +411,31 @@
             }
           }
           list[index] = obj
+        }
+
+        for (var index in listPopRes) {
+          var obj = listPopRes[index]
+          if(obj.id === this.payResId) {
+            if (this.hadPayIt === 0) {
+              // 1. 用户积分不足
+              if (this.storeState.points < points) {
+                alert('积分不足')
+              }
+              // 2. 用户积分足够
+              else {
+                // 2.1 用户扣去相应积分
+                this.storeState.points -= points
+                // 2.2 该资源的 points 设为 0
+                obj.points = 0
+                this.downloadFile(obj.id, this.storeState.userId)
+                alert('支付成功')
+              }
+            }
+            else {
+              obj.points = 0
+            }
+          }
+          listPopRes[index] = obj
         }
 
         // 当 list 类型不为数组（如__ob__:Observer）的时候该方法便不可用
