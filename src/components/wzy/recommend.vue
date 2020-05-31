@@ -3,7 +3,7 @@
     <!-- 页首 -->
     <myhead></myhead>
     <!-- 搜索框代码 -->
-    <div class="searchbody" style="background-color: white;opacity:0.8">
+    <div class="searchbody">
       <!-- <img src="../assets/teamlogo.png" style="padding-left: 20%; width: 60px; height: auto;"/> -->
       <span class="title" style="padding-top: 30px;margin-left: 20%;">豌豆</span>
       <span class="title" style="padding-top: 40px;">射手</span>
@@ -16,24 +16,39 @@
     <!-- 主题代码 -->
     <div class="mybody">
       <div class="bodyleft">
-        <div class="item1" v-for="num in shares"> <!-- 限制十个推荐 -->
+        <div class="item1" v-for="num in shares">
           <div id="itemleft">
-            <img src="../../../static/images/pea.png" v-on:click="tomypage(num.user_id)"/>
-            <p align="center"><strong>{{num.username}}</strong></p>
+            <el-popover
+                placement="bottom"
+                trigger="hover"
+                @after-enter="getShareUser(num.user_id)"
+                @after-leave="cleanUser">
+              <div>
+                <p>用户名：{{num.username}}</p>
+                <p v-show="shareUserNickname === 'nickname'">用户昵称：该用户暂未设置昵称</p>
+                <p v-show="shareUserNickname !== 'nickname'">用户昵称：{{shareUserNickname}}</p>
+                <p v-show="shareUserProfile === null">这个用户很懒，没有个人简介</p>
+                <p v-show="shareUserProfile !== null">个人简介：{{shareUserProfile}}</p>
+                <el-button type="infor" v-show="hadfollow === 1" @click="nofollow">取消关注</el-button>
+                <el-button type="primary" v-show="hadfollow === 0" @click="setfollow">关 注</el-button>
+              </div>
+              <div slot="reference">
+                <img src="../../../static/images/pea.png" v-on:click="tomypage(num.user_id)"/>
+                <p align="center"><strong>{{num.username}}</strong></p>
+              </div>
+            </el-popover>
           </div>
           <div id="itemright">
-            <div class="name">{{num.title}}</div>
-            <div class="tag">{{num.tags}}</div>
+            <div class="name"> {{num.title}} </div>
+            <div class="tag">
+              <i class="el-icon-price-tag"></i>
+              {{num.tags}}
+            </div>
             <div class="article">
               <strong>一句话分享：</strong>{{num.content}}
-              <!-- <div  v-if="num.content.length >= 36 && more === 0" title="点击查看更多" @click="showmore()">
-                <strong>一句话分享：</strong>{{num.content.slice(0,36)+"... ..."}}
-              </div>
-              <div v-if="num.content.length < 36 && more === 1" @click="showless()">
-                <strong>一句话分享：</strong>{{num.content}}
-              </div> -->
             </div>
             <div class="article" >
+            <hr align="center" color="cadetblue" size="2" />
               <!-- 内容链接 -->
               <p style="float: left;
                 padding: 3px;
@@ -41,6 +56,7 @@
                 color: #F2F2F2;
                 border-radius: 3px;"
                 v-bind:title="'http://129.204.247.165/'+num.route">
+              <i class="el-icon-link"></i>
               内容链接
               </p>
 
@@ -53,6 +69,7 @@
                 margin-left: 8px;"
                 @click="showimg(num.route)"
                 v-show="num.points === 0">
+              <i class="el-icon-view"></i>
               预览
               </p>
 
@@ -66,7 +83,9 @@
                     margin-left: 8px;"
                     @click="readpay(num.title, user_id, num.points, num.route, num.id)"
                     :title="'累计下载'+num.times+'次'">
-                  需要 {{num.points}} 积分/点击支付
+                  <i class="el-icon-lock"></i>
+                  需要 {{num.points}} 积分/
+                  <i class="el-icon-sell"></i>点击支付
                 </p>
               </div>
                 <!-- 无需积分下载 -->
@@ -80,7 +99,8 @@
                       margin-left: 8px;"
                       @click="downloadfile(num.id,user_id)"
                       :title="'累计下载'+num.times+'次'">
-                      无需积分/点击下载
+                  <i class="el-icon-download"></i>
+                      无需积分
                   </p>
                 </a>
               </div>
@@ -111,13 +131,22 @@
           </div>
           <div v-show="hadpayit === 1" style="text-align: center; margin: auto;">
             <strong style="font-size: x-large;"> {{this.message}} </strong><br /><br />
-            <span slot="footer" class="dialog-footer">
-              <el-button type="primary" @click="cancel()">
-                <a target="_blank" :href="'http://129.204.247.165/'+this.route">
-                  <p style="color:#DDDDDD" @click="downloadfile(num.id, this.user_id)">点击下载</p>
-                </a>
-              </el-button>
-            </span>
+            <div v-if="candownload === 1">
+              <span slot="footer" class="dialog-footer">
+                <el-button type="primary" @click="cancel()">
+                  <a target="_blank" :href="'http://129.204.247.165/'+this.route">
+                    <p style="color:#DDDDDD" @click="downloadfile(num.id, this.user_id)">点击下载</p>
+                  </a>
+                </el-button>
+              </span>
+            </div>
+            <div v-if="candownload === 0">
+              <span slot="footer" class="dialog-footer">
+                <el-button type="primary" @click="cancel()">
+                  <p style="color:#DDDDDD">关 闭</p>
+                </el-button>
+              </span>
+            </div>
           </div>
         </el-dialog>
 
@@ -133,6 +162,7 @@
           </span>
         </el-dialog>
 
+        <!-- 分页控件代码 -->
         <div class="pageblock">
           <el-pagination
             @current-change="handleCurrentChange"
@@ -144,9 +174,9 @@
         </div>
       </div>
       <div class="bodyright">
-        <div class="mybody m-margin-top-large" style="background-color:white" >
+        <!-- <div class="mybody m-margin-top-large" style="background-color:white" > -->
         <myhotlist></myhotlist>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
     <!-- 主题代码 -->
@@ -171,8 +201,10 @@
       return{
         search:"",//搜索框输入
         shares:[],//服务器返回的信息
+        hadfollow:0,
         hadpayit:0,
         total:0,
+        candownload:0,
         payDialogVisible:false,
         documentView:false,
         imgroute:"",
@@ -184,15 +216,53 @@
         message:"",
         more:0,
         user_id:window.sessionStorage.getItem('user_id'),//登录用户id
+        shareUserProfile:"",
+        shareUserNickname:"",
+        shareUserUsername:"",
         // pagetotal:this.shares.length,
       }
     },
     methods:{
-      showless() {
-        this.more = 0
+      /**
+       * 设置未关注
+       */
+      nofollow() {
+        this.hadfollow = 0
       },
-      showmore() {
-        this.more = 1
+     /**
+      * 设置关注
+      */
+      setfollow() {
+        this.hadfollow = 1
+      },
+      /**
+       * 清除资源分享者信息
+       */
+      cleanUser() {
+        this.shareUserNickname = ""
+        this.shareUserProfile = ""
+        this.shareUserUsername = ""
+        this.hadfollow = 0
+      },
+
+      /**获取某个资源分享者的信息
+       * @param {Object} userid
+       */
+      getShareUser(userid) {
+        const _this = this
+        const formData = new FormData()
+        formData.append('id', userid)
+        this.$axios({
+          url:'/api/user/searchbyid',
+          method:'post',
+          data:formData,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function(res) {
+          console.log(res)
+          _this.shareUserNickname = res.data.data.nickname
+          _this.shareUserProfile = res.data.data.profile
+          _this.shareUserUsername = res.data.data.username
+        })
       },
 
       /**
@@ -205,6 +275,7 @@
         this.payDialogpoints = ""
         this.payDialogtitle = ""
         this.payDialoguserlast = ""
+        this.candownload = 0
       },
 
       /**
@@ -215,6 +286,7 @@
         if (this.payDialogpoints > this.payDialoguserlast) {
           this.message = "您的积分不足"
         } else {
+          candownload = 1;
           this.message = "已支付"
         }
       },
@@ -331,7 +403,8 @@
         alert(this.message)
       },
 
-      tomypage(user_id) {
+      tomypage(userid) {
+        alert("前往"+userid+"主页")
         //跳转到id对应的用户主页
         //window.sessionstorage.setItem（‘user_id’,id）
       }
@@ -397,6 +470,7 @@
     overflow: hidden;
     background-color: #DDDDDD;
     height: auto;
+    background-color: white;
   }
   .searchbody img {
     float: left;
@@ -463,12 +537,18 @@
     width: 90%;
     margin: auto;
     margin-bottom: 3%;
-    border: 1px solid;
+    /* border: 1px solid; */
     background-color: white;
-    opacity:0.9;
+    /* opacity:0.9; */
     overflow: hidden;
     text-align: left;
     border-radius: 10px;
+    /* background: url(../../../static/images/background1.jpg); */
+  }
+  .item1:hover {
+    background-color: aliceblue;
+    box-shadow: 0px 0px 15px 15px rgba(0,0,0,0.2);
+    transition: box-shadow 0.5s;
   }
   #itemleft {
     float: left;
@@ -516,7 +596,7 @@
     /* background-color: #CCCCCC; */
     padding: 2%;
   }
- #itemright .shareto{
+  #itemright .shareto{
     text-align: right;
     float: left;
     width: 96%;
