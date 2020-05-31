@@ -221,36 +221,6 @@
           /*this.$router.go(0);*/
           /*this.reload()*/
         },
-        async dianzan(postid,thisitem){
-          const _this=this
-          thisitem.likesimage='../../static/images/liked.png'
-          const zan={
-            post_id:postid,
-            user_id:window.sessionStorage.getItem('user_id')
-          }
-          console.log('点赞表参数')
-          await this.$axios({
-            method: 'post',
-            url: '/api/likes',
-            data:this.$qs.stringify(zan)
-          }).then(function (res) {
-            _this.$message.success("点赞成功！")
-            console.log(res)
-            console.log('点赞成功')
-            console.log('报错了吗')
-            /*_this.getList()*/
-          }).catch(function (res) {
-            console.log(res)
-            console.log("点赞异常！请稍后重试...")
-          })
-          thisitem.likes=parseInt(thisitem.likes)+1
-          console.log('前端点赞数+1后的结果')
-          console.log(thisitem.likes)
-          thisitem.likesimage='../../static/images/liked.png'
-          this.reload()
-          /*setTimeout(this.reload(), 1000);*/
-          /*this.$router.go(0);*/
-        },
         async submitForm(){
           this.addComment.user_id=window.sessionStorage.getItem('user_id')
           this.addComment.post_id=this.postInfo.id
