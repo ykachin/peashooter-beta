@@ -15,7 +15,7 @@
             <a  target="_blank">
               <img id="jianjieimage" v-bind:src="this.workItem.route"   alt="" class="ui rounded image">
               <br/>
-              <div class="ui horizontal label">
+              <div style="font-size:15px" class="ui horizontal label">
                 <p class="ui head">&laquo;{{this.workItem.title}}&raquo;</p>
               </div>
 
@@ -34,6 +34,12 @@
         </div>
         <div id="ziyuanbar2" class="eleven wide column ">
           <span class="ui blue horizontal label ">资源链接:</span><a :href="this.workItem.url" target="_blank">{{this.workItem.url}}</a>
+        </div>
+        <div id="ziyuanbar3" class="eleven wide column ">
+          <span class="ui orange horizontal label ">标签:  {{this.workItem.tags}}</span>
+        </div>
+        <div id="ziyuanbar4" class="eleven wide column ">
+          <span class="ui orange horizontal label purple">分类:  {{this.trastatus[this.workItem.status]}}</span>
         </div>
 
       </div>
@@ -55,7 +61,7 @@
                 </a>
                 <div class="content" style="text-align: left">
                   <a class="author" >
-                    <span >{{item.user_id}}</span>
+                    <span >{{item.username}}</span>
                   </a>
                   <div class="metadata">
                     <span class="date">{{formatDate(new Date(item.create_time*1000))}}</span>
@@ -152,11 +158,15 @@
           content:'',
           user_id:'',
           comment_id:''
-        }
+        },
+        trastatus:["电影","音乐","书籍","电视剧"],
+        persontoken:window.sessionStorage.getItem('token'),
       }
     },  
     created(){
+      var qs = require('qs');
       const  _this=this
+      console.log(_this.personinfo)
       this.getList()
       //获取对应id的作品内容
       this.$axios({
@@ -169,6 +179,25 @@
         _this.workItem=rs.data
         _this.workItem.route="http://129.204.247.165/"+ _this.workItem.route
       }).catch(function (res) {
+        console.log("获取作品发生异常！请稍后重试...")
+      })
+      this.$axios({
+        method: 'post',
+        url: '/api/user/getbyaccess',
+         data:qs.stringify({
+          access_token:_this.persontoken,
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+        console.log("这是用户")
+        console.log(res)
+        const dres=res.data;
+        _this.addComment.user_id=dres.data.id;
+        console.log(_this.addComment);
+      }).catch(function (res) {
+        console.log(res);
         console.log("获取作品发生异常！请稍后重试...")
       })
 

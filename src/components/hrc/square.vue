@@ -154,7 +154,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u18" class="ax_default box_1">
-                    <img id="u18_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=558808288,4201467168&fm=58&s=E6E0F058CF41494F4355676B0300F074">
+                    <img id="u18_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=558808288,4201467168&fm=58&s=E6E0F058CF41494F4355676B0300F074">
                     <div id="u18_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -162,7 +162,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u19" class="ax_default box_1">
-                    <img id="u18_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2069485848,1297134864&fm=58&app=83&f=JPEG?w=400&h=533&s=5700D70092623ABEF4357D870300A082">
+                    <img id="u18_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2069485848,1297134864&fm=58&app=83&f=JPEG?w=400&h=533&s=5700D70092623ABEF4357D870300A082">
                     <div id="u19_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -170,7 +170,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u20" class="ax_default box_1">
-                    <img id="u18_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3450385683,574316072&fm=58&app=83&f=JPEG?w=150&h=200&s=E08BBA550C534DD80099416003007075">
+                    <img id="u18_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3450385683,574316072&fm=58&app=83&f=JPEG?w=150&h=200&s=E08BBA550C534DD80099416003007075">
                     <div id="u20_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -178,7 +178,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u21" class="ax_default box_1">
-                    <img id="u18_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1968001582,65192213&fm=58&app=83&f=JPEG?w=150&h=200&s=E9925F9C48434AC8480CB0EB03007070">
+                    <img id="u18_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1968001582,65192213&fm=58&app=83&f=JPEG?w=150&h=200&s=E9925F9C48434AC8480CB0EB03007070">
                     <div id="u21_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -186,7 +186,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u22" class="ax_default box_1">
-                    <img id="u18_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3562361595,769326677&fm=58&s=75A49E51CE196BCE5AA01D510300C08A">
+                    <img id="u18_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3562361595,769326677&fm=58&s=75A49E51CE196BCE5AA01D510300C08A">
                     <div id="u22_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -194,7 +194,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u23" class="ax_default box_1">
-                    <img id="u18_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1688676229,1191966103&fm=58&app=83&f=JPEG?w=150&h=200&s=D33F39C454AB04B8EF8D2C17030010CA">
+                    <img id="u18_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1688676229,1191966103&fm=58&app=83&f=JPEG?w=150&h=200&s=D33F39C454AB04B8EF8D2C17030010CA">
                     <div id="u23_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -202,7 +202,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u24" class="ax_default box_1">
-                    <img id="u18_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=117231139,867154527&fm=58">
+                    <img id="u18_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=117231139,867154527&fm=58">
                     <div id="u24_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -210,7 +210,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u25" class="ax_default box_1">
-                    <img id="u18_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1127756151,778441511&fm=58&s=5105DD145DFAD7F11D156CCC0300E0A2">
+                    <img id="u18_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1127756151,778441511&fm=58&s=5105DD145DFAD7F11D156CCC0300E0A2">
                     <div id="u25_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -220,7 +220,7 @@
                   <div id="u26" class="ax_default box_1">
                     <div id="u26_div" class=""></div>
                     <div id="u26_text" class="text ">
-                      <p><span>锦衣天下</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="guochanjutitle1">锦衣天下</span><span id="guochanjupf1" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -228,7 +228,7 @@
                   <div id="u27" class="ax_default box_1">
                     <div id="u27_div" class=""></div>
                     <div id="u27_text" class="text ">
-                      <p><span>陈情令</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="guochanjutitle2">陈情令</span><span id="guochanjupf2"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -236,7 +236,7 @@
                   <div id="u28" class="ax_default box_1">
                     <div id="u28_div" class=""></div>
                     <div id="u28_text" class="text ">
-                      <p><span>绿水青山带笑颜</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="guochanjutitle3">绿水青山带笑颜</span><span id="guochanjupf3"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -244,7 +244,7 @@
                   <div id="u29" class="ax_default box_1">
                     <div id="u29_div" class=""></div>
                     <div id="u29_text" class="text ">
-                      <p><span>远方的山楂树</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="guochanjutitle4">远方的山楂树</span><span id="guochanjupf4"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -252,7 +252,7 @@
                   <div id="u30" class="ax_default box_1">
                     <div id="u30_div" class=""></div>
                     <div id="u30_text" class="text ">
-                      <p><span>东宫</span><span style="color:#DAA51A;"></span></p>
+                      <p><span  id="guochanjutitle5">东宫</span><span id="guochanjupf5"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -260,7 +260,7 @@
                   <div id="u31" class="ax_default box_1">
                     <div id="u31_div" class=""></div>
                     <div id="u31_text" class="text ">
-                      <p><span>精英律师</span><span style="color:#DAA51A;"></span></p>
+                      <p><span  id="guochanjutitle6">精英律师</span><span id="guochanjupf6"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -268,7 +268,7 @@
                   <div id="u32" class="ax_default box_1">
                     <div id="u32_div" class=""></div>
                     <div id="u32_text" class="text ">
-                      <p><span>明国奇探</span><span style="color:#DAA51A;"></span></p>
+                      <p><span  id="guochanjutitle7">明国奇探</span><span id="guochanjupf7"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -276,7 +276,7 @@
                   <div id="u33" class="ax_default box_1">
                     <div id="u33_div" class=""></div>
                     <div id="u33_text" class="text ">
-                      <p><span>倚天屠龙记</span><span style="color:#DAA51A;"></span></p>
+                      <p><span  id="guochanjutitle8">倚天屠龙记</span><span id="guochanjupf8"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
                 </div>
@@ -286,7 +286,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u34" class="ax_default box_1">
-                    <img id="u34_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3090517813,1044695273&fm=58&app=83&f=JPEG?w=300&h=400&s=AFFC768680850CEF37380CB903009012">
+                    <img id="u34_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3090517813,1044695273&fm=58&app=83&f=JPEG?w=300&h=400&s=AFFC768680850CEF37380CB903009012">
                     <div id="u34_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -294,7 +294,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u35" class="ax_default box_1">
-                    <img id="u35_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3321106162,712864406&fm=58&s=D9D614C6523293CC5AC4BDBE03001005">
+                    <img id="u35_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3321106162,712864406&fm=58&s=D9D614C6523293CC5AC4BDBE03001005">
                     <div id="u35_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -302,7 +302,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u36" class="ax_default box_1">
-                    <img id="u35_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=820898571,3650166448&fm=58&s=D895B2BA48D245F14B1C00DF030010F6">
+                    <img id="u35_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=820898571,3650166448&fm=58&s=D895B2BA48D245F14B1C00DF030010F6">
                     <div id="u36_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -310,7 +310,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u37" class="ax_default box_1">
-                    <img id="u35_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=360665770,499104320&fm=58&app=83&f=JPEG?w=300&h=400&s=1CA60A9B42E0E4EA5E3C9EEC0300D035">
+                    <img id="u35_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=360665770,499104320&fm=58&app=83&f=JPEG?w=300&h=400&s=1CA60A9B42E0E4EA5E3C9EEC0300D035">
                     <div id="u37_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -318,7 +318,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u38" class="ax_default box_1">
-                    <img id="u35_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3129280674,2994687005&fm=58&s=3570168B54011AF4110188BC0300C095">
+                    <img id="u35_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3129280674,2994687005&fm=58&s=3570168B54011AF4110188BC0300C095">
                     <div id="u38_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -326,7 +326,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u39" class="ax_default box_1">
-                    <img id="u35_div" class="" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=404696042,3412828163&fm=58">
+                    <img id="u35_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=404696042,3412828163&fm=58">
                     <div id="u39_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -334,7 +334,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u40" class="ax_default box_1">
-                    <img id="u35_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2640512833,1977096915&fm=58&app=83&f=JPEG?w=400&h=533&s=9680CEA646A38EF9548995A60300B009">
+                    <img id="u35_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2640512833,1977096915&fm=58&app=83&f=JPEG?w=400&h=533&s=9680CEA646A38EF9548995A60300B009">
                     <div id="u40_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -342,7 +342,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u41" class="ax_default box_1">
-                    <img id="u35_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3680147761,4082433121&fm=58&s=C4AC46FA51066D5D42A7527F03001074">
+                    <img id="u35_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3680147761,4082433121&fm=58&s=C4AC46FA51066D5D42A7527F03001074">
                     <div id="u41_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -352,7 +352,7 @@
                   <div id="u42" class="ax_default box_1">
                     <div id="u42_div" class=""></div>
                     <div id="u42_text" class="text ">
-                      <p><span>声临其境</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="zongyititle1">声临其境</span><span id="zongyipf1" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -360,7 +360,7 @@
                   <div id="u43" class="ax_default box_1">
                     <div id="u43_div" class=""></div>
                     <div id="u43_text" class="text ">
-                      <p><span>等着我</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="zongyititle2">等着我</span><span id="zongyipf2" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -368,7 +368,7 @@
                   <div id="u44" class="ax_default box_1">
                     <div id="u44_div" class=""></div>
                     <div id="u44_text" class="text ">
-                      <p><span>快乐大本营</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="zongyititle3">快乐大本营</span><span id="zongyipf3" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -376,7 +376,7 @@
                   <div id="u45" class="ax_default box_1">
                     <div id="u45_div" class=""></div>
                     <div id="u45_text" class="text ">
-                      <p><span>我们的乐队</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="zongyititle4">我们的乐队</span><span id="zongyipf4" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -384,7 +384,7 @@
                   <div id="u46" class="ax_default box_1">
                     <div id="u46_div" class=""></div>
                     <div id="u46_text" class="text ">
-                      <p><span>开门大吉</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="zongyititle5">开门大吉</span><span id="zongyipf5" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -392,7 +392,7 @@
                   <div id="u47" class="ax_default box_1">
                     <div id="u47_div" class=""></div>
                     <div id="u47_text" class="text ">
-                      <p><span>天天向上</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="zongyititle6">天天向上</span><span id="zongyipf6" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -400,7 +400,7 @@
                   <div id="u48" class="ax_default box_1">
                     <div id="u48_div" class=""></div>
                     <div id="u48_text" class="text ">
-                      <p><span>王牌对王牌</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="zongyititle7">王牌对王牌</span><span id="zongyipf7" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -408,7 +408,7 @@
                   <div id="u49" class="ax_default box_1">
                     <div id="u49_div" class=""></div>
                     <div id="u49_text" class="text ">
-                      <p><span>健康之路</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="zongyititle8">健康之路</span><span id="zongyipf8" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
                 </div>
@@ -426,7 +426,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u51" class="ax_default box_1">
-                    <img id="u50_div" class="" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3187597499,2690165625&fm=58&s=7E1609C75F090ADC58D069360300F001">
+                    <img id="u50_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3187597499,2690165625&fm=58&s=7E1609C75F090ADC58D069360300F001">
                     <div id="u51_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -434,7 +434,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u52" class="ax_default box_1">
-                    <img id="u50_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4049863420,2128417759&fm=58&app=83&f=JPEG?w=150&h=200&s=145357308431E7843A5BE9CD0300F0B6">
+                    <img id="u50_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4049863420,2128417759&fm=58&app=83&f=JPEG?w=150&h=200&s=145357308431E7843A5BE9CD0300F0B6">
                     <div id="u52_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -442,7 +442,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u53" class="ax_default box_1">
-                    <img id="u50_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2768229352,1148497361&fm=58&app=83&f=JPEG?w=400&h=533&s=EC702DC6C62292F41EFCCC1F0300D093">
+                    <img id="u50_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2768229352,1148497361&fm=58&app=83&f=JPEG?w=400&h=533&s=EC702DC6C62292F41EFCCC1F0300D093">
                     <div id="u53_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -450,7 +450,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u54" class="ax_default box_1">
-                    <img id="u50_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2538189423,1605950232&fm=58&app=83&f=JPEG?w=400&h=533&s=97161DC70263B8FF4C5454B303007011">
+                    <img id="u50_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2538189423,1605950232&fm=58&app=83&f=JPEG?w=400&h=533&s=97161DC70263B8FF4C5454B303007011">
                     <div id="u54_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -458,7 +458,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u55" class="ax_default box_1">
-                    <img id="u50_div" class="" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1603360520,1896742795&fm=58&s=BEED468604C280FA1AABF52C0300F019">
+                    <img id="u50_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1603360520,1896742795&fm=58&s=BEED468604C280FA1AABF52C0300F019">
                     <div id="u55_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -466,7 +466,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u56" class="ax_default box_1">
-                    <img id="u50_div" class="" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1699980841,1872414250&fm=58&s=5DB428D45E472B4F4081ED190300E0C2">
+                    <img id="u50_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1699980841,1872414250&fm=58&s=5DB428D45E472B4F4081ED190300E0C2">
                     <div id="u56_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -474,7 +474,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u57" class="ax_default box_1">
-                    <img id="u50_div" class="" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=740567100,1231384853&fm=58&s=EE300DC70724BEFA56F401270300E042">
+                    <img id="u50_div" class="" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=740567100,1231384853&fm=58&s=EE300DC70724BEFA56F401270300E042">
                     <div id="u57_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -484,7 +484,7 @@
                   <div id="u58" class="ax_default box_1">
                     <div id="u58_div" class=""></div>
                     <div id="u58_text" class="text ">
-                      <p><span>我们这一天</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="meijutitle1">我们这一天</span><span id="meijupf1" style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -492,7 +492,7 @@
                   <div id="u59" class="ax_default box_1">
                     <div id="u59_div" class=""></div>
                     <div id="u59_text" class="text ">
-                      <p><span>巴瑞</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="meijutitle2">巴瑞</span><span id="meijupf2"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -500,7 +500,7 @@
                   <div id="u60" class="ax_default box_1">
                     <div id="u60_div" class=""></div>
                     <div id="u60_text" class="text ">
-                      <p><span>良医</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="meijutitle3">良医</span><span id="meijupf3"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -508,7 +508,7 @@
                   <div id="u61" class="ax_default box_1">
                     <div id="u61_div" class=""></div>
                     <div id="u61_text" class="text ">
-                      <p><span>后裔</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="meijutitle4">后裔</span><span id="meijupf4"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -516,7 +516,7 @@
                   <div id="u62" class="ax_default box_1">
                     <div id="u62_div" class=""></div>
                     <div id="u62_text" class="text ">
-                      <p><span>继承之战</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="meijutitle5">继承之战</span><span id="meijupf5"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -524,7 +524,7 @@
                   <div id="u63" class="ax_default box_1">
                     <div id="u63_div" class=""></div>
                     <div id="u63_text" class="text ">
-                      <p><span>破产姐妹</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="meijutitle6">破产姐妹</span><span id="meijupf6"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -532,7 +532,7 @@
                   <div id="u64" class="ax_default box_1">
                     <div id="u64_div" class=""></div>
                     <div id="u64_text" class="text ">
-                      <p><span>风骚律师</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="meijutitle7">风骚律师</span><span id="meijupf7"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
 
@@ -540,7 +540,7 @@
                   <div id="u65" class="ax_default box_1">
                     <div id="u65_div" class=""></div>
                     <div id="u65_text" class="text ">
-                      <p><span>生活大爆炸</span><span style="color:#DAA51A;"></span></p>
+                      <p><span id="meijutitle8">生活大爆炸</span><span id="meijupf8"  style="color:#DAA51A;"></span></p>
                     </div>
                   </div>
                 </div>
@@ -969,65 +969,65 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u119" class="ax_default box_1">
-                    <img id="u119_div" class="upload_div" src="https://dss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/image/pic/item/738b4710b912c8fc384d01a5f0039245d6882118.jpg">
+                    <img id="u119_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/image/pic/item/738b4710b912c8fc384d01a5f0039245d6882118.jpg">
                     <div id="u119_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u120" class="ax_default box_1">
-                    <img id="u120_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=787652361,1329536808&fm=58&s=1BD5F7A644014CED18FFB3730300F079">
+                    <img id="u120_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=787652361,1329536808&fm=58&s=1BD5F7A644014CED18FFB3730300F079">
                     <div id="u120_text" class="text ">
-                      <p><span>test3</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u121" class="ax_default box_1">
-                    <img id="u121_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=700343164,1237684525&fm=58&s=B6049C4FCB5716CC697D11360300D040">
+                    <img id="u121_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=700343164,1237684525&fm=58&s=B6049C4FCB5716CC697D11360300D040">
                     <div id="u121_text" class="text ">
-                      <p><span>3</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u122" class="ax_default box_1">
-                    <img id="u122_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1621893621,2065019442&fm=58&s=FD42EC17132366A02C59CDDD0300C020">
+                    <img id="u122_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1621893621,2065019442&fm=58&s=FD42EC17132366A02C59CDDD0300C020">
                     <div id="u122_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u123" class="ax_default box_1">
-                    <img id="u123_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3916000477,2656043904&fm=58&s=C56493469F76A4DC664D918803003012">
+                    <img id="u123_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3916000477,2656043904&fm=58&s=C56493469F76A4DC664D918803003012">
                     <div id="u123_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u124" class="ax_default box_1">
-                    <img id="u124_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=514943120,583237469&fm=58&s=C0308D72032E7CA87AE040E10300F0A2">
+                    <img id="u124_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=514943120,583237469&fm=58&s=C0308D72032E7CA87AE040E10300F0A2">
                     <div id="u124_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u125" class="ax_default box_1">
-                    <img id="u125_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=942128250,1285103462&fm=58&s=1A3D798654CA84FC481E61A60300F012">
+                    <img id="u125_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=942128250,1285103462&fm=58&s=1A3D798654CA84FC481E61A60300F012">
                     <div id="u125_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u126" class="ax_default box_1">
-                    <img id="u126_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1921409476,1980655018&fm=58&s=4860A244C2F83D9E70B097990300C097">
+                    <img id="u126_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1921409476,1980655018&fm=58&s=4860A244C2F83D9E70B097990300C097">
                     <div id="u126_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
@@ -1035,7 +1035,7 @@
                   <div id="u127" class="ax_default box_1">
                     <div id="u127_div" class=""></div>
                     <div id="u127_text" class="text ">
-                      <p><span>我不是药神</span><span style="color:#DAA51A;"> 9.0</span></p>
+                      <p><span id="huayutitle1">我不是药神</span><span  id="huayupf1" style="color:#DAA51A;"> 9.0</span></p>
                     </div>
                   </div>
 
@@ -1043,7 +1043,7 @@
                   <div id="u128" class="ax_default box_1">
                     <div id="u128_div" class=""></div>
                     <div id="u128_text" class="text ">
-                      <p><span>三傻大闹好莱坞</span><span style="color:#DAA51A;"> 9.2</span></p>
+                      <p><span id="huayutitle2">三傻大闹好莱坞</span><span id="huayupf2" style="color:#DAA51A;"> 9.2</span></p>
                     </div>
                   </div>
 
@@ -1051,7 +1051,7 @@
                   <div id="u129" class="ax_default box_1">
                     <div id="u129_div" class=""></div>
                     <div id="u129_text" class="text ">
-                      <p><span>肖申克的救赎</span><span style="color:#DAA51A;"> 9.7</span></p>
+                      <p><span id="huayutitle3">肖申克的救赎</span><span id="huayupf3" style="color:#DAA51A;"> 9.7</span></p>
                     </div>
                   </div>
 
@@ -1059,7 +1059,7 @@
                   <div id="u130" class="ax_default box_1">
                     <div id="u130_div" class=""></div>
                     <div id="u130_text" class="text ">
-                      <p><span>霸王别姬</span><span style="color:#DAA51A;"> 9.6</span></p>
+                      <p><span id="huayutitle4">霸王别姬</span><span id="huayupf4"  style="color:#DAA51A;"> 9.6</span></p>
                     </div>
                   </div>
 
@@ -1067,7 +1067,7 @@
                   <div id="u131" class="ax_default box_1">
                     <div id="u131_div" class=""></div>
                     <div id="u131_text" class="text ">
-                      <p><span>千与千寻</span><span style="color:#DAA51A;"> 9.4</span></p>
+                      <p><span id="huayutitle5">千与千寻</span><span id="huayupf5"  style="color:#DAA51A;"> 9.4</span></p>
                     </div>
                   </div>
 
@@ -1075,7 +1075,7 @@
                   <div id="u132" class="ax_default box_1">
                     <div id="u132_div" class=""></div>
                     <div id="u132_text" class="text ">
-                      <p><span>阿甘正传</span><span style="color:#DAA51A;"> 9.5</span></p>
+                      <p><span id="huayutitle6">阿甘正传</span><span id="huayupf6"  style="color:#DAA51A;"> 9.5</span></p>
                     </div>
                   </div>
 
@@ -1083,7 +1083,7 @@
                   <div id="u133" class="ax_default box_1">
                     <div id="u133_div" class=""></div>
                     <div id="u133_text" class="text ">
-                      <p><span>这个杀手不太冷</span><span style="color:#DAA51A;"> 9.4</span></p>
+                      <p><span id="huayutitle7">这个杀手不太冷</span><span id="huayupf7"  style="color:#DAA51A;"> 9.4</span></p>
                     </div>
                   </div>
 
@@ -1091,7 +1091,7 @@
                   <div id="u134" class="ax_default box_1">
                     <div id="u134_div" class=""></div>
                     <div id="u134_text" class="text ">
-                      <p><span>星际穿越</span><span style="color:#DAA51A;"> 9.3</span></p>
+                      <p><span id="huayutitle8">星际穿越</span><span id="huayupf8"  style="color:#DAA51A;"> 9.3</span></p>
                     </div>
                   </div>
 
@@ -1117,65 +1117,65 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u137" class="ax_default box_1">
-                    <img id="u137_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1506509424,1731787174&fm=58&s=C7A0B3E2D842B0CC4D314001030070D1#">
+                    <img id="u137_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"   src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1506509424,1731787174&fm=58&s=C7A0B3E2D842B0CC4D314001030070D1#">
                     <div id="u137_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u138" class="ax_default box_1">
-                    <img id="u138_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1575423528,1615172077&fm=58&s=172069A0C852BFE50639DC15030080C2">
+                    <img id="u138_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"   src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1575423528,1615172077&fm=58&s=172069A0C852BFE50639DC15030080C2">
                     <div id="u138_text" class="text ">
-                      <p><span>test4</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u139" class="ax_default box_1">
-                    <img id="u139_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2975901083,2518363767&fm=58">
+                    <img id="u139_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"   src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2975901083,2518363767&fm=58">
                     <div id="u139_text" class="text ">
-                      <p><span>3</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u140" class="ax_default box_1">
-                    <img id="u140_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3992808686,3494530648&fm=58&app=83&f=JPEG?w=150&h=200&s=FE381EC75AA380DA902280AD0300D04A">
+                    <img id="u140_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"   src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3992808686,3494530648&fm=58&app=83&f=JPEG?w=150&h=200&s=FE381EC75AA380DA902280AD0300D04A">
                     <div id="u140_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u141" class="ax_default box_1">
-                    <img id="u141_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3347214178,1265969800&fm=58&s=BA931DCFD456C1CE4818383C0300805A">
+                    <img id="u141_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"   src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3347214178,1265969800&fm=58&s=BA931DCFD456C1CE4818383C0300805A">
                     <div id="u141_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u142" class="ax_default box_1">
-                    <img id="u142_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2902217750,1702414084&fm=58&s=D78EEEAE4453CBED3C8B5CB30300E00B#">
+                    <img id="u142_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"   src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2902217750,1702414084&fm=58&s=D78EEEAE4453CBED3C8B5CB30300E00B#">
                     <div id="u142_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u143" class="ax_default box_1">
-                    <img id="u143_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2615390465,2692784211&fm=58&s=7A1157841853E2C41A1E299C030070EA">
+                    <img id="u143_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"   src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2615390465,2692784211&fm=58&s=7A1157841853E2C41A1E299C030070EA">
                     <div id="u143_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
                   <!-- Unnamed (矩形) -->
                   <div id="u144" class="ax_default box_1">
-                    <img id="u144_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2277429237,2853658307&fm=58&s=DCBC67DA8272A5CE0AAC1F3C0300C054">
+                    <img id="u144_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"   src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2277429237,2853658307&fm=58&s=DCBC67DA8272A5CE0AAC1F3C0300C054">
                     <div id="u144_text" class="text ">
-                      <p><span>1</span></p>
+                      <p><span></span></p>
                     </div>
                   </div>
 
@@ -1183,7 +1183,7 @@
                   <div id="u145" class="ax_default box_1">
                     <div id="u145_div" class=""></div>
                     <div id="u145_text" class="text ">
-                      <p><span>湄公河行动</span><span style="color:#DAA51A;"> 8.1</span></p>
+                      <p><span id="oumeititle1">湄公河行动</span><span id="oumeipf1" style="color:#DAA51A;"> 8.1</span></p>
                     </div>
                   </div>
 
@@ -1191,7 +1191,7 @@
                   <div id="u146" class="ax_default box_1">
                     <div id="u146_div" class=""></div>
                     <div id="u146_text" class="text ">
-                      <p><span>战狼</span><span style="color:#DAA51A;"> 7.1</span></p>
+                      <p><span id="oumeititle2">战狼</span><span id="oumeipf2" style="color:#DAA51A;"> 7.1</span></p>
                     </div>
                   </div>
 
@@ -1199,7 +1199,7 @@
                   <div id="u147" class="ax_default box_1">
                     <div id="u147_div" class=""></div>
                     <div id="u147_text" class="text ">
-                      <p><span>少年的你</span><span style="color:#DAA51A;"> 8.3</span></p>
+                      <p><span id="oumeititle3">少年的你</span><span id="oumeipf3"  style="color:#DAA51A;"> 8.3</span></p>
                     </div>
                   </div>
 
@@ -1207,7 +1207,7 @@
                   <div id="u148" class="ax_default box_1">
                     <div id="u148_div" class=""></div>
                     <div id="u148_text" class="text ">
-                      <p><span>我和我的祖国</span><span style="color:#DAA51A;"> 7.3</span></p>
+                      <p><span id="oumeititle4">我和我的祖国</span><span id="oumeipf4"  style="color:#DAA51A;"> 7.3</span></p>
                     </div>
                   </div>
 
@@ -1215,7 +1215,7 @@
                   <div id="u149" class="ax_default box_1">
                     <div id="u149_div" class=""></div>
                     <div id="u149_text" class="text ">
-                      <p><span>红海行动</span><span style="color:#DAA51A;"> 8.3</span></p>
+                      <p><span id="oumeititle5">红海行动</span><span id="oumeipf5"  style="color:#DAA51A;"> 8.3</span></p>
                     </div>
                   </div>
 
@@ -1223,7 +1223,7 @@
                   <div id="u150" class="ax_default box_1">
                     <div id="u150_div" class=""></div>
                     <div id="u150_text" class="text ">
-                      <p><span>唐人街探案2</span><span style="color:#DAA51A;"> 6.7</span></p>
+                      <p><span id="oumeititle6">唐人街探案2</span><span id="oumeipf6"  style="color:#DAA51A;"> 6.7</span></p>
                     </div>
                   </div>
 
@@ -1231,7 +1231,7 @@
                   <div id="u151" class="ax_default box_1">
                     <div id="u151_div" class=""></div>
                     <div id="u151_text" class="text ">
-                      <p><span>舒克贝塔</span><span style="color:#DAA51A;"> 8.5</span></p>
+                      <p><span id="oumeititle7">舒克贝塔</span><span id="oumeipf7"  style="color:#DAA51A;"> 8.5</span></p>
                     </div>
                   </div>
 
@@ -1239,7 +1239,7 @@
                   <div id="u152" class="ax_default box_1">
                     <div id="u152_div" class=""></div>
                     <div id="u152_text" class="text ">
-                      <p><span>罗小黑战记</span><span style="color:#DAA51A;"> 8.1</span></p>
+                      <p><span id="oumeititle8">罗小黑战记</span><span id="oumeipf8"  style="color:#DAA51A;"> 8.1</span></p>
                     </div>
                   </div>
 
@@ -1265,7 +1265,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u155" class="ax_default box_1">
-                    <img id="u155_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4216794451,768777121&fm=58&app=83&f=JPEG?w=400&h=533&s=BD21A019475243D4C6A5A6C6030070BF">
+                    <img id="u155_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4216794451,768777121&fm=58&app=83&f=JPEG?w=400&h=533&s=BD21A019475243D4C6A5A6C6030070BF">
                     <div id="u155_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -1273,7 +1273,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u156" class="ax_default box_1">
-                    <img id="u156_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=4068672002,929365249&fm=58&app=83&f=JPEG?w=400&h=533&s=9B9144840E1A6ECE0936D6410300D0F9">
+                    <img id="u156_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=4068672002,929365249&fm=58&app=83&f=JPEG?w=400&h=533&s=9B9144840E1A6ECE0936D6410300D0F9">
                     <div id="u156_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -1281,7 +1281,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u157" class="ax_default box_1">
-                    <img  id="u157_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=793199502,3041177597&fm=58&s=EABB1BC7A4634ABC6BA0D9320300C013">
+                    <img  id="u157_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=793199502,3041177597&fm=58&s=EABB1BC7A4634ABC6BA0D9320300C013">
                     <div id="u157_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -1289,7 +1289,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u158" class="ax_default box_1">
-                    <img  id="u158_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3084197689,862650034&fm=58&s=DBBCB7E258132EC434B836390300D04D">
+                    <img  id="u158_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3084197689,862650034&fm=58&s=DBBCB7E258132EC434B836390300D04D">
                     <div id="u158_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -1297,7 +1297,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u159" class="ax_default box_1">
-                    <img  id="u159_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=521423730,1733614869&fm=58&s=CD202CD710C00AEF5192DD7403005079">
+                    <img  id="u159_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=521423730,1733614869&fm=58&s=CD202CD710C00AEF5192DD7403005079">
                     <div id="u159_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -1305,7 +1305,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u160" class="ax_default box_1">
-                    <img  id="u160_div" class="upload_div" src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3736708205,3624361310&fm=58&s=55C5C2A6CA3288DC14729EAB0300E007">
+                    <img  id="u160_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3736708205,3624361310&fm=58&s=55C5C2A6CA3288DC14729EAB0300E007">
                     <div id="u160_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -1313,7 +1313,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u161" class="ax_default box_1">
-                    <img  id="u161_div" class="upload_div" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3542027998,910174279&fm=58&s=BF7A7F834C3389FD008DE51A01001092">
+                    <img  id="u161_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3542027998,910174279&fm=58&s=BF7A7F834C3389FD008DE51A01001092">
                     <div id="u161_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -1321,7 +1321,7 @@
 
                   <!-- Unnamed (矩形) -->
                   <div id="u162" class="ax_default box_1">
-                    <img  id="u162_div" class="upload_div" src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2605386252,3229575353&fm=58&s=7C0AE61E4A4A55472AB37AFD0300C02C">
+                    <img  id="u162_div" class="upload_div" style="cursor:pointer" value="-1" @click="test_method"  src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2605386252,3229575353&fm=58&s=7C0AE61E4A4A55472AB37AFD0300C02C">
                     <div id="u162_text" class="text ">
                       <p><span></span></p>
                     </div>
@@ -1331,7 +1331,7 @@
                   <div id="u163" class="ax_default box_1">
                     <div id="u163_div" class=""></div>
                     <div id="u163_text" class="text ">
-                      <p><span class="upload_div_img">雪人奇缘</span><span style="color:#DAA51A;"> 7.3</span></p>
+                      <p><span id="rihantitle1" class="upload_div_img">雪人奇缘</span><span id="rihanpf1" style="color:#DAA51A;"> 7.3</span></p>
                     </div>
                   </div>
 
@@ -1339,7 +1339,7 @@
                   <div id="u164" class="ax_default box_1">
                     <div id="u164_div" class=""></div>
                     <div id="u164_text" class="text ">
-                      <p><span >绿皮书</span><span style="color:#DAA51A;"> 8.9</span></p>
+                      <p><span id="rihantitle2"  >绿皮书</span><span id="rihanpf2"  style="color:#DAA51A;"> 8.9</span></p>
                     </div>
                   </div>
 
@@ -1347,7 +1347,7 @@
                   <div id="u165" class="ax_default box_1">
                     <div id="u165_div" class=""></div>
                     <div id="u165_text" class="text ">
-                      <p><span >终结者:黑暗命运</span><span style="color:#DAA51A;"> 6.9</span></p>
+                      <p><span id="rihantitle3"  >终结者:黑暗命运</span><span id="rihanpf3"  style="color:#DAA51A;"> 6.9</span></p>
                     </div>
                   </div>
 
@@ -1355,7 +1355,7 @@
                   <div id="u166" class="ax_default box_1">
                     <div id="u166_div" class=""></div>
                     <div id="u166_text" class="text ">
-                      <p><span >我在雨中等你</span><span style="color:#DAA51A;"> 8.2</span></p>
+                      <p><span id="rihantitle4"  >我在雨中等你</span><span id="rihanpf4"  style="color:#DAA51A;"> 8.2</span></p>
                     </div>
                   </div>
 
@@ -1363,7 +1363,7 @@
                   <div id="u167" class="ax_default box_1">
                     <div id="u167_div" class=""></div>
                     <div id="u167_text" class="text ">
-                      <p><span >头号玩家</span><span style="color:#DAA51A;"> 8.7</span></p>
+                      <p><span id="rihantitle5"  >头号玩家</span><span id="rihanpf5"  style="color:#DAA51A;"> 8.7</span></p>
                     </div>
                   </div>
 
@@ -1371,7 +1371,7 @@
                   <div id="u168" class="ax_default box_1">
                     <div id="u168_div" class=""></div>
                     <div id="u168_text" class="text ">
-                      <p><span >复仇者联盟3:无限战争</span><span style="color:#DAA51A;"> 8.1</span></p>
+                      <p><span id="rihantitle6"  >复仇者联盟3:无限战争</span><span id="rihanpf6"  style="color:#DAA51A;"> 8.1</span></p>
                     </div>
                   </div>
 
@@ -1379,7 +1379,7 @@
                   <div id="u169" class="ax_default box_1">
                     <div id="u169_div" class=""></div>
                     <div id="u169_text" class="text ">
-                      <p><span>海王</span><span style="color:#DAA51A;"> 7.6</span></p>
+                      <p><span id="rihantitle7" >海王</span><span id="rihanpf7"  style="color:#DAA51A;"> 7.6</span></p>
                     </div>
                   </div>
 
@@ -1387,7 +1387,7 @@
                   <div id="u170" class="ax_default box_1">
                     <div id="u170_div" class=""></div>
                     <div id="u170_text" class="text ">
-                      <p><span>波西米亚狂想曲</span><span style="color:#DAA51A;"> 8.1</span></p>
+                      <p><span id="rihantitle8" >波西米亚狂想曲</span><span id="rihanpf8"  style="color:#DAA51A;"> 8.1</span></p>
                     </div>
                   </div>
 
@@ -1425,12 +1425,14 @@
                 <p><span></span></p>
               </div>
             </div>
-
+   
             <!-- Unnamed (矩形) -->
             <div id="u175" class="ax_default box_1">
+               
               <div id="u175_div" class=""></div>
               <div id="u175_text" class="text ">
-                <p><span>电影</span></p>
+           
+                <p><span style="margin-right:20px;background-color:white" class=" ui label circular big"> <img src="static/resources/images/电影.png">  电影&nbsp;</span></p>
               </div>
             </div>
 
@@ -1454,7 +1456,7 @@
             <div id="dy178" class="ax_default box_1" data-label="dytab3" selectiongroup="1" style="cursor:pointer">
               <div id="u178_div" class=""></div>
               <div id="u178_text" class="text ">
-                <p><span>高分</span></p>
+                <p><span>华语</span></p>
               </div>
             </div>
 
@@ -1462,7 +1464,7 @@
             <div id="dy179" class="ax_default box_1" data-label="dytab4" selectiongroup="1" style="cursor:pointer">
               <div id="u179_div" class=""></div>
               <div id="u179_text" class="text ">
-                <p><span>华语</span></p>
+                <p><span>欧美</span></p>
               </div>
             </div>
 
@@ -1470,7 +1472,7 @@
             <div id="dy180" class="ax_default box_1" data-label="dytab5" selectiongroup="1" style="cursor:pointer">
               <div id="u180_div" class=""></div>
               <div id="u180_text" class="text ">
-                <p><span>欧美</span></p>
+                <p><span>日韩</span></p>
               </div>
             </div>
 
@@ -1484,9 +1486,9 @@
 
             <!-- Unnamed (矩形) -->
             <div id="u182" class="ax_default box_1">
-              <div id="u182_div" class=""></div>
-              <div id="u182_text" class="text ">
-                <p><span>口碑榜</span></p>
+              <div id="u182_div"  class=""></div>
+              <div style="width:200px" id="u182_text" class="text ">
+                 <p><span style="margin-right:20px;background-color:white" class=" ui label circular big"> <img src="static/resources/images/口碑.png">  口碑榜&nbsp;</span></p>
               </div>
             </div>
 
@@ -1536,7 +1538,7 @@
             <div id="u189" class="ax_default box_1">
               <div id="u189_div" class=""></div>
               <div id="u189_text" class="text ">
-                <p><span>电视剧</span></p>
+                <p><span style="margin-right:20px;background-color:white" class=" ui label circular big"> <img src="static/resources/images/电视剧.png">  电视剧&nbsp;</span></p>
               </div>
             </div>
 
@@ -2593,36 +2595,16 @@
                   </div>
 
                   <!-- Unnamed (形状) -->
-                  <div id="u327" class="ax_default icon">
-                    <img id="u327_img" class="img " src="static/resources/images/page_1/u227.svg"/>
-                    <div id="u327_text" class="text " style="display:none; visibility: hidden">
-                      <p></p>
-                    </div>
-                  </div>
+                
 
                   <!-- Unnamed (形状) -->
-                  <div id="u328" class="ax_default icon">
-                    <img id="u328_img" class="img " src="static/resources/images/page_1/u227.svg"/>
-                    <div id="u328_text" class="text " style="display:none; visibility: hidden">
-                      <p></p>
-                    </div>
-                  </div>
+                 
 
                   <!-- Unnamed (形状) -->
-                  <div id="u329" class="ax_default icon">
-                    <img id="u329_img" class="img " src="static/resources/images/page_1/u227.svg"/>
-                    <div id="u329_text" class="text " style="display:none; visibility: hidden">
-                      <p></p>
-                    </div>
-                  </div>
+               
 
                   <!-- Unnamed (形状) -->
-                  <div id="u330" class="ax_default icon">
-                    <img id="u330_img" class="img " src="static/resources/images/page_1/u227.svg"/>
-                    <div id="u330_text" class="text " style="display:none; visibility: hidden">
-                      <p></p>
-                    </div>
-                  </div>
+                 
                 </div>
               </div>
               <div id="m305_state1" class="panel_state" data-label="State2" style="visibility: hidden;">
@@ -3311,7 +3293,7 @@
             <div id="u414" class="ax_default box_1">
               <div id="u414_div" class=""></div>
               <div id="u414_text" class="text ">
-                <p><span>本周流行音乐</span></p>
+                 <p><span style="margin-right:20px;background-color:white" class=" ui label circular big"> <img src="static/resources/images/音乐.png">  音乐&nbsp;</span></p>
               </div>
             </div>
 
@@ -3413,20 +3395,10 @@
             </div>
 
             <!-- Unnamed (形状) -->
-            <div id="u431" class="ax_default icon">
-              <img id="u431_img" class="img " src="static/resources/images/page_1/u227.svg"/>
-              <div id="u431_text" class="text " style="display:none; visibility: hidden">
-                <p></p>
-              </div>
-            </div>
+            
 
             <!-- Unnamed (形状) -->
-            <div id="u432" class="ax_default icon">
-              <img id="u432_img" class="img " src="static/resources/images/page_1/u227.svg"/>
-              <div id="u432_text" class="text " style="display:none; visibility: hidden">
-                <p></p>
-              </div>
-            </div>
+          
 
             <!-- Unnamed (图片 ) -->
             <div id="u433" class="ax_default image">
@@ -3847,7 +3819,7 @@
 
 
             <div>
-              <div id="o1" class="ax_default outside" style=" cursor:pointer;margin-left:56px; left:0px" >
+              <div id="o1" class="ax_default outside" style=" cursor:pointer;margin-left:56px; left:0px"  value="-1" @click="test_method"  >
                 <div id="u485" class="">
                   <img id="u485_div" class="yidongimg" src="static/resources/images/1.jpg">
                   <div id="u485_text" class="text ">
@@ -3865,7 +3837,7 @@
                 </div>
               </div>
 
-              <div id="o2" class="ax_default outside" style="cursor:pointer;margin-left:56px;left:1000px">
+              <div id="o2" class="ax_default outside" style="cursor:pointer;margin-left:56px;left:1000px"  value="-1" @click="test_method" >
                 <div id="u485" class="">
                   <img id="u485_div" class="yidongimg" src="static/resources/images/2.jpg">
                   <div id="u485_text" class="text ">
@@ -3884,7 +3856,7 @@
                 </div>
               </div>
 
-              <div id="o3" class="ax_default outside" style="cursor:pointer;margin-left:56px;left:2000px">
+              <div id="o3" class="ax_default outside" style="cursor:pointer;margin-left:56px;left:2000px"  value="-1" @click="test_method" >
                 <div id="u485" class="">
                   <img id="u485_div" class="yidongimg" src="static/resources/images/3.jpg">
                   <div id="u485_text" class="text ">
@@ -3903,7 +3875,7 @@
                 </div>
               </div>
 
-              <div id="o4" class="ax_default outside" style="cursor:pointer;margin-left:56px;left:-1000px">
+              <div id="o4" class="ax_default outside" style="cursor:pointer;margin-left:56px;left:-1000px"  value="-1" @click="test_method" >
                 <div id="u485" class="">
                   <img id="u485_div" class="" src="static/resources/images/4.jpg">
                   <div id="u485_text" class="text ">
@@ -4144,6 +4116,7 @@
       return {
         remen_movie:{},
         zuixin_movie:{},
+        song_num,
       }
     },
     methods:{
@@ -4163,6 +4136,7 @@
       },
       search_post:function()
       {
+         const sousuo_name=input1.value;
          var qs = require('qs');
         document.getElementById("input1");
         console.log(input1.value);
@@ -4182,12 +4156,12 @@
           const dres=res.data;
           if(dres.data.length==0)  
           {
-            _this.$message.info("未找到此作品!");
+            _this.$message.info("未找到作品!");
           }
           else
           {
             _this.$message.success("找到作品!");
-            _this.$router.push("/squareinfo/"+dres.data[0].id);
+            _this.$router.push("/sousuoyemian/"+sousuo_name);
           }
 
 
@@ -4519,6 +4493,351 @@
     created:function(){
       const _this=this;
       var qs = require('qs');
+      //综艺
+       this.$axios({
+        method: 'post',
+        url: '/api/posts/getbytags',
+        data:qs.stringify({
+          tags:"梦想",
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+         console.log("获取电影");
+        console.log(res);
+        const dres=res.data;
+        _this.remen_movie=dres.data;
+        var m,n;
+        var temp_data;
+        var flag=0;
+        var s1="u";
+        var s2="_div";
+        var s3=50;
+        var i;
+        var sa1="meijutitle";
+        var sa2=1;
+        var sap1="meijupf";
+        var sap2=1
+
+
+        for(i=0;i<8;i++)
+        {
+
+          var idstring=s1+s3+s2;
+          var namestring=sa1+sa2;
+          var pfstring=sap1+sap2;
+          var dydiv=document.getElementById(idstring);
+          var naspan=document.getElementById(namestring);
+          var pfspan=document.getElementById(pfstring);
+          dydiv.setAttribute("value",dres.data[i].id);
+          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
+          naspan.innerHTML=dres.data[i].title;
+          var pscore=(dres.data[i].score)/10;
+          var s=(pscore.toString()).indexOf('.');
+          if(s<0)
+          pscore=pscore+".0";
+          pfspan.innerHTML="  "+pscore;
+          if(dres.data[i].title.length>8)
+            naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
+          s3=s3+1;
+          sa2++;
+          sap2++;
+        }
+
+
+
+      }).catch(function (res) {
+        console.log(res)
+      })
+       //综艺
+       this.$axios({
+        method: 'post',
+        url: '/api/posts/getbytags',
+        data:qs.stringify({
+          tags:"梦想",
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+         console.log("获取电影");
+        console.log(res);
+        const dres=res.data;
+        _this.remen_movie=dres.data;
+        var m,n;
+        var temp_data;
+        var flag=0;
+        var s1="u";
+        var s2="_div";
+        var s3=34;
+        var i;
+        var sa1="zongyititle";
+        var sa2=1;
+        var sap1="zongyipf";
+        var sap2=1
+
+
+        for(i=0;i<8;i++)
+        {
+
+          var idstring=s1+s3+s2;
+          var namestring=sa1+sa2;
+          var pfstring=sap1+sap2;
+          var dydiv=document.getElementById(idstring);
+          var naspan=document.getElementById(namestring);
+          var pfspan=document.getElementById(pfstring);
+          dydiv.setAttribute("value",dres.data[i].id);
+          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
+          naspan.innerHTML=dres.data[i].title;
+          var pscore=(dres.data[i].score)/10;
+          var s=(pscore.toString()).indexOf('.');
+          if(s<0)
+          pscore=pscore+".0";
+          pfspan.innerHTML="  "+pscore;
+          if(dres.data[i].title.length>8)
+            naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
+          s3=s3+1;
+          sa2++;
+          sap2++;
+        }
+
+
+
+      }).catch(function (res) {
+        console.log(res)
+      })
+       //国产剧
+       this.$axios({
+        method: 'post',
+        url: '/api/posts/getbytags',
+        data:qs.stringify({
+          tags:"国产剧",
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+         console.log("获取电影");
+        console.log(res);
+        const dres=res.data;
+        _this.remen_movie=dres.data;
+        var m,n;
+        var temp_data;
+        var flag=0;
+        var s1="u";
+        var s2="_div";
+        var s3=18;
+        var i;
+        var sa1="guochanjutitle";
+        var sa2=1;
+        var sap1="guochanjupf";
+        var sap2=1
+
+
+        for(i=0;i<8;i++)
+        {
+
+          var idstring=s1+s3+s2;
+          var namestring=sa1+sa2;
+          var pfstring=sap1+sap2;
+          var dydiv=document.getElementById(idstring);
+          var naspan=document.getElementById(namestring);
+          var pfspan=document.getElementById(pfstring);
+          dydiv.setAttribute("value",dres.data[i].id);
+          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
+          naspan.innerHTML=dres.data[i].title;
+          var pscore=(dres.data[i].score)/10;
+          var s=(pscore.toString()).indexOf('.');
+          if(s<0)
+          pscore=pscore+".0";
+          pfspan.innerHTML="  "+pscore;
+          if(dres.data[i].title.length>8)
+            naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
+          s3=s3+1;
+          sa2++;
+          sap2++;
+        }
+
+
+
+      }).catch(function (res) {
+        console.log(res)
+      })
+       //日韩电影
+       this.$axios({
+        method: 'post',
+        url: '/api/posts/getbytags',
+        data:qs.stringify({
+          tags:"日韩",
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+         console.log("获取电影");
+        console.log(res);
+        const dres=res.data;
+        _this.remen_movie=dres.data;
+        var m,n;
+        var temp_data;
+        var flag=0;
+
+        var s1="u";
+        var s2="_div";
+        var s3=155;
+        var i;
+        var sa1="rihantitle";
+        var sa2=1;
+        var sap1="rihanpf";
+        var sap2=1
+
+
+        for(i=0;i<8;i++)
+        {
+
+          var idstring=s1+s3+s2;
+          var namestring=sa1+sa2;
+          var pfstring=sap1+sap2;
+          var dydiv=document.getElementById(idstring);
+          var naspan=document.getElementById(namestring);
+          var pfspan=document.getElementById(pfstring);
+          dydiv.setAttribute("value",dres.data[i].id);
+          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
+          naspan.innerHTML=dres.data[i].title;
+          var pscore=(dres.data[i].score)/10;
+          var s=(pscore.toString()).indexOf('.');
+          if(s<0)
+          pscore=pscore+".0";
+          pfspan.innerHTML="  "+pscore;
+          if(dres.data[i].title.length>8)
+            naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
+          s3=s3+1;
+          sa2++;
+          sap2++;
+        }
+
+
+
+      }).catch(function (res) {
+        console.log(res)
+      })
+      //欧美电影
+       this.$axios({
+        method: 'post',
+        url: '/api/posts/getbytags',
+        data:qs.stringify({
+          tags:"欧美",
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+         console.log("获取电影");
+        console.log(res);
+        const dres=res.data;
+        _this.remen_movie=dres.data;
+        var m,n;
+        var temp_data;
+        var flag=0;
+
+        var s1="u";
+        var s2="_div";
+        var s3=137;
+        var i;
+        var sa1="oumeititle";
+        var sa2=1;
+        var sap1="oumeipf";
+        var sap2=1
+
+
+        for(i=0;i<8;i++)
+        {
+
+          var idstring=s1+s3+s2;
+          var namestring=sa1+sa2;
+          var pfstring=sap1+sap2;
+          var dydiv=document.getElementById(idstring);
+          var naspan=document.getElementById(namestring);
+          var pfspan=document.getElementById(pfstring);
+          dydiv.setAttribute("value",dres.data[i].id);
+          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
+          naspan.innerHTML=dres.data[i].title;
+          var pscore=(dres.data[i].score)/10;
+          var s=(pscore.toString()).indexOf('.');
+          if(s<0)
+          pscore=pscore+".0";
+          pfspan.innerHTML="  "+pscore;
+          if(dres.data[i].title.length>8)
+            naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
+          s3=s3+1;
+          sa2++;
+          sap2++;
+        }
+
+
+
+      }).catch(function (res) {
+        console.log(res)
+      })
+      //华语电影
+       this.$axios({
+        method: 'post',
+        url: '/api/posts/getbytags',
+        data:qs.stringify({
+          tags:"华语",
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+         console.log("获取电影");
+        console.log(res);
+        const dres=res.data;
+        _this.remen_movie=dres.data;
+        var m,n;
+        var temp_data;
+        var flag=0;
+
+        var s1="u";
+        var s2="_div";
+        var s3=119;
+        var i;
+        var sa1="huayutitle";
+        var sa2=1;
+        var sap1="huayupf";
+        var sap2=1
+
+
+        for(i=0;i<8;i++)
+        {
+
+          var idstring=s1+s3+s2;
+          var namestring=sa1+sa2;
+          var pfstring=sap1+sap2;
+          var dydiv=document.getElementById(idstring);
+          var naspan=document.getElementById(namestring);
+          var pfspan=document.getElementById(pfstring);
+          dydiv.setAttribute("value",dres.data[i].id);
+          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
+          naspan.innerHTML=dres.data[i].title;
+          var pscore=(dres.data[i].score)/10;
+          var s=(pscore.toString()).indexOf('.');
+          if(s<0)
+          pscore=pscore+".0";
+          pfspan.innerHTML="  "+pscore;
+          if(dres.data[i].title.length>8)
+            naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
+          s3=s3+1;
+          sa2++;
+          sap2++;
+        }
+
+
+
+      }).catch(function (res) {
+        console.log(res)
+      })
       //新书速递
       this.$axios({
         method: 'post',
@@ -4541,6 +4860,7 @@
         {
           xinshuimglist[i].src="http://129.204.247.165/"+dres.data[i].route;
           xinshutextlist[i].innerHTML=dres.data[i].content;
+          xinshutextlist[i].setAttribute("value",dres.data[i].id);
         }
 
 
