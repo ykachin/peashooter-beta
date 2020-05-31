@@ -106,7 +106,6 @@
         this.$axios({
           method: 'post',
           url: '/api/user',
-
         }).then(function (res) {
           console.log(res)
           console.log("123")

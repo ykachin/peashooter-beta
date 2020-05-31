@@ -53,7 +53,11 @@
         window.sessionStorage.clear()
         const _this=this
         _this.$router.push("/login")
-      }
+      },
+      topersonal(){
+      const _this=this
+      _this.$router.push("/personal")
+    }
     }
 }
 </script>

@@ -50,6 +50,7 @@
               <i class="el-icon-s-grid"></i>
               <span>功能列表</span>
             </template>
+              <el-menu-item :index="'/personal/searchpage'" @click.native="flushCom">搜索试用</el-menu-item>
               <el-menu-item :index="'/personal/information'" @click.native="flushCom">个人信息</el-menu-item>
               <el-menu-item :index="'/personal/journal'" @click.native="flushCom">文章</el-menu-item>
               <el-menu-item :index="'/personal/comments'" @click.native="flushCom">留言</el-menu-item>

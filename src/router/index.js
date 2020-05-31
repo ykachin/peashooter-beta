@@ -29,6 +29,7 @@ import comments from "../components/personal/comments"
 import fans from "../components/personal/fans"
 import journal from "../components/personal/journal"
 import photos from "../components/personal/photos"
+import searchpage from "../components/personal/searchpage"
 
 import VueRouter from 'vue-router'
 
@@ -87,6 +88,10 @@ const router= new Router({
     {
       path:'/personal/photos',
       component:photos
+    },
+    {
+      path:'/personal/searchpage',
+      component:searchpage
     },
    ]
 },
