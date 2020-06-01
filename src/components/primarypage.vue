@@ -56,6 +56,9 @@
                               <div class="item">
                                 <a @click="getcommentbypostid(item.id,index)"><img  class="middle aligned" style="width: 18px" src="../../static/images/comment.png"></a>
                               </div>
+                              <div class="item">
+                                <a @click="deletepost(item.id)"><img  class="middle aligned" v-if="parseInt(item.user_id) === parseInt(currentuserid)" style="width: 18px" src="../../static/images/delete.png"></a>
+                              </div>
                             </div>
                           </div>
 
@@ -91,8 +94,33 @@
                                       {{item.content}}
                                     </div>
                                     <div class="actions" >
-                                      <a class="reply" data-commentid="1" data-commentnickname="Matt"  @click="reply(item.user_id)" >回复</a>
+                                      <a class="reply" data-commentid="1" data-commentnickname="Matt"  @click="reply(item.user_id,item.id)" >回复</a>
                                     </div>
+                                    <!--删除评论-->
+                                    <div class="item">
+                                      <a @click=""><img  class="middle aligned" v-if="parseInt(item.user_id) === parseInt(currentuserid)" style="width: 18px" src="../../static/images/delete.png"></a>
+                                    </div>
+                                  </div>
+                                  <div class="comments">
+                                  <div class="comment" v-for="(item2,index2) in item.son">
+                                    <a class="avatar">
+                                      <img :src="circleUrl" >
+                                    </a>
+                                    <div class="content" style="text-align: left">
+                                      <a class="author" >
+                                        <span >{{item2.user_id}}</span>
+                                      </a>
+                                      <div class="metadata">
+                                        <span class="date">{{formatDate(new Date(item2.create_time*1000))}}</span>
+                                      </div>
+                                      <div class="text" >
+                                        {{item2.content}}
+                                      </div>
+                                      <div class="actions" >
+                                        <a class="reply" data-commentid="1" data-commentnickname="Matt"  @click="reply(item2.user_id,item.id)" >回复</a>
+                                      </div>
+                                    </div>
+                                  </div>
                                   </div>
                                 </div>
                               </div>
@@ -195,15 +223,8 @@
 
                 <!--标签-->
                 <div class="ui segments m-margin-top-large">
-                  <div class="ui blue segment">
-                    <div class="ui two column grid">
-                      <div class="column">
-                        <i class="tags icon"></i>标签
-                      </div>
-                      <div class="right aligned column">
-                        <a @click="gototag" >更多 <i class="angle double right icon"></i></a>
-                      </div>
-                    </div>
+                  <div class="ui blue segment ">
+                    <i class="tags icon"></i>标签
                   </div>
                   <div class="ui blue segment" >
                     <a href="#"  target="_blank" class="ui teal tag label m-margin-tb-tiny" v-for="(item,index) in tags">
@@ -250,6 +271,7 @@
 <script>
     import myhead from "./myhead";
     import myfoot from "./myfoot";
+    import $ from "jquery";
     import wordcloud from 'vue-wordcloud'
     let echarts = require('echarts/lib/echarts')
     require('echarts-wordcloud');
@@ -261,6 +283,9 @@
       },
       data() {
         return {
+          currentuserid:window.sessionStorage.getItem('user_id'),
+          comment_id:'',
+          isreply:false,
           wordcloud:[],
           categorycloud:[],
 
@@ -286,10 +311,36 @@
             page:1
             //暂时设置1
           },
-          addComment:{},
+          addComment:{
+            content:''
+          },
         }
       },
       methods:{
+        deletepost(post_id){
+          const _this=this
+          console.log("要删除的postid：",post_id)
+          var ddd={id:post_id}
+          this.$axios({
+            method: 'delete',
+            url: '/api/post',
+            data:_this.$qs.stringify(ddd),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          }).then(function (res) {
+            _this.$message.success("删除成功！")
+          }).catch(function (res) {
+            console.log(res)
+            _this.$message.error("删除失败！")
+          })
+        },
+        reply(user_id,comment_id){
+          console.log("回复的父级评论id",user_id)
+          this.addComment.content='回复内容：'
+          this.isreply=true
+          this.comment_id=comment_id
+        },
         //词云在下面
         drawLine(){
           var self=this;
@@ -521,8 +572,13 @@
                 console.log('报错了吗')
               })
             }else{
-              _this.$message.error("您已经取消赞！")
-
+              _this.$axios({
+                method: 'post',
+                url: '/api/likes/del',
+                data:_this.$qs.stringify(zan)
+              }).then(function (res) {
+                _this.$message.error("您已经取消赞！")
+              })
               /*_this.$message.error("点赞失败！您已经点赞！")*/
               console.log(res)
               console.log('点赞失败')
@@ -543,7 +599,15 @@
         },
         async submitForm(){
           this.addComment.user_id=window.sessionStorage.getItem('user_id')
-          this.addComment.post_id=this.postInfo.id
+          if(!this.isreply){
+            console.log("这条评论是回复post的")
+            this.addComment.post_id=this.postInfo.id
+          }else{
+            console.log("这条评论是回复comment的")
+            this.addComment.comment_id=this.comment_id
+            this.addComment.content = this.addComment.content.substring(5)
+          }
+          console.log("子串获取的内容：",this.addComment.content)
           const _this=this
           console.log('要加入的评论数据')
           console.log(this.addComment)
@@ -870,10 +934,11 @@
           console.log(res)
         })
 
+
         //获取标签
         await this.$axios({
-          method: 'get',
-          url: '/api/tags',
+          method: 'post',
+          url: '/api/tags/get',
         }).then(function (res) {
           const r=res.data
           _this.tags=r.data
