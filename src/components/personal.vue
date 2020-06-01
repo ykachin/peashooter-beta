@@ -15,7 +15,7 @@
               <form name="search" action="#"  method="post" target="_blank">
                 <div class="ui icon inverted white input m-margin-tb-tiny">
                   <input type="text" name="query" :query='query' v-model="query"  placeholder="用户名，uid" style="width: 500px">
-                  <i @click="search" class="search link icon"></i>
+                  <i @click="search" class="search link icon"  ></i>
                 </div>
               </form>
             </div>
@@ -94,8 +94,10 @@
       console.log("添加评论成功")
       console.log("添加评论成功")
     },
-    methods:{      search(){
+    methods:{
+            search(){
             const _this=this
+            _this.$message.error(this.query)
             /*const d={query:this.query}
             console.log(d)
             this.$axios({
@@ -115,7 +117,7 @@
             })*/
             /*this.$router.push('/work/query/'+this.query)*/
             window.sessionStorage.setItem('query',this.query)
-            this.flushCom()
+
           },
       flushCom:function(){
         this.$router.go(0);

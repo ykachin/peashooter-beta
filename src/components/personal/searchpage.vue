@@ -24,7 +24,7 @@
       prop="aaaa"
       label="关注">
       <template slot-scope="scope">
-          <el-button type="success">关注</el-button>
+          <el-button type="success" @click="follow">关注</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -37,7 +37,7 @@
         tableData:[{
         nickname:'12',
         username:'904566722',
-        num:'0',
+        num:'1',
         id:10,
       }]
       }
@@ -68,6 +68,12 @@
           _this.$message.error('获取用户信息失败')
         })
       },
+      follow(){
+        this.$notify({
+          title: '关注成功',
+          type: 'success'
+        });
+      }
     }
   }
 </script>
