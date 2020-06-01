@@ -29,8 +29,8 @@
                 <p v-show="shareUserNickname !== 'nickname'">用户昵称：{{shareUserNickname}}</p>
                 <p v-show="shareUserProfile === null">这个用户很懒，没有个人简介</p>
                 <p v-show="shareUserProfile !== null">个人简介：{{shareUserProfile}}</p>
-                <el-button type="infor" v-show="hadfollow === 1" @click="nofollow">取消关注</el-button>
-                <el-button type="primary" v-show="hadfollow === 0" @click="setfollow">关 注</el-button>
+                <!-- <el-button type="infor" v-show="hadfollow === 1" @click="nofollow">取消关注</el-button>
+                <el-button type="primary" v-show="hadfollow === 0" @click="setfollow">关 注</el-button> -->
               </div>
               <div slot="reference">
                 <img src="../../../static/images/pea.png" v-on:click="tomypage(num.user_id)"/>
