@@ -12,7 +12,11 @@
     <!-- 搜索框代码 -->
     <!-- 主代码 -->
     <div class="mybody">
-      <el-page-header @back="backtotopicpage" content="话题页">
+      <el-page-header
+        @back="backtotopicpage"
+        content="话题页"
+        style="padding: 1%;
+          background-image: linear-gradient(#239DC2, #F0F0F0);">
       </el-page-header>
       <div class="bodyleft">
         <div class="topictitle">
@@ -28,38 +32,35 @@
           <div id="comment" v-for="(num, index) in commentParent" :key="num.id" :class="{'back':index%2 == 0}">
             <div class="commentleft">
               <!-- <img src="../../../static/images/pea.png" v-on:click="tomypage(num.user_id)" /> -->
-              <el-avatar shape="circle" :size="medium" :src="circleUrl"></el-avatar>
+              <el-avatar shape="circle" :src="circleUrl"></el-avatar>
             </div>
             <div class="commentright">
               <div class="username">{{num.username}}</div>
               <div class="usercontent">
                 &emsp;{{num.content}}
-                <span style="float: right;
-                  margin: 0 13px 0 13px;
-                  background-color: #CCCCCC;
-                  border-radius: 3px;" @click="getson(num.id, index)">
-                  查看回复
-                </span>
-                <span style="float: right;color:#AAAAAA;"
-                  @click="getson(num.id, index)">
-                  <i class="el-icon-date">{{formatDate(new Date(num.create_time*1000))}}</i>
+                <span style="float: right;margin-bottom: 3%;">
+                  <span class="showSonButton" @click="getson(num.id, index)" v-if="!num.showSon">
+                    <i class="el-icon-arrow-down">查看回复</i>
+                  </span>
+                  <span class="showSonButton" @click="hiddencom(index)" v-show="num.showSon">
+                    <i class="el-icon-arrow-up">收起评论</i>
+                  </span>
+                  <span class="createDate" @click="getson(num.id, index)">
+                    <i class="el-icon-date">{{formatDate(new Date(num.create_time*1000))}}</i>
+                  </span>
                 </span>
               </div>
 
-              <div v-if="num.showSon"
-                style="width: 100%;
-                background-color: #F0F8FF;
-                border: 1px solid;
-                padding: 5px;
-                overflow: hidden;">
+              <div v-if="num.showSon" class="sonComment">
                 <div class="thecomment" style="width: 100%;">
                   <!-- 发表评论框 -->
                   <div id="publish" style="width: 100%;">
-                    <textarea placeholder="输入你的评论.." v-model="userinput"></textarea>
-                    <input type="submit" value="发表评论" v-on:click="sendcomment">
+                    <textarea placeholder="输入你的评论.." v-model="userreply"></textarea>
+                    <input type="submit" value="发表评论" @click="sendreply(num.id)" >
                   </div>
+                  <hr align="center" color="#2E99E6" size="3" />
                   <!-- 子评论循环体 -->
-                  <div class="comment" style="border: 1px solid; overflow: hidden;" v-for="item in commentParent">
+                  <div class="comment" style="border: 1px solid; overflow: hidden;" v-for="item in commentSon">
                     <div class="commentleft">
                       <el-avatar size="small" :src="circleUrl"></el-avatar>
                     </div>
@@ -75,10 +76,11 @@
                       </div>
                     </div>
                   </div>
+                  <div class="noneComment" v-if="commentSon.length == 0">暂无评论，快来抢沙发吧！</div>
                   <!-- 发表评论框 -->
-                  <div id="publish" style="width: 100%;">
-                    <textarea placeholder="输入你的评论.." v-model="userinput"></textarea>
-                    <input type="submit" value="发表评论" v-on:click="sendcomment">
+                  <div id="publish" style="width: 100%;" v-show="commentSon.length > 5">
+                    <textarea placeholder="输入你的评论.." v-model="userreply"></textarea>
+                    <input type="submit" value="发表评论" @click="sendreply(num.id)">
                   </div>
                 </div>
               </div>
@@ -133,6 +135,7 @@
         commentParent:[],
         message:'',//搜索框的输入信息
         userinput:'',//用户输入的评论内容
+        userreply:'',//用户输入的子评论
         user_id:window.sessionStorage.getItem('user_id'),//登录用户id
         total:1000,//分页总页数
         showSon:false,
@@ -140,10 +143,46 @@
       }
     },
     methods:{
+      async hiddencom(index) {
+        this.comments[index].showSon = false
+        await this.$forceUpdate();
+      },
+
+      /**向服务器发送子评论
+       * @param {Object} commentid 父评论id
+       */
+      async sendreply(commentid){
+        const _this=this
+        if(this.$route.path.split('/')[2]!=='-1'){
+          this.topic_id=this.$route.path.split('/')[2]
+          console.log('当前路径'+this.$route.path.split('/')[2])
+        }
+        const d = {
+          content:this.userreply,
+          user_id:window.sessionStorage.getItem('user_id') ,
+          topic_id:this.topic_id,
+          comment_id:commentid,
+        }
+        console.log(d)
+        await this.$axios({
+          method: 'post',
+          url: '/api/comments',
+          data:this.$qs.stringify(d),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        }).then(function (res) {
+          _this.$message.success("添加评论成功！")
+          console.log(res)
+          console.log("添加评论成功")
+          console.log("当前评论的用户id"+_this.user_id)
+        })
+        // await _this.updatedata()
+        this.$router.go(0);
+      },
+
       updatedata(){
         const _this=this
         for(let c in _this.posts){
-          _this.posts[c].isShowComment=false
+          _this.posts[c].showSon = false
         }
       },
 
@@ -151,11 +190,12 @@
        * @param {Object} id 父评论id
        */
       async getson(id, index) {
-        console.log(this.comments[index].showSon)
+        for (let c = 0; c<this.comments.length; c++) {
+          this.comments[c].showSon = false
+        }
+        console.log("查看评论点击前 = "+this.comments[index].showSon)
         this.comments[index].showSon = !this.comments[index].showSon
-        console.log(this.comments[index].showSon)
-        // this.sonShow[index] = !this.sonShow[index]
-        // console.log(this.sonShow)
+        console.log("查看评论点击后 = "+this.comments[index].showSon)
         this.commentSon = []
         for (let i=0; i<this.comments.length; i++){
           if (this.comments[i].comment_id == id)
@@ -260,6 +300,30 @@
 </script>
 
 <style scoped>
+  .noneComment {
+    overflow: hidden;
+    padding: 5%;
+    text-align: center;
+    color: #D3D3D3;
+  }
+  .sonComment {
+    width: 100%;
+    background-color: #F0F8FF;
+    border: 1px solid;
+    padding: 5px;
+    overflow: hidden;
+    margin-bottom: 3%;
+  }
+  .createDate {
+    float: right;
+    color:#AAAAAA;
+  }
+  .showSonButton {
+    float: right;
+    margin: 0 13px 0 13px;
+    background-color: #CCCCCC;
+    border-radius: 3px;
+  }
   .back {
     background-color: #F2F2F2;
   }
