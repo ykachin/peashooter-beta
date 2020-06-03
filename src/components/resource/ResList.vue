@@ -29,13 +29,6 @@
 </script>
 
 <style scoped>
-  #res-list {
-    height: 500px;
-    margin-top: 20px;
-    border-radius: 10px;
-    padding-top: 1em !important;
-    text-align: left;
-  }
   #res-list-cho {
     text-align: center;
     display: flex;
@@ -44,6 +37,11 @@
   .router-link-btn {
     text-decoration: none;
     color: #606266;
+  }
+  #res-list {
+    height: 500px;
+    margin-top: 20px;
+    border-radius: 7px;
   }
   #res-list-content {
     /*background-color: #D7D7D7;*/

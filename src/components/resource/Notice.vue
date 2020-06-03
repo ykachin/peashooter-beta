@@ -13,9 +13,9 @@
 
 <style scoped>
   #notice {
+    /*background-color: #D7D7D7;*/
     padding: 10px 21px;
     border-radius: 10px;
-    font-size:30px;
   }
   .el-icon-chat-dot-square {
     margin-left: 3px;
