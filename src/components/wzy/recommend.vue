@@ -29,11 +29,13 @@
                 <p v-show="shareUserNickname !== 'nickname'">用户昵称：{{shareUserNickname}}</p>
                 <p v-show="shareUserProfile === null">这个用户很懒，没有个人简介</p>
                 <p v-show="shareUserProfile !== null">个人简介：{{shareUserProfile}}</p>
-                <!-- <el-button type="infor" v-show="hadfollow === 1" @click="nofollow">取消关注</el-button>
-                <el-button type="primary" v-show="hadfollow === 0" @click="setfollow">关 注</el-button> -->
+                <el-button type="infor" v-show="hadfollow === 1" @click="nofollow(num.user_id)">取消关注</el-button>
+                <el-button type="primary" v-show="hadfollow === 0" @click="setfollow(num.user_id)">关 注</el-button>
               </div>
               <div slot="reference">
-                <img src="../../../static/images/pea.png" v-on:click="tomypage(num.user_id)"/>
+                <img src="../../../static/images/pea.png"/>
+                <!-- <img src="../../../static/images/pea.png" @click="tomypage(num.user_id)"/> -->
+                <!-- <img src="../../../static/images/pea.png" @click="getShareImformation(num.user_id)"/> -->
                 <p align="center"><strong>{{num.username}}</strong></p>
               </div>
             </el-popover>
@@ -43,6 +45,9 @@
             <div class="tag">
               <i class="el-icon-price-tag"></i>
               {{num.tags}}
+            </div>
+            <div style="float: right;margin: 10px;color: #CCCCCC;">
+              <i class="el-icon-date">{{formatDate(new Date(num.create_time*1000))}}</i>
             </div>
             <div class="article">
               <strong>一句话分享：</strong>{{num.content}}
@@ -107,9 +112,46 @@
               <!-- <p style="float: right;color: #8F949A;">下载次数:{{num.times}}</p> -->
             </div>
           </div>
+
         </div>
         <!--总条数{{total}}-->
         <el-divider></el-divider>
+
+<!--        <el-drawer
+          :visible.sync="drawer"
+          direction="ltr">
+          <el-divider><el-avatar shape="circle" :src="circleUrl"></el-avatar></el-divider>
+          <div style="background-color: #239DC2;color: white;padding: 10px;">{{shareUserUsername}}</div>
+          <div style="background-color: #73B309;color: white;padding: 10px;">
+            <p v-show="shareUserProfile === null">这个用户很懒，没有个人简介</p>
+            <p v-show="shareUserProfile !== null">个人简介：{{shareUserProfile}}</p>
+          </div>
+          <el-table
+            :data="shares"
+            style="width: 100%"
+            max-height="400">
+            <el-table-column
+              fixed
+              prop="title"
+              label="分享标题"
+              width="100">
+            </el-table-column>
+            <el-table-column
+              prop="content"
+              label="分享内容"
+              width="250">
+            </el-table-column>
+            <el-table-column
+              prop="route"
+              label="资源链接"
+              width="250">
+            </el-table-column>
+          </el-table>
+          <div style="color: white;padding: 10px;position: absolute;bottom: 10px;width: 100%;">
+            <el-button type="infor" v-show="hadfollow === 1" @click="nofollow(num.user_id)">取消关注</el-button>
+            <el-button type="primary" v-show="hadfollow === 0" @click="setfollow(num.user_id)">关 注</el-button>
+          </div>
+        </el-drawer> -->
 
         <!-- 支付积分提示窗口 -->
         <el-dialog
@@ -135,7 +177,7 @@
               <span slot="footer" class="dialog-footer">
                 <el-button type="primary" @click="cancel()">
                   <a target="_blank" :href="'http://129.204.247.165/'+this.route">
-                    <p style="color:#DDDDDD" @click="downloadfile(num.id, this.user_id)">点击下载</p>
+                    <p style="color:#DDDDDD" @click="downloadfile(payDialogdocuid, user_id)">点击下载</p>
                   </a>
                 </el-button>
               </span>
@@ -199,12 +241,15 @@
     },
     data:function(){
       return{
+        drawer: false,
         search:"",//搜索框输入
         shares:[],//服务器返回的信息
+        userfollow:[],
         hadfollow:0,
         hadpayit:0,
         total:0,
         candownload:0,
+        followid:-1,
         payDialogVisible:false,
         documentView:false,
         imgroute:"",
@@ -219,21 +264,122 @@
         shareUserProfile:"",
         shareUserNickname:"",
         shareUserUsername:"",
-        // pagetotal:this.shares.length,
+        circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
       }
     },
     methods:{
+      // async getShareImformation(shareuserid) {
+      //   this.drawer = true
+      //   const _this = this
+      //   const formData = new FormData()
+      //   formData.append('id', shareuserid)
+      //   this.$axios({
+      //     url:'/api/user/searchbyid',
+      //     method:'post',
+      //     data:formData,
+      //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      //   }).then(function(res) {
+      //     console.log(res)
+      //     _this.shareUserNickname = res.data.data.nickname
+      //     _this.shareUserProfile = res.data.data.profile
+      //     _this.shareUserUsername = res.data.data.username
+      //   })
+      //   for (let c=0; c<_this.userfollow.length; c++) {
+      //     if (_this.userfollow[c].to_user_id == shareuserid)
+      //       _this.hadfollow = 1
+      //   }
+      //   console.log("hadfollow="+_this.hadfollow)
+      //   await this.$forceUpdate();
+      // },
+
+      /**计算评论的创建时间
+       * @param {Object} date
+       */
+      formatDate(date) {
+        var year=date.getFullYear();
+        var month=date.getMonth()+1;
+        var day=date.getDate();
+        var hour=date.getHours();
+        var minute=date.getMinutes();
+        return year + '-' +
+          (String(month).length > 1 ? month : '0' + month) + '-' +
+          (String(day).length > 1 ? day : '0' + day) + ' ' +
+          (String(hour).length > 1 ? hour : '0' + hour) + ':' +
+          (String(minute).length > 1 ? minute : '0' + minute)
+      },
+
       /**
        * 设置未关注
        */
-      nofollow() {
+      nofollow(touser) {
         this.hadfollow = 0
+        const _this = this
+        var c = 0
+        for (let c=0; c<_this.userfollow.length; c++) {
+          if (_this.userfollow[c].to_user_id == touser) {
+            _this.followid = _this.userfollow[c].id
+            break
+          }
+        }
+        if (c == _this.userfollow.length) {
+          _this.$message.warning("无关注该用户")
+        } else {
+          //删除关注表里的记录
+          this.$axios({
+            url:'/api/follows/'+_this.followid,
+            method:'delete',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          }).then(function(res) {
+            console.log("取消关注返回信息")
+            console.log(res)
+            _this.$message.success("已取消关注")
+          })
+          _this.followid = -1
+        }
       },
-     /**
-      * 设置关注
-      */
-      setfollow() {
+      /**
+       * 设置关注
+       */
+      async setfollow(touser) {
         this.hadfollow = 1
+        const _this = this
+        var had = 0
+        for (let c=0; c<_this.userfollow.length; c++) {
+          if (_this.userfollow[c].to_user_id == touser) {
+            had = 1
+            break
+          }
+        }
+        if (had == 0) {
+          const formData = new FormData()
+          formData.append('from_user_id', _this.user_id)
+          formData.append('to_user_id',touser)
+          this.$axios({
+            url:'/api/follows',
+            method:'post',
+            data:formData,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          }).then(function(res) {
+            console.log(res)
+            _this.$message.success("已关注")
+          })
+          //重新获取用户的关注列表
+          const myuserid={id:window.sessionStorage.getItem('user_id')}
+          this.$axios({
+            method: 'post',
+            url: '/api/user/getfollowed',
+            data: this.$qs.stringify(myuserid),
+          }).then(function (res) {
+            console.log('我的关注',res)
+            _this.userfollow = res.data.data
+          }).catch(function (res) {
+            console.log('我的关注获取失败 ')
+          })
+          await this.$forceUpdate();
+          // _this.$router.go(0);
+        } else {
+          _this.$message.warning("已关注该用户，无需重复关注")
+        }
       },
       /**
        * 清除资源分享者信息
@@ -248,10 +394,10 @@
       /**获取某个资源分享者的信息
        * @param {Object} userid
        */
-      getShareUser(userid) {
+      async getShareUser(shareuserid) {
         const _this = this
         const formData = new FormData()
-        formData.append('id', userid)
+        formData.append('id', shareuserid)
         this.$axios({
           url:'/api/user/searchbyid',
           method:'post',
@@ -263,6 +409,12 @@
           _this.shareUserProfile = res.data.data.profile
           _this.shareUserUsername = res.data.data.username
         })
+        for (let c=0; c<_this.userfollow.length; c++) {
+          if (_this.userfollow[c].to_user_id == shareuserid)
+            _this.hadfollow = 1
+        }
+        console.log("hadfollow="+_this.hadfollow)
+        await this.$forceUpdate();
       },
 
       /**
@@ -283,14 +435,16 @@
        */
       paypoints() {
         this.hadpayit = 1
+        console.log("点击支付按钮后")
+        console.log("this.payDialoguserlast = "+this.payDialoguserlast)
+        console.log("this.payDialogpoints = "+this.payDialogpoints)
         if (this.payDialogpoints > this.payDialoguserlast) {
           this.message = "您的积分不足"
         } else {
-          candownload = 1;
-          this.message = "已支付"
+          this.candownload = 1
+          this.message = "进入下载页面之后将自动支付积分"
         }
       },
-
 
       /**点击资源的支付按钮
        * @param {Object} title 资源标题
@@ -304,6 +458,7 @@
         this.payDialogpoints = point
         this.route = route
         this.payDialogdocuid = id
+        this.judgepay(id, userid)
         const formData = new FormData()
         formData.append('id', userid)
         this.$axios({
@@ -312,9 +467,11 @@
           data:formData,
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function(res) {
-          // console.log(res)
           _this.payDialoguserlast = res.data.data.points
-          // console.log(_this.payDialoguserlast)
+          console.log("获取用户积分")
+          console.log(res)
+          console.log("this.payDialogpoints = "+point)
+          console.log("_this.payDialoguserlast = "+_this.payDialoguserlast)
         })
       },
 
@@ -335,8 +492,10 @@
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function (res) {
           console.log("id="+id+",user_id="+userid)
-          var getpayres = {id:id, user_id:userid, hadpay:res.data.data}
-          _this.hadpayit.push(getpayres)
+          _this.hadpayit = res.data.data
+          _this.candownload = 1
+          _this.message = "您已支付过该资源，可直接点击下载"
+          console.log("_this.hadpayit = ")
           console.log(_this.hadpayit)
         })
       },
@@ -411,7 +570,7 @@
     },
     async created() {
       const _this=this;
-      console.log(_this.hadpayit)
+      // console.log(_this.hadpayit)
       this.$axios({
         method: 'post',
         url: '/api/shares/gethot',
@@ -438,6 +597,17 @@
         console.log(_this.total)
       }).catch(function (res) {
         console.log("查找全部shares条数失败")
+      })
+      const myuserid={id:window.sessionStorage.getItem('user_id')}
+      this.$axios({
+        method: 'post',
+        url: '/api/user/getfollowed',
+        data: this.$qs.stringify(myuserid),
+      }).then(function (res) {
+        console.log('我的关注',res)
+        _this.userfollow = res.data.data
+      }).catch(function (res) {
+        console.log('我的关注获取失败 ')
       })
     }
   }
