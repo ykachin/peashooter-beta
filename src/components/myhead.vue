@@ -12,6 +12,7 @@
         {{personalInfo}}<i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item  @click.native="topersonal">个人中心</el-dropdown-item>
         <el-dropdown-item  @click.native="logout">退出登录</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
@@ -52,7 +53,11 @@
         window.sessionStorage.clear()
         const _this=this
         _this.$router.push("/login")
-      }
+      },
+      topersonal(){
+      const _this=this
+      _this.$router.push("/personal")
+    }
     }
 }
 </script>
