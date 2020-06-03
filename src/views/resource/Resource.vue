@@ -12,7 +12,7 @@
       <el-container>
         <el-main>
           <!-- 公告显示 -->
-          <notice style="font-size:30px">
+          <notice>
             <el-alert
               title="公告标题1"
               type="info"
@@ -30,10 +30,7 @@
           </notice>
           <!-- 资源显示 -->
 
-
-          <div style="padding-top: 1em !important;border-radius: 10px">
-
-          <res-list v-loading="loadingResList" style="text-align: left;">
+          <res-list v-loading="loadingResList">
             <div slot="cho-button" id="res-list-top">
               <el-button type="primary" round><router-link to="/resource/share" class="router-link-btn">去分享<i class="el-icon-share" style="color: white"></i></router-link></el-button>
               <el-button @click="getResBy('time', 1)">最新</el-button>
@@ -80,7 +77,8 @@
 
             <div style="padding-top: 1em !important;border-radius: 10px;background-color: white;" class="m-margin-top">
             <!-- 页码 -->
-            <el-pagination style="text-align: center"
+            <el-pagination
+              style="text-align: center"
               background
               layout="prev, pager, next"
               page-size="20"
@@ -100,7 +98,6 @@
               v-show="resNull">
             </el-alert>
           </res-list>
-          </div>
 
         </el-main>
 
@@ -167,9 +164,9 @@
         <el-button @click="payDialogVisible = false">取 消</el-button>
         <el-button type="primary" @click="payPoints(curResId, payResPoints)">确 定</el-button>
       </span>
-
     </el-dialog>
     </div>
+
     <myfoot></myfoot>
   </div>
 </template>
