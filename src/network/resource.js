@@ -173,3 +173,27 @@ export function sigup(data) {
     data
   })
 }
+
+export function searchResByTitle(title) {
+  let formData = new FormData()
+  formData.append('title', title)
+
+  return request({
+    url: '/shares/getbytitle',
+    method: 'post',
+    data: formData
+  })
+}
+
+export function addUserPoints(userId, points) {
+  let formData = new FormData()
+  formData.append('id', userId)
+  formData.append('points', points)
+
+  return request({
+    url: '/user/addpoints',
+    method: 'post',
+    data: formData
+  })
+
+}
