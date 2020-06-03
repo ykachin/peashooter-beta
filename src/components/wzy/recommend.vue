@@ -197,10 +197,13 @@
           title="文件预览"
           :visible.sync="documentView"
           width="30%">
-          <img width="50%" :src="imgroute" />
+          <div v-if="isPicture == 1">
+            <img width="50%" :src="imgroute" />
+          </div>
+          <div v-else>{{showInView}}</div>
           <span slot="footer" class="dialog-footer">
             <!-- <el-button @click="documentView = false">取 消</el-button> -->
-            <el-button type="primary" @click="documentView = false">关 闭</el-button>
+            <el-button type="primary" @click="closeimg()">关 闭</el-button>
           </span>
         </el-dialog>
 
@@ -250,6 +253,7 @@
         total:0,
         candownload:0,
         followid:-1,
+        isPicture:1,
         payDialogVisible:false,
         documentView:false,
         imgroute:"",
@@ -259,6 +263,7 @@
         payDialogdocuid:"",
         route:"",
         message:"",
+        showInView:"",
         more:0,
         user_id:window.sessionStorage.getItem('user_id'),//登录用户id
         shareUserProfile:"",
@@ -523,13 +528,28 @@
        * @param {Object} route 文件路径
        */
       showimg(route) {
-        this.imgroute = "http://129.204.247.165/"+route;
-        this.documentView = true;
-      },
-      checkpoint(points) {
-        if (points > 0) {
-          this.payDialogVisible = true;
+        var list = route.split(".")
+        console.log(list)
+        if (list[1] != "jpg" && list[1] != "JPG" &&
+          list[1] != "png" && list[1] != "PNG" &&
+          list[1] != "gif" && list[1] != "GIF") {
+            this.isPicture = 0
+            this.showInView = "该文件不是.jpg/.png/.gif的图片文件。当前文件格式为."+list[1]+",暂不支持显示"
+            this.documentView = true;
+            console.log("判断该文件不是图片文件,文件格式为："+list[1])
+        } else {
+          this.imgroute = "http://129.204.247.165/"+route;
+          this.documentView = true;
         }
+      },
+
+      /**
+       * 关闭文件预览，重置变量
+       */
+      closeimg() {
+        this.isPicture = 1
+        this.showInView = ""
+        this.documentView = false
       },
       //处理页码改变后的shares数据
       async handleCurrentChange(current){
