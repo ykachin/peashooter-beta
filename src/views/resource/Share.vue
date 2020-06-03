@@ -60,7 +60,6 @@
                 :http-request="choFile"
                 :limit="1">
                 <el-button slot="trigger" size="small" type="primary">选取文件<i class="el-icon-upload"></i></el-button>
-    <!--            <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>-->
               </el-upload>
             </el-row>
           </div>
@@ -202,7 +201,6 @@
                 type: 'error',
                 offset: 100
               })
-              console.log(res)
             }
             // 2. 发布成功
             else {
@@ -212,7 +210,6 @@
                 offset: 100
               })
               this.$router.push({path:'/resource'})
-              console.log(res)
             }
           }).catch(err => {
             this.$message({
@@ -220,7 +217,7 @@
               type: 'error',
               offset: 100
             })
-            console.log(err)
+
           });
         }
       },
@@ -232,7 +229,6 @@
       choFile(fileObj) {
         this.formData.set("file", fileObj.file);
         this.fileNull = false
-        console.log(fileObj)
       },
 
       /**

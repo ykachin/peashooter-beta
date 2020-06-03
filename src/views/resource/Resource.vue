@@ -12,7 +12,7 @@
       <el-container>
         <el-main>
           <!-- 公告显示 -->
-          <notice style="font-size:30px">
+          <notice>
             <el-alert
               title="公告标题1"
               type="info"
@@ -30,11 +30,8 @@
           </notice>
           <!-- 资源显示 -->
 
-
-          <div style="padding-top: 1em !important;border-radius: 10px">
-
-          <res-list v-loading="loadingResList" style="text-align: left;">
-            <div slot="cho-button">
+          <res-list v-loading="loadingResList">
+            <div slot="cho-button" id="res-list-top">
               <el-button type="primary" round><router-link to="/resource/share" class="router-link-btn">去分享<i class="el-icon-share" style="color: white"></i></router-link></el-button>
               <el-button @click="getResBy('time', 1)">最新</el-button>
               <el-button @click="getResBy('hot', 1)">精华</el-button>
@@ -59,27 +56,29 @@
               <el-tag type="success" size="mini" slot="tag">{{ item.tags }}</el-tag>
               <i v-if="item.points === 0" slot="route-icon" class="el-icon-paperclip el-icon-paperclip-my-style"></i>
               <i v-else slot="route-icon" class="el-icon-lock el-icon-paperclip-my-style"></i>
+
               <!-- 不需积分 | 已经支付过 -->
               <el-link
-                v-if="item.points === 0"
-                slot="route" type="primary"
-                :href="HOSTURL + item.route"
-                target="_blank">
-                  <p @click="downloadFile(item.id, storeState.userId)">资源链接</p>
+                      v-if="item.points === 0"
+                      slot="route" type="primary"
+                      :href="HOSTURL + item.route"
+                      target="_blank">
+                <p @click="downloadFile(item.id, storeState.userId)">资源链接</p>
               </el-link>
               <!-- 需要积分 -->
               <el-link
-                v-else
-                slot="route"
-                type="warning"
-                @click="readyPay(item.id, item.title, item.points)">
+                      v-else
+                      slot="route"
+                      type="warning"
+                      @click="readyPay(item.id, item.title, item.points)">
                 需要积分:{{ item.points }}
               </el-link>
             </res-list-item>
 
             <div style="padding-top: 1em !important;border-radius: 10px;background-color: white;" class="m-margin-top">
             <!-- 页码 -->
-            <el-pagination style="text-align: center"
+            <el-pagination
+              style="text-align: center"
               background
               layout="prev, pager, next"
               page-size="20"
@@ -99,14 +98,14 @@
               v-show="resNull">
             </el-alert>
           </res-list>
-          </div>
 
         </el-main>
-        <!-- 右边侧边栏 人气资源显示 -->
 
+        <!-- 右边侧边栏 人气资源显示 -->
         <el-aside class="m-margin-top">
           <pop-res v-loading="loadingPopRes">
             <pop-res-item v-for="(item, index) in popRes" v-if="index < 15">
+              <!-- 该人气资源不需要积分 -->
               <el-link
                 v-if="item.points === 0"
                 style="color: #3377AA;
@@ -120,6 +119,20 @@
                 :href="HOSTURL + item.route"
                 target="_blank">
                 <p @click="downloadFile(item.id, storeState.userId)">{{ item.title }}</p>
+              </el-link>
+              <!-- 该人气资源需要积分 -->
+              <el-link
+                v-else
+                style="color: #ebb563;
+                  text-decoration: none;
+                  font-size: 14px;
+                  display: block;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis"
+                  slot="title"
+                  type="primary">
+                <p @click="readyPay(item.id, item.title, item.points)">{{ item.title }}</p>
               </el-link>
               <!--<a :href="HOSTURL + item.route" slot="title" class="title" target="_blank">{{ item.title }}</a>-->
               <span slot="download-times" class="download-times">下载次数 {{ item.times }} </span>
@@ -136,6 +149,8 @@
       :visible.sync="payDialogVisible"
       width="30%"
       :before-close="handleClose">
+
+      <!-- 内容提示 -->
       <div v-show="hadPayIt === 1">
         您已支付过此资源
       </div>
@@ -144,21 +159,19 @@
         所需积分： {{ payResPoints }} <br>
         我的积分： {{ curUserPoints }}
       </div>
+
       <span slot="footer" class="dialog-footer">
         <el-button @click="payDialogVisible = false">取 消</el-button>
         <el-button type="primary" @click="payPoints(curResId, payResPoints)">确 定</el-button>
       </span>
     </el-dialog>
     </div>
+
     <myfoot></myfoot>
   </div>
 </template>
 
 <script>
-  // import Resource from './Resource'
-  // export default {
-  //   ...Resource
-  // }
   import myfoot from "../../components/myfoot";
   import myhead from "../../components/myhead";
   import TopBar from "../../components/resource/TopBar";
@@ -192,6 +205,7 @@
     data() {
       return {
         resourcesZhIndex : this.$store.state.resourcesZhIndex,
+        curList: [],
         // 人气资源
         popRes : [],
         // 当前资源列表的标签，默认：all 有 电影 音乐 ....
@@ -233,9 +247,8 @@
     },
     created() {
       this.initResourceZhIndex()
-
-      // 刚进入页面，初始化当前标签为所有
-      this.curTag = '所有'
+      // console.log(this.storeState().resourcesZhIndex['所有'])
+      this.curTag = '所有'  // 刚进入页面，初始化当前标签为所有
       this.getResData(this.curTag, 1) // 初始化
       this.getPopRes()
     },
@@ -268,8 +281,6 @@
           // // this.resourcesZhIndex[type].list.push(...res.data.data) // 页面使用【加载更多】方式时使用的方法
           this.storeState.resourcesZhIndex[tag].list = res.data.data
           this.loadingResList = false
-          console.log('getResData')
-          console.log(res)
         })
       },
 
@@ -282,7 +293,6 @@
         this.curTag = tag
 
         getResByTag(tag, order, page).then(res => {
-          console.log(res)
           this.storeState.resourcesZhIndex[tag].list = res.data.data
           this.storeState.resourcesZhIndex['所有'].list = this.storeState.resourcesZhIndex[tag].list
         }).catch(err => {
@@ -300,6 +310,8 @@
         getResOrderInDownloads(1).then(res => {
           this.popRes.push(...res.data.data)
           this.loadingPopRes = false
+          console.log("人气资源数据：")
+          console.log(this.popRes)
         })
       },
 
@@ -309,7 +321,6 @@
       getResByTime(page) {
         getResOrderInTime(page).then(res => {
           this.resourcesZhIndex[this.curTag].list = res.data.data
-          console.log(res.data.data)
         }).catch(err => {
           console.log(err)
         })
@@ -321,7 +332,6 @@
       getResByHot(page) {
         getResOrderInDownloads(page).then(res => {
           this.resourcesZhIndex[this.curTag].list = res.data.data
-          console.log(res.data.data)
         }).catch(err => {
           console.log(err)
         })
@@ -338,6 +348,7 @@
         else {
           switch (type) {
             case 'time':
+              console.log("进入了time")
               this.getResByTime(page)
               break
             case 'hot' :
@@ -372,10 +383,11 @@
 
         var targetObj = {}
         var list = this.storeState.resourcesZhIndex[this.curTag].list
-        list.forEach((obj) => {
-          // 通过资源id拿到该资源对象
+        var listPopRes = this.popRes
+
+        for (var index in list) {
+          var obj = list[index]
           if(obj.id === this.payResId) {
-            console.log(obj.id)
             if (this.hadPayIt === 0) {
               // 1. 用户积分不足
               if (this.storeState.points < points) {
@@ -395,7 +407,59 @@
               obj.points = 0
             }
           }
-        })
+          list[index] = obj
+        }
+
+        for (var index in listPopRes) {
+          var obj = listPopRes[index]
+          if(obj.id === this.payResId) {
+            if (this.hadPayIt === 0) {
+              // 1. 用户积分不足
+              if (this.storeState.points < points) {
+                alert('积分不足')
+              }
+              // 2. 用户积分足够
+              else {
+                // 2.1 用户扣去相应积分
+                this.storeState.points -= points
+                // 2.2 该资源的 points 设为 0
+                obj.points = 0
+                this.downloadFile(obj.id, this.storeState.userId)
+                alert('支付成功')
+              }
+            }
+            else {
+              obj.points = 0
+            }
+          }
+          listPopRes[index] = obj
+        }
+
+        // 当 list 类型不为数组（如__ob__:Observer）的时候该方法便不可用
+        // list.forEach((obj) => {
+        //   // 通过资源id拿到该资源对象
+        //   if(obj.id === this.payResId) {
+        //     if (this.hadPayIt === 0) {
+        //       // 1. 用户积分不足
+        //       if (this.storeState.points < points) {
+        //         alert('积分不足')
+        //       }
+        //       // 2. 用户积分足够
+        //       else {
+        //         // 2.1 用户扣去相应积分
+        //
+        //         this.storeState.points -= points
+        //         // 2.2 该资源的 points 设为 0
+        //         obj.points = 0
+        //         this.downloadFile(obj.id, this.storeState.userId)
+        //         alert('支付成功')
+        //       }
+        //     }
+        //     else {
+        //       obj.points = 0
+        //     }
+        //   }
+        // })
       },
 
       /**
@@ -415,7 +479,7 @@
        * @param page  点击的页码
        */
       pageChange(page) {
-        console.log('当前资源根据：' + this.curBy + '请求页码：' + page)
+
         if (this.curTag == '所有') {
           if (this.curBy == 'all') {
             this.getResData(this.curTag, page)
@@ -429,6 +493,9 @@
         }
 
         this.curPage = page
+
+        // window.scrollTo(0,0)
+        document.getElementById("res-list-top").scrollIntoView(true)
       },
 
       /**
@@ -437,7 +504,6 @@
        * @param userId  用户id（当前要下载该资源的用户）
        */
       downloadFile(id, userId) {
-        console.log('downloadFile,id:' + id + 'userId:' + userId)
         downloadFile2(id, userId).then(res => {
           console.log(res)
         }).catch(err => {
@@ -461,7 +527,6 @@
       judUserDownloadRes(id, userId) {
         judUserDownloadRes(id, userId).then(res => {
           this.hadPayIt = res.data.data
-          console.log('判断是否下载过，this.hadpayit:' + this.hadPayIt)
         }).catch(err => {
           console.log(err)
         })
@@ -472,7 +537,6 @@
        */
       initResourceZhIndex() {
         getTags().then(res => {
-          console.log('initResourceZhIndex成功')
           let tmp = this.storeState.resourcesZhIndex
           for (let obj of res.data.data) {
             let index = obj.name
@@ -480,10 +544,7 @@
             tmp[index] = {page:0, list:[]}
           }
           this.storeState.resourcesZhIndex = tmp
-          console.log('resourcesZhIndex 初始化完成：')
-          console.log('allTagName:' + this.allTagName)
         }).catch(err => {
-          console.log('initResourceZhIndex错误')
           console.log(err)
         })
       }

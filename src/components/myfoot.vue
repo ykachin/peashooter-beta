@@ -75,8 +75,6 @@ export default {
     }).then(function (res) {
       const r=res.data
       _this.works=r.data
-      console.log('获取最新分享')
-      console.log(res)
 
       for(let c=0;c<3;c++){
         _this.getNewShares.push(_this.works[c]);
