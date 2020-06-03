@@ -291,7 +291,7 @@
                   console.log(res)
                   console.log('文件上传成功！')
                   _this.$message.success('发布成功！')
-                  /*setTimeout(this.$router.push("/primarypage"),1000)*/
+                  setTimeout(this.$router.push("/primarypage"),1000)
                 }
               }).catch(error=>{
                 if (error.response) {

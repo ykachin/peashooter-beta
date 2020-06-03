@@ -8,7 +8,8 @@
               <el-breadcrumb-item>我的发布</el-breadcrumb-item>
             </el-breadcrumb>
             <!--content-->
-            <div class="ui attached  segment m-margin-top " style="border-radius: 15px" v-for="(item,index) in posts">
+            <el-alert v-if="posts.length === 0" title="我没有发布帖子" type="info"></el-alert>
+            <div class="ui attached  segment m-margin-top " v-if="posts.length!==0" style="border-radius: 15px" v-for="(item,index) in posts">
               <div class="ui padded vertical segment" >
                 <div class="ui  mobile reversed stackable grid" >
                   <div class="eleven wide column left aligned " >
@@ -47,7 +48,7 @@
                   </div>
 
                   <div class="five wide column middle aligned" >
-                    <a href="#"  target="_blank">
+                    <a target="_blank">
                       <img :src="item.imageurl"   alt="" class="ui rounded image">
                     </a>
                   </div>
