@@ -359,7 +359,7 @@
           const formData = new FormData()
           formData.append('from_user_id', _this.user_id)
           formData.append('to_user_id',touser)
-          this.$axios({
+          await this.$axios({
             url:'/api/follows',
             method:'post',
             data:formData,
@@ -370,7 +370,7 @@
           })
           //重新获取用户的关注列表
           const myuserid={id:window.sessionStorage.getItem('user_id')}
-          this.$axios({
+          await this.$axios({
             method: 'post',
             url: '/api/user/getfollowed',
             data: this.$qs.stringify(myuserid),
