@@ -36,6 +36,7 @@
                         <div class="ui red horizontal label ">资源地址：</div><div class="m-text" >{{item.url}}</div>
                         <div class="ui orange horizontal label ">评分：<span class="m-text" >{{item.score}}</span></div>
                         <div class="ui yellow horizontal label ">标签：<span class="m-text" >{{item.tags}}</span></div>
+                        <div class="ui purple horizontal label ">类别：<span class="m-text" >{{convert[item.status]}}</span></div>
                         <el-card shadow="hover" style="background-color: #dddddd" class="m-margin-top-small">
                           {{item.content}}
                         </el-card>
@@ -50,10 +51,14 @@
                                 <i class="calendar icon"></i><span >{{formatDate(new Date(item.create_time*1000))}}</span>
                               </div>
                               <div class="item">
-                                <a @click="dianzan(item.id,item)"><img  class="middle aligned" style="width: 18px" :src="likesimage"><span >{{item.likes}}</span></a>
+                                <!--<a @click="dianzan(item.id,item)"><img  class="middle aligned" :id="'nolike'+item.id" style="width: 18px" v-if="!(item.jud)" :src="likesimage"><img  class="middle aligned" :id="'liked'+item.id" style="width: 18px" v-if="item.jud" :src="likedimage"><span :id="'likenum'+item.id">{{item.likes}}</span></a>-->
+                                <a @click="dianzan(item.id,item)"><img  class="middle aligned" :id="'nolike'+item.id" style="width: 18px" v-show="!(item.jud)" :src="likesimage"><img  class="middle aligned" :id="'liked'+item.id" style="width: 18px" v-show="item.jud" :src="likedimage"><span :id="'likenum'+item.id">{{item.likes}}</span></a>
                               </div>
                               <div class="item">
                                 <a @click="getcommentbypostid(item.id,index)"><img  class="middle aligned" style="width: 18px" src="../../static/images/comment.png"></a>
+                              </div>
+                              <div class="item">
+                                <a @click="deletepost(item.id)"><img  class="middle aligned" v-if="parseInt(item.user_id) === parseInt(currentuserid)" style="width: 18px" src="../../static/images/delete.png"></a>
                               </div>
                             </div>
                           </div>
@@ -90,7 +95,58 @@
                                       {{item.content}}
                                     </div>
                                     <div class="actions" >
-                                      <a class="reply" data-commentid="1" data-commentnickname="Matt"  @click="reply(item.user_id)" >回复</a>
+                                      <a class="reply" data-commentid="1" data-commentnickname="Matt"  @click="reply(item.user_id,item.id,item.username)" >回复</a>
+                                      <!--删除评论-->
+                                      <a @click="deletecomment(item.id)"><img  class="middle aligned" v-if="parseInt(item.user_id) === parseInt(currentuserid)" style="width: 18px" src="../../static/images/delete.png"></a>
+                                    </div>
+                                  </div>
+                                  <div class="comments">
+                                  <div class="comment" v-for="(item2,index2) in item.son">
+                                    <a class="avatar">
+                                      <img :src="circleUrl" >
+                                    </a>
+                                    <div class="content" style="text-align: left">
+                                      <a class="author" >
+                                        <span >{{item2.username}}</span>
+                                      </a>
+                                      <div class="metadata">
+                                        <span class="date">{{formatDate(new Date(item2.create_time*1000))}}</span>
+                                      </div>
+                                      <div class="text" >
+                                        {{item2.content}}
+                                      </div>
+                                      <div class="actions" >
+                                        <a class="reply" data-commentid="1" data-commentnickname="Matt"  @click="reply(item2.user_id,item.id)" >回复</a>
+                                        <!--删除评论-->
+                                        <a @click="deletecomment(item2.id)"><img  class="middle aligned" v-if="parseInt(item2.user_id) === parseInt(currentuserid)" style="width: 18px" src="../../static/images/delete.png"></a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  </div>
+                                  <!--<div id="commentTopost_"></div>-->
+                                </div>
+                                <div class="comment" v-for="(item,index) in list" id="commentTopost">
+                                  <a class="avatar">
+                                    <img :src="circleUrl" >
+                                  </a>
+                                  <div class="content" style="text-align: left">
+                                    <a class="author" >
+                                      <span >{{item.username}}</span>
+                                    </a>
+                                    <!--是否回复评论-->
+                                    <a class="author" v-if="item.replycomment">
+                                      <span >@{{item.replycomment}}</span>
+                                    </a>
+                                    <div class="metadata">
+                                      <span class="date">{{formatDate(new Date())}}</span>
+                                    </div>
+                                    <div class="text" >
+                                      {{item.content}}
+                                    </div>
+                                    <div class="actions" >
+                                      <a class="reply" data-commentid="1" data-commentnickname="Matt"  @click="reply(item.user_id,item.id)" >回复</a>
+                                      <!--删除评论-->
+                                      <a @click="deletecomment(item.id)"><img  class="middle aligned" v-if="parseInt(item.user_id) === parseInt(currentuserid)" style="width: 18px" src="../../static/images/delete.png"></a>
                                     </div>
                                   </div>
                                 </div>
@@ -143,7 +199,7 @@
                       layout="prev, pager, next"
                       :page-size="5"
                       :total="posttotal"
-                      :current-page="page">
+                      :current-page="parseInt(page)">
                     </el-pagination>
                   </div>
                 </div>
@@ -156,7 +212,7 @@
                 <!--logo-->
                 <div class="ui  segments ">
                   <div class="ui blue segment">
-                    <img src="../../static/images/pooshooter.png"  style="width:100%"/>
+                    <img src="../../static/images/peashooter.gif"  style="width:100%"/>
                   </div>
                 </div>
                 <!--最新推荐-->
@@ -183,7 +239,7 @@
                   </div>
                   <div class="ui blue segment">
                     <div class="ui fluid vertical menu" v-for="(item,index) in topics">
-                      <a  target="_blank" class="item"  >
+                      <a  target="_blank" class="item"  @click="gotoAtopic(index)">
                         <span >{{item.date.title}}</span>
                         <!--<div class="ui teal basic left pointing label" >13</div>-->
                       </a>
@@ -194,24 +250,31 @@
 
                 <!--标签-->
                 <div class="ui segments m-margin-top-large">
-                  <div class="ui blue segment">
-                    <div class="ui two column grid">
-                      <div class="column">
-                        <i class="tags icon"></i>标签
-                      </div>
-                      <div class="right aligned column">
-                        <a @click="gototag" >更多 <i class="angle double right icon"></i></a>
-                      </div>
-                    </div>
+                  <div class="ui blue segment ">
+                    <i class="tags icon"></i>标签
                   </div>
                   <div class="ui blue segment" >
-                    <a href="#"  target="_blank" class="ui teal tag label m-margin-tb-tiny" v-for="(item,index) in tags">
+                    <a href="#"  target="_blank" class="ui teal tag label m-margin-tb-tiny" v-for="(item,index) in tags" v-if="index < 15">
                       <span >{{item.name}}</span>
                     </a>
 
                   </div>
+                  <!--<div class="word_cloud_view_id">111</div>-->
                 </div>
 
+                <div class="ui segments m-margin-top-large">
+                  <div class="ui blue segment ">
+                    <i class="bookmark icon"></i>标签云
+                  </div>
+                  <div id="myChart" :style="{width: '100%', height: '300px'}"></div>
+                </div>
+
+                <div class="ui segments m-margin-top-large">
+                  <div class="ui blue segment ">
+                    <i class="bookmark icon"></i>类别云
+                  </div>
+                  <div id="myChart2" :style="{width: '100%', height: '300px'}"></div>
+                </div>
 
 
                 <!--二维码-->
@@ -235,13 +298,31 @@
 <script>
     import myhead from "./myhead";
     import myfoot from "./myfoot";
-
+    import $ from "jquery";
+    import wordcloud from 'vue-wordcloud'
+    let echarts = require('echarts/lib/echarts')
+    require('echarts-wordcloud');
     export default {
       inject:['reload'],
+      mounted(){
+        /*//获取词云数据
+        this.drawLine()*/
+      },
       data() {
         return {
+          list:[],
+          username:window.sessionStorage.getItem('username'),
+          currentuserid:window.sessionStorage.getItem('user_id'),
+          comment_id:'',
+          isreply:false,
+          wordcloud:[],
+          categorycloud:[],
+
+          hasliked:false,
+          convert:["电影","音乐","书籍","电视剧"],
           isRouterAlive :false,
           likesimage:'../../static/images/like.png',
+          likedimage:'../../static/images/liked.png',
           allposts:[],
           //page第几页
           page:1,
@@ -259,10 +340,177 @@
             page:1
             //暂时设置1
           },
-          addComment:{},
+          addComment:{
+            content:''
+          },
         }
       },
       methods:{
+        deletecomment(comment_id){
+          const _this=this
+          console.log("要删除的commentid：",comment_id)
+          this.$axios({
+            method: 'delete',
+            url: '/api/comments/'+comment_id,
+            //data:_this.$qs.stringify(ddd),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          }).then(function (res) {
+            _this.$message.success("删除成功！")
+            _this.reload()
+          }).catch(function (res) {
+            console.log(res)
+            _this.$message.error("删除失败！")
+          })
+        },
+        deletepost(post_id){
+          const _this=this
+          console.log("要删除的postid：",post_id)
+          //var ddd={id:post_id}
+          this.$axios({
+            method: 'delete',
+            url: '/api/posts/'+post_id,
+            //data:_this.$qs.stringify(ddd),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          }).then(function (res) {
+            _this.$message.success("删除成功！")
+            _this.reload()
+          }).catch(function (res) {
+            console.log(res)
+            _this.$message.error("删除失败！")
+          })
+        },
+        reply(user_id,comment_id,username){
+          console.log("回复的父级评论id",user_id)
+          this.addComment.content='回复内容：'
+          this.isreply=true
+          this.comment_id=comment_id
+          this.fathercommentname=username
+        },
+        //词云在下面
+        drawLine(){
+          var self=this;
+          // 基于准备好的dom，初始化echarts实例
+          let myChart =echarts.init(document.getElementById('myChart'))
+          myChart.setOption({
+            title: {
+              text: '词云',//标题
+              x: 'center',
+              textStyle: {
+                fontSize: 23
+              }
+
+            },
+            backgroundColor: '#F7F7F7',
+            tooltip: {
+              show: true
+            },
+            series: [{
+              name: '热点分析',//数据提示窗标题
+              type: 'wordCloud',
+              sizeRange: [20, 66],//画布范围，如果设置太大会出现少词（溢出屏幕）
+              rotationRange: [-45, 90],//数据翻转范围
+              //shape: 'circle',
+              textPadding: 0,
+              autoSize: {
+                enable: true,
+                minSize: 6
+              },
+              textStyle: {
+                normal: {
+                  color: function() {
+                    return 'rgb(' + [
+                      Math.round(Math.random() * 160),
+                      Math.round(Math.random() * 160),
+                      Math.round(Math.random() * 160)
+                    ].join(',') + ')';
+                  }
+                },
+                emphasis: {
+                  shadowBlur: 10,
+                  shadowColor: '#333'
+                }
+              },
+              data: self.wordcloud/*[{
+                name: "数据一",
+                value: 501
+              }, {
+                name: "数据二",
+                value: 502
+              },
+                {
+                  name: "数据三",
+                  value: 503
+                }]*///name和value建议用小写，大写有时会出现兼容问题
+            }]
+          });
+          //类别云
+          let myChart2 =echarts.init(document.getElementById('myChart2'))
+          myChart2.setOption({
+            title: {
+              text: '词云',//标题
+              x: 'center',
+              textStyle: {
+                fontSize: 23
+              }
+
+            },
+            backgroundColor: '#F7F7F7',
+            tooltip: {
+              show: true
+            },
+            series: [{
+              name: '热点分析',//数据提示窗标题
+              type: 'wordCloud',
+              sizeRange: [20, 66],//画布范围，如果设置太大会出现少词（溢出屏幕）
+              rotationRange: [-45, 90],//数据翻转范围
+              //shape: 'circle',
+              textPadding: 0,
+              autoSize: {
+                enable: true,
+                minSize: 6
+              },
+              textStyle: {
+                normal: {
+                  color: function() {
+                    return 'rgb(' + [
+                      Math.round(Math.random() * 160),
+                      Math.round(Math.random() * 160),
+                      Math.round(Math.random() * 160)
+                    ].join(',') + ')';
+                  }
+                },
+                emphasis: {
+                  shadowBlur: 10,
+                  shadowColor: '#333'
+                }
+              },
+              data: self.categorycloud/*[{
+                name: "数据一",
+                value: 501
+              }, {
+                name: "数据二",
+                value: 502
+              },
+                {
+                  name: "数据三",
+                  value: 503
+                }]*///name和value建议用小写，大写有时会出现兼容问题
+            }]
+          });
+        },
+        //词云在上面
+        wordClickHandler(name, value, vm) {
+          console.log('wordClickHandler', name, value, vm);
+        },
+        gotoAtopic(id){
+          console.log("我要跳转了",id)
+          var topicid = id+1
+          this.$router.push("/topic/"+topicid)
+        },
         gototopic(){
           this.$router.push("/topic")
         },
@@ -303,10 +551,10 @@
           console.log('当前页码为')
           console.log(this.page)
           const _this=this
-          const xx={page:this.page}
+          const xx={page:parseInt(this.page),user_id:window.sessionStorage.getItem('user_id')}
           await this.$axios({
             method: 'post',
-            url: '/api/posts/get',
+            url: '/api/posts/getu',
             data:this.$qs.stringify(xx)
           }).then(function (res) {
             console.log("得到的发布表总信息")
@@ -336,7 +584,6 @@
                   console.log('获取某个post点赞数失败')
                 })
             }
-            _this.updatedata()
           }).catch(function (res) {
             console.log(res)
             console.log("添加isShowComment获取发布信息发生异常！请稍后重试...")
@@ -344,7 +591,8 @@
           console.log('该页下的数据')
           console.log(_this.posts)
           /*this.$router.go(0);*/
-          /*this.reload()*/
+          window.sessionStorage.setItem('primarypagenum',this.page)
+          this.reload()
         },
         async dianzan(postid,thisitem){
           window.sessionStorage.setItem('primarypagenum',this.page)
@@ -357,29 +605,103 @@
           console.log('点赞表参数')
           await this.$axios({
             method: 'post',
-            url: '/api/likes',
+            url: '/api/likes/jud',
             data:this.$qs.stringify(zan)
           }).then(function (res) {
-            _this.$message.success("点赞成功！")
-            console.log(res)
-            console.log('点赞成功')
-            console.log('报错了吗')
+            if(!res.data.data){
+              _this.$axios({
+                method: 'post',
+                url: '/api/likes',
+                data:_this.$qs.stringify(zan)
+              }).then(function (res) {
+                _this.$message.success("点赞成功！")
+                console.log(res)
+                _this.hasliked = true
+                console.log('点赞成功')
+
+                /*隐藏nolike*/
+                $("#nolike"+postid).toggle();
+                $("#liked"+postid).toggle();
+                /*前端数据+1*/
+                thisitem.likes=parseInt(thisitem.likes)+1
+                $("#likenum"+postid).html(thisitem.likes);
+
+                console.log('报错了吗')
+              })
+            }else{
+              _this.$axios({
+                method: 'post',
+                url: '/api/likes/del',
+                data:_this.$qs.stringify(zan)
+              }).then(function (res) {
+
+                /*隐藏liked*/
+                $("#liked"+postid).toggle();
+                $("#nolike"+postid).toggle();
+                /*前端数据-1*/
+                thisitem.likes=parseInt(thisitem.likes)-1
+                $("#likenum"+postid).html(thisitem.likes);
+
+                _this.$message.error("您已经取消赞！")
+              })
+              /*_this.$message.error("点赞失败！您已经点赞！")*/
+              console.log(res)
+              console.log('点赞失败')
+            }
+
             /*_this.getList()*/
           }).catch(function (res) {
             console.log(res)
             console.log("点赞异常！请稍后重试...")
           })
-          thisitem.likes=parseInt(thisitem.likes)+1
+          //thisitem.likes=parseInt(thisitem.likes)+1
           console.log('前端点赞数+1后的结果')
           console.log(thisitem.likes)
           thisitem.likesimage='../../static/images/liked.png'
-          this.reload()
+          //this.reload()
+          //感受一下jquery的威力
+          console.log(202006012336)
           /*setTimeout(this.reload(), 1000);*/
           /*this.$router.go(0);*/
         },
         async submitForm(){
+
           this.addComment.user_id=window.sessionStorage.getItem('user_id')
-          this.addComment.post_id=this.postInfo.id
+          if(!this.isreply){
+            this.fathercommentname=''
+            console.log("这条评论是回复post的")
+            this.addComment.post_id=this.postInfo.id
+            //将评论内容加载到list渲染给dom
+            this.list.push({username: window.sessionStorage.getItem('personalInfo'), content: this.addComment.content});
+            /*$("div#commentTopost").append($("" +
+              "<a id='commentTopostavatar' class=\"avatar\">\n" +
+              "                                      <img :src=\"https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png\" >\n" +
+              "                                    </a>\n" +
+              "                                    <div class=\"content\" style=\"text-align: left\">\n" +
+              "                                      <a class=\"author\" >\n" +
+              "                                        <span v-model='username'>\"username\"</span>\n" +
+              "                                      </a>\n" +
+              "                                      <div class=\"metadata\">\n" +
+              "                                        <span class=\"date\">{{formatDate(new Date())}}</span>\n" +
+              "                                      </div>\n" +
+              "                                      <div class=\"text\" >\n" +
+              "                                        111111111\n" +
+              "                                      </div>\n" +
+              "                                      <div class=\"actions\" >\n" +
+              "                                        <a class=\"reply\" data-commentid=\"1\" data-commentnickname=\"Matt\"  @click=\"reply(item2.user_id,item.id)\" >回复</a>\n" +
+              "                                        <!--删除评论-->\n" +
+              "                                        <a @click=\"deletecomment(item2.id)\"><img  class=\"middle aligned\" v-if=\"parseInt(item2.user_id) === parseInt(currentuserid)\" style=\"width: 18px\" src=\"../../static/images/delete.png\"></a>\n" +
+              "                                      </div>\n" +
+              "                                    </div>" +
+              ""));*/
+            //this.reload()
+          }else{
+            this.list.push({replycomment:this.fathercommentname,username: window.sessionStorage.getItem('personalInfo'), content: this.addComment.content.substring(5)});
+            console.log("这条评论是回复comment的")
+            this.addComment.comment_id=this.comment_id
+            this.addComment.content = this.addComment.content.substring(5)
+          }
+          console.log("子串获取的内容：",this.addComment.content)
           const _this=this
           console.log('要加入的评论数据')
           console.log(this.addComment)
@@ -391,14 +713,16 @@
             _this.$message.success("添加评论成功！")
             console.log(res)
             console.log('报错了吗')
-            _this.reload()
+            //_this.reload()
             console.log('报错了吗')
             /*_this.getList()*/
           }).catch(function (res) {
             console.log(res)
             console.log("添加评论异常！请稍后重试...")
           })
-          this.$router.go(0);
+          //清空评论区
+          this.addComment.content=''
+          //this.$router.go(0);
           /*_this.reload()*/
         },
         updatedata(){
@@ -406,7 +730,7 @@
           for(let c in _this.posts){
             _this.posts[c].isShowComment=false
             _this.posts[c].imageurl="http://129.204.247.165/"+_this.posts[c].route
-            _this.posts[c].likesimage='../../static/images/like.png'
+            /*_this.posts[c].likesimage='../../static/images/like.png'*/
             let prepostid=_this.posts[c].id
             const likes={id:prepostid}
             _this.$axios({
@@ -426,10 +750,10 @@
         async hanshu(){
           const _this =this
           //获取post
-          const x={page:window.sessionStorage.getItem('primarypagenum')}
+          const x={page:window.sessionStorage.getItem('primarypagenum'),user_id:window.sessionStorage.getItem('user_id')}
           await this.$axios({
             method: 'post',
-            url: '/api/posts/get',
+            url: '/api/posts/getu',
             data:this.$qs.stringify(x),
           }).then(function (res) {
             const __this =_this
@@ -565,19 +889,31 @@
         this.page=window.sessionStorage.getItem('primarypagenum')
         const _this =this
         //全部post
+        const xx={page:1,user_id:window.sessionStorage.getItem('user_id')}
         await this.$axios({
+          method: 'post',
+          url: '/api/posts/getu',
+          data:this.$qs.stringify(xx)
+        }).then(function (res) {
+          console.log("获取全部post成功")
+          console.log(res)
+          _this.allposts=res.data.data
+        }).catch(function (res) {
+          console.log(res)
+          console.log("获取全部post失败")
+        })
+
+        /*await this.$axios({
           method: 'post',
           url: '/api/posts/getall',
         }).then(function (res) {
           console.log("获取全部post成功")
           console.log(res)
           _this.allposts=res.data.data
-
-
         }).catch(function (res) {
           console.log(res)
           console.log("获取全部post失败")
-        })
+        })*/
         //增加comment
         /*const d={
           content:'好棒啊啊啊',
@@ -614,7 +950,7 @@
         }).catch(function (res) {
           console.log("查找全部post条数失败")
         })
-        await this.hanshu()
+        this.hanshu()
 
         console.log('进过这里了吗')
         console.log('加了赞之后的post')
@@ -660,6 +996,25 @@
             console.log('获取某个用户信息失败')
           })
         }*/
+        //获取类别
+
+        for(var i=0;i<4;i++){
+          const uu = {status: i}
+          await this.$axios({
+            method: 'post',
+            url: '/api/posts/getcountbystatus',
+            data:this.$qs.stringify(uu)
+          }).then(function (res) {
+            console.log('获取的分类个数')
+            console.log(res.data.data)
+            var c={name:_this.convert[i],value:res.data.data}
+            _this.categorycloud.push(c)
+          }).catch(function (res) {
+            console.log("获取的分类个数发生异常！请稍后重试...")
+            console.log(res)
+          })
+        }
+        console.log("categorycloud是啥",this.categorycloud)
 
         //获取话题
         this.$axios({
@@ -675,20 +1030,29 @@
           console.log(res)
         })
 
+
         //获取标签
-        this.$axios({
-          method: 'get',
-          url: '/api/tags',
+        await this.$axios({
+          method: 'post',
+          url: '/api/tags/get',
         }).then(function (res) {
           const r=res.data
           _this.tags=r.data
           console.log('获取的标签榜')
-          console.log( _this.topics)
+          console.log( _this.tags)
+          for(var c in _this.tags){
+            /*console.log("c是啥",c)*/
+            var temp={name:_this.tags[c].name,value:_this.tags[c].frequency}
+            _this.wordcloud.push(temp)
+            //console.log("加入词云的数据",_this.wordcloud)
+          }
         }).catch(function (res) {
           console.log("获取标签发生异常！请稍后重试...")
           console.log(res)
         })
 
+        //获取词云数据
+        this.drawLine()
 
       }
     }

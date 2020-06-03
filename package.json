@@ -10,11 +10,14 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "echarts": "^4.8.0",
+    "echarts-wordcloud": "^1.1.3",
     "element-ui": "^2.13.1",
     "jquery": "^3.5.1",
     "qs": "^6.9.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vue-wordcloud": "^1.1.1",
     "vuex": "^3.3.0"
   },
   "devDependencies": {
