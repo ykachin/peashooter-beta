@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <myhead></myhead>
-    <div id="sousuolan1" class="ui container" style="height:300px; background:url(./static/images/bg4.jpg)no-repeat;background-size: cover;">
+    <div id="sousuolan1" class="ui container" style="height:300px; background:url(./static/images/a1.jpg)no-repeat;background-size: cover;">
         <div class="eight wide column">
           <div class="ui stackable grid">
             <div class="wide column two-size-center">
@@ -12,12 +12,10 @@
                 <br>
                 <br>
                 <div class="right m-item item m-mobile-hide">
-                  <form id="ssform" name="search" action="#"  method="post" target="_blank">
-                    <div class="ui icon inverted white input m-margin-tb-tiny">
-                      <input id="input1" type="text" name="query"   placeholder="书名、影视名、歌曲名..." style="width: 500px">
+                    <div id="ssform" class="ui icon inverted white input m-margin-tb-tiny">
+                      <input id="input1" type="text" name="query"   placeholder="书名、影视名、歌曲名..." style="width: 500px"  v-on:keyup.13="search_post">
                       <i @click="search_post" class="search link icon"></i>
                     </div>
-                  </form>
                 </div>
               </div>
             </div>

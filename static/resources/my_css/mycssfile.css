@@ -1,5 +1,17 @@
 /* 可以设置不同的进入和离开动画 */
 /* 设置持续时间和动画函数 */
+#state0
+{
+  border-radius: 5px;
+}
+#state1
+{
+  border-radius: 5px;
+}
+#state2
+{
+  border-radius: 5px;
+}
 .colorspan
 {
   color:#9B9B9B;
@@ -116,6 +128,7 @@ background-color:white;
 {
   position: relative;
   top:-313px;
+  border-radius: 5px;
 }
 #three_click
 {
