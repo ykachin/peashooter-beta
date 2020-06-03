@@ -16,7 +16,7 @@ export default new Vuex.Store({
     // 模拟用户数据
     userId: 2,
     UserName: 'HHQ',
-    points: 10,  // 积分
+    points: window.sessionStorage.getItem("points"),
 
     // 资源信息
     resources : {

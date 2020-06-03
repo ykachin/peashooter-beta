@@ -414,6 +414,7 @@
               else {
                 // 2.1 用户扣去相应积分
                 this.storeState.points -= points
+                window.sessionStorage.setItem('points', this.storeState.points)
 
                 // 资源所有者添加相应积分
                 this.addUserPoints(this.payResUserId, points)
