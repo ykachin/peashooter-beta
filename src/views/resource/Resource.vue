@@ -76,6 +76,15 @@
             </res-list-item>
 
             <div style="padding-top: 1em !important;border-radius: 10px;background-color: white;" class="m-margin-top">
+              <!-- 资源为空的提示 -->
+              <el-alert
+                title= "这里空空如也"
+                type="info"
+                :closable="false"
+                class="none-res-tip"
+                v-show="resNull">
+              </el-alert>
+
             <!-- 页码 -->
             <el-pagination
               style="text-align: center"
@@ -85,18 +94,9 @@
               :current-page="curPage"
               :total="100"
               :page-size="20"
-              v-show="!resNull"
               @current-change="pageChange">
             </el-pagination>
             </div>
-            <!-- 资源为空的提示 -->
-            <el-alert
-              title= "这里空空如也"
-              type="info"
-              :closable="false"
-              class="none-res-tip"
-              v-show="resNull">
-            </el-alert>
           </res-list>
 
         </el-main>
