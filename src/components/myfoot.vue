@@ -9,7 +9,7 @@
         <div class="three wide column">
           <div class="ui inverted link list">
             <div class="item">
-              <img src="../../static/images/pooshooter.png"   class="ui rounded image" alt="" style="width: 110px">
+              <img src="../../static/images/peashooter.gif"   class="ui rounded image" alt="" style="width: 110px">
             </div>
           </div>
         </div>

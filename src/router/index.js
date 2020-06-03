@@ -33,8 +33,10 @@ import journal from "../components/personal/journal"
 import photos from "../components/personal/photos"
 import searchpage from "../components/personal/searchpage"
 import otherUserInfo from "../components/personal/otherUserInfo";
+import inform from "../components/personal/inform";
 
 import VueRouter from 'vue-router'
+
 
 Vue.use(Router)
 
@@ -72,6 +74,10 @@ const router= new Router({
           },
       redirect:'/personal/information',
       children:[
+        {
+          path:'/personal/inform',
+          component:inform
+        },
         {
           path:'/personal/information',
           component:information

@@ -55,6 +55,7 @@
               <el-menu-item :index="'/personal/journal'" @click.native="flushCom">文章</el-menu-item>
               <el-menu-item :index="'/personal/comments'" @click.native="flushCom">留言</el-menu-item>
               <el-menu-item :index="'/personal/photos'" @click.native="flushCom">相册</el-menu-item>
+              <el-menu-item :index="'/personal/inform'" @click.native="flushCom">我的消息</el-menu-item>
           </el-submenu>
         </el-menu>
       </div>
