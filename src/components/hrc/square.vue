@@ -10,6 +10,33 @@
 
       <!-- Unnamed (动态面板) -->
       <div id="u0" class="ax_default">
+
+           <div style="height:300px;background-size: cover;" id="topsousuolan" class="ui container" >
+        <div class="eight wide column">
+          <div class="ui stackable grid">
+            <div class="wide column two-size-center">
+              <div style="margin-top:180px">
+                <nav class="mainNavs">
+                  <a id="sstitle" class="ui big-font" style="color: lightseagreen">豌豆射手</a>
+                </nav>
+                <br>
+                <br>
+                <div class="right m-item item m-mobile-hide">
+                  <form id="ssform" name="search" action="#"  method="post" target="_blank">
+                    <div class="ui icon inverted white input m-margin-tb-tiny">
+                      <input id="input1" type="text" name="query"  placeholder="书名、影视名、歌曲名..." style="width: 500px">
+                      <i @click="search_post" class="search link icon"></i>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="eleven wide column">
+        </div>
+      </div>
+        
         <div id="state0" class="panel_state"  >
           <div id="u0_state0_content" class="panel_state_content">
 
@@ -1437,7 +1464,7 @@
             </div>
 
             <!-- dytab1 (矩形) -->
-            <div id="dy176" class="ax_default box_1 selected" data-label="dytab1" selectiongroup="1" style="cursor:pointer">
+            <div id="dy176" class="ax_default box_1 selected" data-label="dytab1" selectiongroup="1" style="cursor:pointer;font-size:15px">
               <div id="u176_div" class="selected"></div>
               <div id="u176_text" class="text ">
                 <p><span>热门</span></p>
@@ -1445,33 +1472,33 @@
             </div>
 
             <!-- dytab2 (矩形) -->
-            <div id="dy177" class="ax_default box_1" data-label="dytab2" selectiongroup="1" style="cursor:pointer">
+            <div id="dy177" class="ax_default box_1 colorspan" data-label="dytab2" selectiongroup="1" style="cursor:pointer">
               <div id="u177_div" class=""></div>
-              <div id="u177_text" class="text ">
+              <div id="u177_text" class="text">
                 <p><span>最新</span></p>
               </div>
             </div>
 
             <!-- dytab3 (矩形) -->
-            <div id="dy178" class="ax_default box_1" data-label="dytab3" selectiongroup="1" style="cursor:pointer">
+            <div id="dy178" class="ax_default box_1 colorspan" data-label="dytab3" selectiongroup="1" style="cursor:pointer">
               <div id="u178_div" class=""></div>
-              <div id="u178_text" class="text ">
+              <div id="u178_text" class="text">
                 <p><span>华语</span></p>
               </div>
             </div>
 
             <!-- dytab4 (矩形) -->
-            <div id="dy179" class="ax_default box_1" data-label="dytab4" selectiongroup="1" style="cursor:pointer">
+            <div id="dy179" class="ax_default box_1 colorspan" data-label="dytab4" selectiongroup="1" style="cursor:pointer">
               <div id="u179_div" class=""></div>
-              <div id="u179_text" class="text ">
+              <div id="u179_text" class="text">
                 <p><span>欧美</span></p>
               </div>
             </div>
 
             <!-- dytab5 (矩形) -->
-            <div id="dy180" class="ax_default box_1" data-label="dytab5" selectiongroup="1" style="cursor:pointer">
+            <div id="dy180" class="ax_default box_1 colorspan" data-label="dytab5" selectiongroup="1" style="cursor:pointer">
               <div id="u180_div" class=""></div>
-              <div id="u180_text" class="text ">
+              <div id="u180_text" class="text">
                 <p><span>日韩</span></p>
               </div>
             </div>
@@ -1498,15 +1525,15 @@
             <div id="u184" class="ax_default box_1">
               <div id="u184_div" class=""></div>
               <div id="u184_text" class="text ">
-                <p><span style="margin-right:20px;background-color:white;cursor:pointer" class=" ui label circular big"> <img src="static/resources/images/1.png"><span id="dianyingph1" value="-1" @click="test_method"    >  &nbsp;</span> <img style="left:200px;position:absolute" src="static/resources/images/热门.png"></span></p>
+                <p><span style="margin-right:20px;background-color:white;cursor:pointer" class=" ui label circular big"> <img style="height:2em!important" src="static/resources/images/1.png"><span id="dianyingph1" value="-1" @click="test_method"    >  &nbsp;</span> <img style="left:200px;position:absolute" src="static/resources/images/热门.png"></span></p>
               </div>
             </div>
-
+  
             <!-- Unnamed (矩形) -->
             <div id="u185" class="ax_default box_1">
               <div id="u185_div" class=""></div>
               <div id="u185_text" class="text ">
-                <p><span  style="margin-right:20px;background-color:white;cursor:pointer"   class=" ui label circular big"> <img src="static/resources/images/2.png"><span id="dianyingph2" value="-1" @click="test_method"    >  &nbsp;</span><img style="left:200px;position:absolute" src="static/resources/images/热门.png"></span></p>
+                <p><span  style="margin-right:20px;background-color:white;cursor:pointer"   class=" ui label circular big"> <img  style="height:2em!important" src="static/resources/images/2.png"><span id="dianyingph2" value="-1" @click="test_method"    >  &nbsp;</span><img style="left:200px;position:absolute" src="static/resources/images/热门.png"></span></p>
               </div>
             </div>
 
@@ -1514,7 +1541,7 @@
             <div id="u186" class="ax_default box_1">
               <div id="u186_div" class=""></div>
               <div id="u186_text" class="text ">
-                <p><span  style="margin-right:20px;background-color:white;cursor:pointer"  class=" ui label circular big"> <img src="static/resources/images/3.png"><span id="dianyingph3" value="-1" @click="test_method"  >  &nbsp;</span><img style="left:200px;position:absolute" src="static/resources/images/热门.png"></span></p>
+                <p><span  style="margin-right:20px;background-color:white;cursor:pointer"  class=" ui label circular big"> <img  style="height:2em!important" src="static/resources/images/3.png"><span id="dianyingph3" value="-1" @click="test_method"  >  &nbsp;</span><img style="left:200px;position:absolute" src="static/resources/images/热门.png"></span></p>
               </div>
             </div>
 
@@ -1550,7 +1577,7 @@
             </div>
 
             <!-- dstab1 (矩形) -->
-            <div id="dy190" class="ax_default box_1 selected" data-label="dstab1" selectiongroup="2" style="cursor:pointer;color:black">
+            <div id="dy190" class="ax_default box_1 selected" data-label="dstab1" selectiongroup="2" style="cursor:pointer;color:black;font-size:15px">
               <div id="u190_div" class="selected"></div>
               <div id="u190_text" class="text ">
                 <p><span>热门</span></p>
@@ -1558,25 +1585,25 @@
             </div>
 
             <!-- dstab2 (矩形) -->
-            <div id="dy191" class="ax_default box_1"  data-label="dstab1" selectiongroup="2" style="cursor:pointer">
+            <div id="dy191" class="ax_default box_1 colorspan"  data-label="dstab1" selectiongroup="2" style="cursor:pointer">
               <div id="u191_div" class=""></div>
-              <div id="u191_text" class="text ">
+              <div id="u191_text" class="text">
                 <p><span>国产剧</span></p>
               </div>
             </div>
 
             <!-- dstab3 (矩形) -->
-            <div id="dy192" class="ax_default box_1" data-label="dstab3" selectiongroup="2"  style="cursor:pointer">
+            <div id="dy192" class="ax_default box_1 colorspan" data-label="dstab3" selectiongroup="2"  style="cursor:pointer">
               <div id="u192_div" class=""></div>
-              <div id="u192_text" class="text ">
+              <div id="u192_text" class="text">
                 <p><span>综艺</span></p>
               </div>
             </div>
 
             <!-- dstab4 (矩形) -->
-            <div id="dy193" class="ax_default box_1" data-label="dstab4" selectiongroup="2" style="cursor:pointer">
+            <div id="dy193" class="ax_default box_1 colorspan" data-label="dstab4" selectiongroup="2" style="cursor:pointer">
               <div id="u193_div" class=""></div>
-              <div id="u193_text" class="text ">
+              <div id="u193_text" class="text">
                 <p><span>美剧</span></p>
               </div>
             </div>
@@ -3223,7 +3250,7 @@
             </div>
 
             <!-- ly1 (矩形) -->
-            <div id="dy415" class="ax_default box_1 selected" data-label="ly1" selectiongroup="3" style="cursor:pointer;color:black">
+            <div id="dy415" class="ax_default box_1 selected" data-label="ly1" selectiongroup="3" style="cursor:pointer;color:black;font-size:15px">
               <div id="u415_div" class="selected"></div>
               <div id="u415_text" class="text ">
                 <p><span>最热</span></p>
@@ -3231,25 +3258,25 @@
             </div>
 
             <!-- ly2 (矩形) -->
-            <div id="dy416" class="ax_default box_1" data-label="ly2" selectiongroup="3" style="cursor:pointer">
+            <div id="dy416" class="ax_default box_1  colorspan" data-label="ly2" selectiongroup="3" style="cursor:pointer">
               <div id="u416_div" class=""></div>
-              <div id="u416_text" class="text ">
+              <div id="u416_text" class="text">
                 <p><span>华语</span></p>
               </div>
             </div>
 
             <!-- ly3 (矩形) -->
-            <div id="dy417" class="ax_default box_1" data-label="ly3" selectiongroup="3" style="cursor:pointer">
+            <div id="dy417" class="ax_default box_1 colorspan" data-label="ly3" selectiongroup="3" style="cursor:pointer">
               <div id="u417_div" class=""></div>
-              <div id="u417_text" class="text ">
+              <div id="u417_text" class="text">
                 <p><span>欧美</span></p>
               </div>
             </div>
 
             <!-- ly4 (矩形) -->
-            <div id="dy418" class="ax_default box_1" data-label="ly4" selectiongroup="3" style="cursor:pointer">
+            <div id="dy418" class="ax_default box_1 colorspan" data-label="ly4" selectiongroup="3" style="cursor:pointer">
               <div id="u418_div" class=""></div>
-              <div id="u418_text" class="text ">
+              <div id="u418_text" class="text">
                 <p><span>日韩</span></p>
               </div>
             </div>
@@ -3351,17 +3378,17 @@
 
             <!-- Unnamed (圆形) -->
             <div id="phyy1" >
-            <div id="u436"  style="cursor:pointer" value="-1" @click="test_method" class="ax_default ellipse"   >
+            <div id="u436" class="ax_default ellipse"   >
               <img id="u436_img"  style="cursor:pointer" value="-1" @click="test_method"  class="img " src="static/resources/images/y5.jpg" />
               <div id="u436_text" class="text " style="display:none; visibility: hidden">
                 <p></p>
               </div>
             </div>
 
-             <div id="u439"  style="cursor:pointer" value="-1" @click="test_method" class="ax_default box_1">
+             <div id="u439" class="ax_default box_1">
               <div id="u439_div" class=""></div>
               <div id="u439_text" class="text ">
-                <p style="font-size:13px;"><span><br></span></p><p style="font-size:17px;"><span style="color:#71B5D2;cursor:pointer" value="-1" @click="test_method" id="yyphspan1">新世界</span></p><p style="font-size:13px;" id="bottomph1"><span style="color:#797979;"></span>华晨宇</p><p style="font-size:13px;"><span><br></span></p>
+                <p style="font-size:13px;"><span><br></span></p><p style="font-size:17px;"><span style="color:#71B5D2;cursor:pointer" value="-1" @click="test_method" id="yyphspan1">新世界</span></p><p style="font-size:13px"  value="-1" id="bottomph1"><span style="color:#797979;"></span>华晨宇</p><p style="font-size:13px;"><span><br></span></p>
               </div>
             </div>
             
@@ -3375,26 +3402,26 @@
                 <p></p>
               </div>
             </div>
-             <div id="u440"  style="cursor:pointer" value="-1" @click="test_method" class="ax_default box_1">
+             <div id="u440" class="ax_default box_1">
               <div id="u440_div" class=""></div>
               <div id="u440_text" class="text ">
-                <p style="font-size:13px;"><span><br></span></p><p style="font-size:17px;"><span  id="yyphspan2" style="color:#71B5D2;cursor:pointer" value="-1" @click="test_method" >Love&Desire</span></p><p style="font-size:13px;" id="bottomph2"><span style="color:#797979;">周震南 Vin</span></p><p style="font-size:13px;"><span><br></span></p>
+                <p style="font-size:13px;"><span><br></span></p><p style="font-size:17px;"><span  id="yyphspan2" style="color:#71B5D2;cursor:pointer" value="-1" @click="test_method" >Love&Desire</span></p><p  style="font-size:13px"  value="-1"  id="bottomph2"><span style="color:#797979;">周震南 Vin</span></p><p style="font-size:13px;"><span><br></span></p>
               </div>
             </div>
             </div>
 
             <!-- Unnamed (圆形) -->
             <div id="phyy3"  >
-            <div id="u438" class="ax_default ellipse"  style="cursor:pointer" value="-1" @click="test_method"  >
+            <div id="u438" class="ax_default ellipse"  >
               <img id="u438_img"  style="cursor:pointer" value="-1" @click="test_method"  class="img " src="static/resources/images/y34.jpg" />
               <div id="u438_text" class="text " style="display:none; visibility: hidden">
                 <p></p>
               </div>
             </div>
-             <div id="u441"  style="cursor:pointer" value="-1" @click="test_method" class="ax_default box_1">
+             <div id="u441"  class="ax_default box_1">
               <div id="u441_div" class=""></div>
               <div id="u441_text" class="text ">
-                <p style="font-size:13px;"><span><br></span></p><p style="font-size:17px;"><span style="color:#71B5D2;cursor:pointer" value="-1" @click="test_method" id="yyphspan3">Rare (Deluxe)</span></p><p style="font-size:13px;" id="bottomph3"><span style="color:#797979;">Selena Gomez</span></p><p style="font-size:13px;"><span><br></span></p>
+                <p style="font-size:13px;"><span><br></span></p><p style="font-size:17px;"><span style="color:#71B5D2;cursor:pointer" value="-1" @click="test_method" id="yyphspan3">Rare (Deluxe)</span></p><p  style="font-size:13px"  value="-1"  id="bottomph3"><span style="color:#797979;">Selena Gomez</span></p><p style="font-size:13px;"><span><br></span></p>
               </div>
             </div>
             </div>
@@ -3618,7 +3645,7 @@
                <div id="u184" class="ax_default box_1"  style="margin-top:20px">
               <div id="u184_div" class=""></div>
               <div id="u184_text" class="text ">
-                <p><span style="margin-right:20px;background-color:white;cursor:pointer" class=" ui label circular big"> <img src="static/resources/images/1.png"><span id="dushuph1" value="-1" @click="test_method"    >  &nbsp;</span></span></p>
+                <p><span style="margin-right:20px;background-color:white;cursor:pointer" class=" ui label circular big"> <img style="height:2em!important"  src="static/resources/images/1.png"><span id="dushuph1" value="-1" @click="test_method"    >  &nbsp;</span></span></p>
               </div>
             </div>
 
@@ -3626,7 +3653,7 @@
             <div id="u185" class="ax_default box_1"  style="margin-top:20px">
               <div id="u185_div" class=""></div>
               <div id="u185_text" class="text ">
-                <p><span  style="margin-right:20px;background-color:white;cursor:pointer"   class=" ui label circular big"> <img src="static/resources/images/2.png"><span id="dushuph2"  value="-1" @click="test_method"    >  &nbsp;</span></span></p>
+                <p><span  style="margin-right:20px;background-color:white;cursor:pointer"   class=" ui label circular big"> <img style="height:2em!important"  src="static/resources/images/2.png"><span id="dushuph2"  value="-1" @click="test_method"    >  &nbsp;</span></span></p>
               </div>
             </div>
 
@@ -3634,7 +3661,7 @@
             <div id="u186" class="ax_default box_1"  style="margin-top:20px">
               <div id="u186_div" class=""></div>
               <div id="u186_text" class="text ">
-                <p><span  style="margin-right:20px;background-color:white;cursor:pointer"  class=" ui label circular big"> <img src="static/resources/images/3.png"><span id="dushuph3" value="-1" @click="test_method"  >  &nbsp;</span></span></p>
+                <p><span  style="margin-right:20px;background-color:white;cursor:pointer"  class=" ui label circular big"> <img style="height:2em!important"  src="static/resources/images/3.png"><span id="dushuph3" value="-1" @click="test_method"  >  &nbsp;</span></span></p>
               </div>
             </div>
 
@@ -3831,32 +3858,10 @@
 
         </div>
 
+      
+
         <!-- Unnamed (矩形) -->
-       <div id="topsousuolan" class="ui container" style="height:300px; background:url(./static/images/bg4.jpg)no-repeat;background-size: cover;">
-        <div class="eight wide column">
-          <div class="ui stackable grid">
-            <div class="wide column two-size-center">
-              <div style="margin-top:180px">
-                <nav class="mainNavs">
-                  <a id="sstitle" class="ui big-font" style="color: lightseagreen">豌豆射手</a>
-                </nav>
-                <br>
-                <br>
-                <div class="right m-item item m-mobile-hide">
-                  <form id="ssform" name="search" action="#"  method="post" target="_blank">
-                    <div class="ui icon inverted white input m-margin-tb-tiny">
-                      <input id="input1" type="text" name="query" :query='query' v-model="query"  placeholder="书名、影视名、歌曲名..." style="width: 500px">
-                      <i @click="search_post" class="search link icon"></i>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="eleven wide column">
-        </div>
-      </div>
+      
 
         <!-- Unnamed (矩形) -->
       
@@ -4110,70 +4115,121 @@
         dy176.onclick=function()
         {
           dy176.style.color="black";
-          dy177.style.color="#D4CACA";
-          dy178.style.color="#D4CACA";
-          dy179.style.color="#D4CACA";
-          dy180.style.color="#D4CACA";
+          dy177.style.color="#9B9B9B";
+          dy178.style.color="#9B9B9B";
+          dy179.style.color="#9B9B9B";
+          dy180.style.color="#9B9B9B";
           state1.style.visibility="visible";
           state2.style.visibility="hidden";
           state3.style.visibility="hidden";
           state4.style.visibility="hidden";
           state5.style.visibility="hidden";
+          dy176.style.fontSize="15px";
+          dy177.style.fontSize="13px";
+          dy178.style.fontSize="13px";
+          dy179.style.fontSize="13px";
+          dy180.style.fontSize="13px";
+          dy176.style.fontWeight="700";
+          dy177.style.fontWeight="";
+          dy178.style.fontWeight="";
+          dy179.style.fontWeight="";
+          dy180.style.fontWeight="";
+          
         }
         dy177.onclick=function()
         {
-          dy176.style.color="#D4CACA";
+          dy176.style.color="#9B9B9B";
           dy177.style.color="black";
-          dy178.style.color="#D4CACA";
-          dy179.style.color="#D4CACA";
-          dy180.style.color="#D4CACA";
+          dy178.style.color="#9B9B9B";
+          dy179.style.color="#9B9B9B";
+          dy180.style.color="#9B9B9B";
           state1.style.visibility="hidden";
           state2.style.visibility="visible";
           state3.style.visibility="hidden";
           state4.style.visibility="hidden";
           state5.style.visibility="hidden";
+          dy176.style.fontSize="13px";
+          dy177.style.fontSize="15px";
+          dy178.style.fontSize="13px";
+          dy179.style.fontSize="13px";
+          dy180.style.fontSize="13px";
+          dy176.style.fontWeight="";
+          dy177.style.fontWeight="700";
+          dy178.style.fontWeight="";
+          dy179.style.fontWeight="";
+          dy180.style.fontWeight="";
         }
 
         dy178.onclick=function()
         {
-          dy176.style.color="#D4CACA";
-          dy177.style.color="#D4CACA";
+          dy176.style.color="#9B9B9B";
+          dy177.style.color="#9B9B9B";
           dy178.style.color="black";
-          dy179.style.color="#D4CACA";
-          dy180.style.color="#D4CACA";
+          dy179.style.color="#9B9B9B";
+          dy180.style.color="#9B9B9B";
           state1.style.visibility="hidden";
           state2.style.visibility="hidden";
           state3.style.visibility="visible";
           state4.style.visibility="hidden";
           state5.style.visibility="hidden";
+          dy176.style.fontSize="13px";
+          dy177.style.fontSize="13px";
+          dy178.style.fontSize="15px";
+          dy179.style.fontSize="13px";
+          dy180.style.fontSize="13px";
+          dy176.style.fontWeight="";
+          dy177.style.fontWeight="";
+          dy178.style.fontWeight="700";
+          dy179.style.fontWeight="";
+          dy180.style.fontWeight="";
         }
 
         dy179.onclick=function()
         {
-          dy176.style.color="#D4CACA";
-          dy177.style.color="#D4CACA";
-          dy178.style.color="#D4CACA";
+          dy176.style.color="#9B9B9B";
+          dy177.style.color="#9B9B9B";
+          dy178.style.color="#9B9B9B";
           dy179.style.color="black";
-          dy180.style.color="#D4CACA";
+          dy180.style.color="#9B9B9B";
           state1.style.visibility="hidden";
           state2.style.visibility="hidden";
           state3.style.visibility="hidden";
           state4.style.visibility="visible";
           state5.style.visibility="hidden";
+          dy176.style.fontSize="13px";
+          dy177.style.fontSize="13px";
+          dy178.style.fontSize="13px";
+          dy179.style.fontSize="15px";
+          dy180.style.fontSize="13px";
+          dy176.style.fontWeight="";
+          dy177.style.fontWeight="";
+          dy178.style.fontWeight="";
+          dy179.style.fontWeight="700";
+          dy180.style.fontWeight="";
         }
 
         dy180.onclick=function()
         {
-          dy176.style.color="#D4CACA";
-          dy177.style.color="#D4CACA";
-          dy178.style.color="#D4CACA";
-          dy179.style.color="#D4CACA";
+          dy176.style.color="#9B9B9B";
+          dy177.style.color="#9B9B9B";
+          dy178.style.color="#9B9B9B";
+          dy179.style.color="#9B9B9B";
           dy180.style.color="black";
           state1.style.visibility="hidden";
           state2.style.visibility="hidden";
           state3.style.visibility="hidden";
           state4.style.visibility="hidden";
           state5.style.visibility="visible";
+          dy176.style.fontSize="13px";
+          dy177.style.fontSize="13px";
+          dy178.style.fontSize="13px";
+          dy179.style.fontSize="13px";
+          dy180.style.fontSize="15px";
+          dy176.style.fontWeight="";
+          dy177.style.fontWeight="";
+          dy178.style.fontWeight="";
+          dy179.style.fontWeight="";
+          dy180.style.fontWeight="700";
         }
         var dy190=document.getElementById("dy190");
         var dy191=document.getElementById("dy191");
@@ -4186,51 +4242,79 @@
         dy190.onclick=function()
         {
           dy190.style.color="black";
-          dy191.style.color="#D4CACA";
-          dy192.style.color="#D4CACA";
-          dy193.style.color="#D4CACA";
+          dy191.style.color="#9B9B9B";
+          dy192.style.color="#9B9B9B";
+          dy193.style.color="#9B9B9B";
 
           state11.style.visibility="visible";
           state22.style.visibility="hidden";
           state33.style.visibility="hidden";
           state44.style.visibility="hidden";
 
+          dy190.style.fontSize="15px";
+          dy191.style.fontSize="13px";
+          dy192.style.fontSize="13px";
+          dy193.style.fontSize="13px";
+
+          dy190.style.fontWeight="700";
+          dy191.style.fontWeight="";
+          dy192.style.fontWeight="";
+          dy193.style.fontWeight="";
         }
         dy191.onclick=function()
         {
-          dy190.style.color="#D4CACA";
+          dy190.style.color="#9B9B9B";
           dy191.style.color="black";
-          dy192.style.color="#D4CACA";
-          dy193.style.color="#D4CACA";
+          dy192.style.color="#9B9B9B";
+          dy193.style.color="#9B9B9B";
 
           state11.style.visibility="hidden";
           state22.style.visibility="visible";
           state33.style.visibility="hidden";
           state44.style.visibility="hidden";
 
+          dy190.style.fontSize="13px";
+          dy191.style.fontSize="15px";
+          dy192.style.fontSize="13px";
+          dy193.style.fontSize="13px";
 
+          dy190.style.fontWeight="";
+          dy191.style.fontWeight="700";
+          dy192.style.fontWeight="";
+          dy193.style.fontWeight="";
         }
 
         dy192.onclick=function()
         {
-          dy190.style.color="#D4CACA";
-          dy191.style.color="#D4CACA";
+          dy190.style.color="#9B9B9B";
+          dy191.style.color="#9B9B9B";
           dy192.style.color="black";
-          dy193.style.color="#D4CACA";
+          dy193.style.color="#9B9B9B";
 
           state11.style.visibility="hidden";
           state22.style.visibility="hidden";
           state33.style.visibility="visible";
           state44.style.visibility="hidden";
+          
+          dy190.style.fontSize="13px";
+          dy191.style.fontSize="13px";
+          dy192.style.fontSize="15px";
+          dy193.style.fontSize="13px";
+
+          dy190.style.fontWeight="";
+          dy191.style.fontWeight="";
+          dy192.style.fontWeight="700";
+          dy193.style.fontWeight="";
+  
 
 
         }
 
         dy193.onclick=function()
         {
-          dy190.style.color="#D4CACA";
-          dy191.style.color="#D4CACA";
-          dy192.style.color="#D4CACA";
+          dy190.style.color="#9B9B9B";
+          dy191.style.color="#9B9B9B";
+          dy192.style.color="#9B9B9B";
           dy193.style.color="black";
 
           state11.style.visibility="hidden";
@@ -4238,9 +4322,16 @@
           state33.style.visibility="hidden";
           state44.style.visibility="visible";
 
+          dy190.style.fontSize="13px";
+          dy191.style.fontSize="13px";
+          dy192.style.fontSize="13px";
+          dy193.style.fontSize="15px";
 
+          dy190.style.fontWeight="";
+          dy191.style.fontWeight="";
+          dy192.style.fontWeight="";
+          dy193.style.fontWeight="700";
         }
-
         var dy1901=document.getElementById("dy415");
         var dy1911=document.getElementById("dy416");
         var dy1921=document.getElementById("dy417");
@@ -4252,57 +4343,93 @@
         dy1901.onclick=function()
         {
           dy1901.style.color="black";
-          dy1911.style.color="#D4CACA";
-          dy1921.style.color="#D4CACA";
-          dy1931.style.color="#D4CACA";
+          dy1911.style.color="#9B9B9B";
+          dy1921.style.color="#9B9B9B";
+          dy1931.style.color="#9B9B9B";
 
           state111.style.visibility="visible";
           state221.style.visibility="hidden";
           state331.style.visibility="hidden";
           state441.style.visibility="hidden";
 
+          dy1901.style.fontSize="15px";
+          dy1911.style.fontSize="13px";
+          dy1921.style.fontSize="13px";
+          dy1931.style.fontSize="13px";
+
+          dy1901.style.fontWeight="700";
+          dy1911.style.fontWeight="";
+          dy1921.style.fontWeight="";
+          dy1931.style.fontWeight="";
         }
         dy1911.onclick=function()
         {
-          dy1901.style.color="#D4CACA";
+          dy1901.style.color="#9B9B9B";
           dy1911.style.color="black";
-          dy1921.style.color="#D4CACA";
-          dy1931.style.color="#D4CACA";
+          dy1921.style.color="#9B9B9B";
+          dy1931.style.color="#9B9B9B";
 
           state111.style.visibility="hidden";
           state221.style.visibility="visible";
           state331.style.visibility="hidden";
           state441.style.visibility="hidden";
 
+          dy1901.style.fontSize="13px";
+          dy1911.style.fontSize="15px";
+          dy1921.style.fontSize="13px";
+          dy1931.style.fontSize="13px";
+
+          dy1901.style.fontWeight="";
+          dy1911.style.fontWeight="700";
+          dy1921.style.fontWeight="";
+          dy1931.style.fontWeight="";
 
         }
 
         dy1921.onclick=function()
         {
-          dy1901.style.color="#D4CACA";
-          dy1911.style.color="#D4CACA";
+          dy1901.style.color="#9B9B9B";
+          dy1911.style.color="#9B9B9B";
           dy1921.style.color="black";
-          dy1931.style.color="#D4CACA";
+          dy1931.style.color="#9B9B9B";
 
           state111.style.visibility="hidden";
           state221.style.visibility="hidden";
           state331.style.visibility="visible";
           state441.style.visibility="hidden";
 
+          dy1901.style.fontSize="13px";
+          dy1911.style.fontSize="13px";
+          dy1921.style.fontSize="15px";
+          dy1931.style.fontSize="13px";
 
+          dy1901.style.fontWeight="";
+          dy1911.style.fontWeight="";
+          dy1921.style.fontWeight="700";
+          dy1931.style.fontWeight="";
         }
 
         dy1931.onclick=function()
         {
-          dy1901.style.color="#D4CACA";
-          dy1911.style.color="#D4CACA";
-          dy1921.style.color="#D4CACA";
+          dy1901.style.color="#9B9B9B";
+          dy1911.style.color="#9B9B9B";
+          dy1921.style.color="#9B9B9B";
           dy1931.style.color="black";
 
           state111.style.visibility="hidden";
           state221.style.visibility="hidden";
           state331.style.visibility="hidden";
           state441.style.visibility="visible";
+
+          dy1901.style.fontSize="13px";
+          dy1911.style.fontSize="13px";
+          dy1921.style.fontSize="13px";
+          dy1931.style.fontSize="15px";
+
+          dy1901.style.fontWeight="";
+          dy1911.style.fontWeight="";
+          dy1921.style.fontWeight="";
+          dy1931.style.fontWeight="700";
         }
       },
       move_picture()
@@ -4615,32 +4742,13 @@
       }).catch(function (res) {
         console.log(res)
       })
-       //读取歌曲数量
-      this.$axios({
-        method: 'post',
-        url: '/api/posts/getcountbystatus',
-        data:qs.stringify({
-          status:1
-        }),
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-      }).then(function (res) {
-        console.log(res);
-        const dres=res.data;
-        var idstring="gequshu"
-        var shudiv=document.getElementById(idstring)
-        shudiv.innerHTML=dres.data;
-      }).catch(function (res) {
-        console.log(res)
-      })
-      //读取书籍排行榜
+        //读取图书
       this.$axios({
         method: 'post',
         url: '/api/posts/gethotbystatus',
         data:qs.stringify({
-          day:7,
-          status:2
+          status:"2",
+          day:30
         }),
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -4648,73 +4756,93 @@
       }).then(function (res) {
         console.log(res);
         const dres=res.data;
-     
-        var s3=1;
+        var m,n;
+        var temp_data;
+        var s1="u";
+        var s2="_div";
+        var s3=450;
         var i;
-        var sa1="dushuph";
-        
+        var sa1="d";
+        var sa2=1;
 
 
 
-         for(i=0;i<6;i++)
+        for(i=0;i<8;i++)
         {
-          var idstring=sa1+s3;
-          var phdiv=document.getElementById(idstring)
-          s3++
-          phdiv.innerHTML="  《"+dres.data[i].title+"》";
-          phdiv.setAttribute("value",dres.data[i].id)
-        }
-
-
-
-      }).catch(function (res) {
-        console.log(res)
-      })
-      //一周音乐榜
-        this.$axios({
-        method: 'post',
-        url: '/api/posts/gethotbystatus',
-        data:qs.stringify({
-          day:7,
-          status:1
-        }),
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-      }).then(function (res) {
-        console.log(res);
-        const dres=res.data;
-         var s1="u";
-        var s2="_img";
-        var s3=436;
-        var i;
-        var sa1="phyy";
-        var sa2=1
-        var saa1="yyphspan"
-        var saa2=1
-        var saaa1="bottomph"
-        var saaa2=1
-        var trastatus=["电影","音乐","书籍","电视剧"];
-
-
-         for(i=0;i<3;i++)
-        {
-          
+          console.log();
           var idstring=s1+s3+s2;
-          var spanstring=saa1+saa2;
-          var tagstring=saaa1+saaa2;
-          var phimg=document.getElementById(idstring)
-          var phspan=document.getElementById(spanstring)
-          var tagp=document.getElementById(tagstring)
-          s3++
-          saa2++
-          saaa2++
-          phspan.innerHTML="  "+dres.data[i].title;
-          phimg.setAttribute("value",dres.data[i].id);
-          phspan.setAttribute("value",dres.data[i].id);
-          phimg.src="http://129.204.247.165/"+dres.data[i].route;
-          tagp.innerHTML=dres.data[i].tags;
+          var namestring=sa1+sa2;
+          var dydiv=document.getElementById(idstring);
+          var naspan=document.getElementById(namestring);
+          dydiv.setAttribute("value",dres.data[i].id);
+          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
+          naspan.innerHTML=dres.data[i].title;
+          if(dres.data[i].title.length>8)
+            naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
+          s3=s3+1;
+          sa2++;
         }
+
+
+
+      }).catch(function (res) {
+        console.log(res)
+      })
+       //读取最新电影
+      this.$axios({
+        method: 'post',
+        url: '/api/posts/getnewbystatus',
+        data:qs.stringify({
+          status:"0",
+         
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+
+        },
+      }).then(function (res) {
+        console.log(res);
+        const dres=res.data;
+        var m,n;
+        var temp_data;
+        var flag=0;
+
+        var s1="u";
+        var s2="_div";
+        var s3=101;
+        var s4=91;
+        var s5=91;
+        var i;
+        var sa1="a";
+        var sa2=17;
+        var sap1="zuixin";
+        var sap2=1
+
+
+        for(i=0;i<8;i++)
+        {
+
+          var idstring=s1+s3+s2;
+          var namestring=sa1+sa2;
+          var pfstring=sap1+sap2;
+          var dydiv=document.getElementById(idstring);
+          var naspan=document.getElementById(namestring);
+          var pfspan=document.getElementById(pfstring);
+          dydiv.setAttribute("value",dres.data[i].id);
+          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
+          naspan.innerHTML=dres.data[i].title;
+          var pscore=(dres.data[i].score)/10;
+          var s=(pscore.toString()).indexOf('.');
+          if(s<0)
+          pscore=pscore+".0";
+          pfspan.innerHTML="  "+pscore;
+          if(dres.data[i].title.length>8)
+            naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
+          s3=s3+1;
+          sa2++;
+          sap2++;
+        }
+
 
 
 
@@ -4722,153 +4850,6 @@
         console.log(res)
       })
       
-       //读取日韩音乐
-      this.$axios({
-        method: 'post',
-        url: '/api/posts/getbytags',
-        data:qs.stringify({
-          tags:"日韩",
-          status:1
-        }),
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-      }).then(function (res) {
-        console.log(res);
-        const dres=res.data;
-        var m,n;
-        var temp_data;
-        var flag=0;
-        var s1="u";
-        var s2="_div";
-        var s3=382;
-        var i;
-        var sa1="rihanyy";
-        var sa2=1;
-        var sap1="appp ";
-        var sap2=1;
-
-
-
-         for(i=0;i<6;i++)
-        {
-          var idstring=s1+s3+s2;
-          var namestring=sa1+sa2;
-          var dydiv=document.getElementById(idstring);
-          var naspan=document.getElementById(namestring);
-          dydiv.setAttribute("value",dres.data[i].id);
-          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
-          naspan.innerHTML=dres.data[i].title;
-          if(dres.data[i].title.length>8)
-            naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
-          s3=s3+1;
-          sa2++;
-          sap2++;
-        }
-
-
-
-      }).catch(function (res) {
-        console.log(res)
-      })
-      //读取欧美音乐
-      this.$axios({
-        method: 'post',
-        url: '/api/posts/getbytags',
-        data:qs.stringify({
-          tags:"欧美",
-          status:1
-        }),
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-      }).then(function (res) {
-        console.log(res);
-        const dres=res.data;
-        var m,n;
-        var temp_data;
-        var flag=0;
-        var s1="u";
-        var s2="_div";
-        var s3=357;
-        var i;
-        var sa1="oumeiyy";
-        var sa2=1;
-        var sap1="appp ";
-        var sap2=1;
-
-
-
-         for(i=0;i<6;i++)
-        {
-          var idstring=s1+s3+s2;
-          var namestring=sa1+sa2;
-          var dydiv=document.getElementById(idstring);
-          var naspan=document.getElementById(namestring);
-          dydiv.setAttribute("value",dres.data[i].id);
-          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
-          naspan.innerHTML=dres.data[i].title;
-          if(dres.data[i].title.length>8)
-            naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
-          s3=s3+1;
-          sa2++;
-          sap2++;
-        }
-
-
-
-      }).catch(function (res) {
-        console.log(res)
-      })
-       //读取华语音乐
-      this.$axios({
-        method: 'post',
-        url: '/api/posts/getbytags',
-        data:qs.stringify({
-          tags:"华语",
-          status:1
-        }),
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-      }).then(function (res) {
-        console.log(res);
-        const dres=res.data;
-        var m,n;
-        var temp_data;
-        var flag=0;
-        var s1="u";
-        var s2="_div";
-        var s3=332;
-        var i;
-        var sa1="huayuyy";
-        var sa2=1;
-        var sap1="appp ";
-        var sap2=1;
-
-
-
-         for(i=0;i<6;i++)
-        {
-          var idstring=s1+s3+s2;
-          var namestring=sa1+sa2;
-          var dydiv=document.getElementById(idstring);
-          var naspan=document.getElementById(namestring);
-          dydiv.setAttribute("value",dres.data[i].id);
-          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
-          naspan.innerHTML=dres.data[i].title;
-          if(dres.data[i].title.length>8)
-            naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
-          s3=s3+1;
-          sa2++;
-          sap2++;
-        }
-
-
-
-      }).catch(function (res) {
-        console.log(res)
-      })
       //美剧
        this.$axios({
         method: 'post',
@@ -5241,7 +5222,10 @@
         for(i=0;i<4;i++)
         {
           xinshuimglist[i].src="http://129.204.247.165/"+dres.data[i].route;
-          xinshutextlist[i].innerHTML=dres.data[i].content;
+          if(dres.data[i].content.length>160)
+            xinshutextlist[i].innerHTML=dres.data[i].content.substring(0,160)+"......";
+          else
+            xinshutextlist[i].innerHTML=dres.data[i].content;
           xinshutextlist[i].setAttribute("value",dres.data[i].id);
           xinshuimglist[i].setAttribute("value",dres.data[i].id);
         }
@@ -5250,17 +5234,124 @@
       }).catch(function (res) {
         console.log(res)
       })
-      //读取最新电影
+       //读取歌曲数量
       this.$axios({
         method: 'post',
-        url: '/api/posts/getnewbystatus',
+        url: '/api/posts/getcountbystatus',
         data:qs.stringify({
-          status:"0",
-         
+          status:1
         }),
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+        console.log(res);
+        const dres=res.data;
+        var idstring="gequshu"
+        var shudiv=document.getElementById(idstring)
+        shudiv.innerHTML=dres.data;
+      }).catch(function (res) {
+        console.log(res)
+      })
+      //读取书籍排行榜
+      this.$axios({
+        method: 'post',
+        url: '/api/posts/gethotbystatus',
+        data:qs.stringify({
+          day:7,
+          status:2
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+        console.log(res);
+        const dres=res.data;
+     
+        var s3=1;
+        var i;
+        var sa1="dushuph";
+        
 
+
+
+         for(i=0;i<6;i++)
+        {
+          var idstring=sa1+s3;
+          var phdiv=document.getElementById(idstring)
+          s3++
+          phdiv.innerHTML="  《"+dres.data[i].title+"》";
+          phdiv.setAttribute("value",dres.data[i].id)
+        }
+
+
+
+      }).catch(function (res) {
+        console.log(res)
+      })
+      //一周音乐榜
+        this.$axios({
+        method: 'post',
+        url: '/api/posts/gethotbystatus',
+        data:qs.stringify({
+          day:7,
+          status:1
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+        console.log(res);
+        const dres=res.data;
+         var s1="u";
+        var s2="_img";
+        var s3=436;
+        var i;
+        var sa1="phyy";
+        var sa2=1
+        var saa1="yyphspan"
+        var saa2=1
+        var saaa1="bottomph"
+        var saaa2=1
+        var trastatus=["电影","音乐","书籍","电视剧"];
+
+
+         for(i=0;i<3;i++)
+        {
+          
+          var idstring=s1+s3+s2;
+          var spanstring=saa1+saa2;
+          var tagstring=saaa1+saaa2;
+          var phimg=document.getElementById(idstring)
+          var phspan=document.getElementById(spanstring)
+          var tagp=document.getElementById(tagstring)
+          s3++
+          saa2++
+          saaa2++
+          phspan.innerHTML="  "+dres.data[i].title;
+          phimg.setAttribute("value",dres.data[i].id);
+          phspan.setAttribute("value",dres.data[i].id);
+          tagp.setAttribute("value",dres.data[i].id);
+          phimg.src="http://129.204.247.165/"+dres.data[i].route;
+          tagp.innerHTML=dres.data[i].tags;
+        }
+
+
+
+      }).catch(function (res) {
+        console.log(res)
+      })
+      
+       //读取日韩音乐
+      this.$axios({
+        method: 'post',
+        url: '/api/posts/getbytags',
+        data:qs.stringify({
+          tags:"日韩",
+          status:1
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
         },
       }).then(function (res) {
         console.log(res);
@@ -5268,36 +5359,26 @@
         var m,n;
         var temp_data;
         var flag=0;
-
         var s1="u";
         var s2="_div";
-        var s3=101;
-        var s4=91;
-        var s5=91;
+        var s3=382;
         var i;
-        var sa1="a";
-        var sa2=17;
-        var sap1="zuixin";
-        var sap2=1
+        var sa1="rihanyy";
+        var sa2=1;
+        var sap1="appp ";
+        var sap2=1;
 
 
-        for(i=0;i<8;i++)
+
+         for(i=0;i<6;i++)
         {
-
           var idstring=s1+s3+s2;
           var namestring=sa1+sa2;
-          var pfstring=sap1+sap2;
           var dydiv=document.getElementById(idstring);
           var naspan=document.getElementById(namestring);
-          var pfspan=document.getElementById(pfstring);
           dydiv.setAttribute("value",dres.data[i].id);
           dydiv.src="http://129.204.247.165/"+dres.data[i].route;
           naspan.innerHTML=dres.data[i].title;
-          var pscore=(dres.data[i].score)/10;
-          var s=(pscore.toString()).indexOf('.');
-          if(s<0)
-          pscore=pscore+".0";
-          pfspan.innerHTML="  "+pscore;
           if(dres.data[i].title.length>8)
             naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
           s3=s3+1;
@@ -5307,17 +5388,16 @@
 
 
 
-
       }).catch(function (res) {
         console.log(res)
       })
-      //读取图书
+      //读取欧美音乐
       this.$axios({
         method: 'post',
-        url: '/api/posts/gethotbystatus',
+        url: '/api/posts/getbytags',
         data:qs.stringify({
-          status:"2",
-          day:30
+          tags:"欧美",
+          status:1
         }),
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -5327,18 +5407,20 @@
         const dres=res.data;
         var m,n;
         var temp_data;
+        var flag=0;
         var s1="u";
         var s2="_div";
-        var s3=450;
+        var s3=357;
         var i;
-        var sa1="d";
+        var sa1="oumeiyy";
         var sa2=1;
+        var sap1="appp ";
+        var sap2=1;
 
 
 
-        for(i=0;i<8;i++)
+         for(i=0;i<6;i++)
         {
-          console.log();
           var idstring=s1+s3+s2;
           var namestring=sa1+sa2;
           var dydiv=document.getElementById(idstring);
@@ -5350,6 +5432,7 @@
             naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
           s3=s3+1;
           sa2++;
+          sap2++;
         }
 
 
@@ -5357,6 +5440,57 @@
       }).catch(function (res) {
         console.log(res)
       })
+       //读取华语音乐
+      this.$axios({
+        method: 'post',
+        url: '/api/posts/getbytags',
+        data:qs.stringify({
+          tags:"华语",
+          status:1
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then(function (res) {
+        console.log(res);
+        const dres=res.data;
+        var m,n;
+        var temp_data;
+        var flag=0;
+        var s1="u";
+        var s2="_div";
+        var s3=332;
+        var i;
+        var sa1="huayuyy";
+        var sa2=1;
+        var sap1="appp ";
+        var sap2=1;
+
+
+
+         for(i=0;i<6;i++)
+        {
+          var idstring=s1+s3+s2;
+          var namestring=sa1+sa2;
+          var dydiv=document.getElementById(idstring);
+          var naspan=document.getElementById(namestring);
+          dydiv.setAttribute("value",dres.data[i].id);
+          dydiv.src="http://129.204.247.165/"+dres.data[i].route;
+          naspan.innerHTML=dres.data[i].title;
+          if(dres.data[i].title.length>8)
+            naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
+          s3=s3+1;
+          sa2++;
+          sap2++;
+        }
+
+
+
+      }).catch(function (res) {
+        console.log(res)
+      })
+     
+    
     },
     destroyed:function()
     {

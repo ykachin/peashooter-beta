@@ -1,5 +1,9 @@
 /* 可以设置不同的进入和离开动画 */
 /* 设置持续时间和动画函数 */
+.colorspan
+{
+  color:#9B9B9B;
+}
 .leftph
 {
   margin-left:16px
@@ -36,11 +40,12 @@
   margin-left:-83px;
   margin-top:15px;
 }
-#topsousuolan1
+#sousuolan1
 {
   position: relative;
   margin-top: 30px;
   margin-bottom: 30px;
+
 }
 #zuiwaimian
 {
