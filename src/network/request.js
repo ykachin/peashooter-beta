@@ -4,7 +4,7 @@ export function request(config) {
   // 1. 创建 axios 实例
   const instance = axios.create({
     baseURL: '/api',
-    timeout: 10000  //  10 秒钟
+    timeout: 1000 * 60  //  1 分钟
   })
 
   // 2. 发送网络请求
