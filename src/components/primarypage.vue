@@ -254,7 +254,7 @@
                     <i class="tags icon"></i>标签
                   </div>
                   <div class="ui blue segment" >
-                    <a href="#"  target="_blank" class="ui teal tag label m-margin-tb-tiny" v-for="(item,index) in tags">
+                    <a href="#"  target="_blank" class="ui teal tag label m-margin-tb-tiny" v-for="(item,index) in tags" v-if="index < 15">
                       <span >{{item.name}}</span>
                     </a>
 
