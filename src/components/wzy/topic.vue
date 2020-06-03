@@ -1,23 +1,8 @@
 <template>
-  <!-- 该组件为话题页面 -->
-  <!--
-  该页该页的主要功能为:
-  显示所有分享,即topic表当中的内容(已经实现)
-  搜索指定的分享(未完成,只做了搜索框的样式,
-          原计划通过start函数获取输入信息,进而对服务器进行信息查询,再渲染到页面)
-  内容分页(未完成,
-          只引入了elementUI的分页样式,然后绑定了页数)
-  点击话题进入话题详情页(未完成,
-          原计划通过totopicid函数获取话题id进而进行跳转)
-
-  该页样式:不建议修改.
-
-  该页业务说明:话题页面是将所有的topic表中的内容显示在话题页面当中
-  -->
   <div id="topic">
     <Myhead></Myhead>
     <!-- 搜索框代码 -->
-    <div class="searchbody" style="background-color: white;opacity:0.8">
+    <div class="searchbody">
       <!-- <img src="../assets/teamlogo.png" style="padding-left: 20%; width: 60px; height: auto;"/> -->
       <span class="title" style="padding-top: 30px;margin-left: 20%;">豌豆</span>
       <span class="title" style="padding-top: 40px;">射手</span>
@@ -28,51 +13,48 @@
     <!-- 搜索框代码 -->
     <!-- 主代码 -->
 
-        <div class="mybody m-margin-top-large" style="background-color:white;padding-right:30px" >
-          <div class="bodyleft">
-            <el-menu
-              default-active="1"
-              class="el-menu-vertical-demo"
-              :default-openeds="['1']" router>
-              <el-submenu index="1" >
-                <template slot="title">
-                  <i class="el-icon-s-grid"></i>
-                  <span>全部话题</span>
-                </template>
-
-                <el-menu-item  :index="'/topic/'+item.id+''" v-for="(item,index) in topics" :key="item.id" style="text-align: left">话题：{{ item.title }}&emsp;|&emsp;描述：{{item.content}}</el-menu-item>
-
-              </el-submenu>
-            </el-menu>
-            <!--<div style="margin: 1%; padding: 2%; text-align: left; font-size: x-large;">
-              <strong> 全部话题: </strong>
-            </div>
-            <div class="singletopic" v-for="topic in topics" @click="totopicid(topic.id)">
-              话题：{{ topic.title }}&emsp;|&emsp;描述：{{topic.content}}
-            </div>
-            <el-divider></el-divider>-->
-            <!-- elementUI分页组件 -->
-            <div class="pageblock">
-              <el-pagination
-                background
-                layout="prev, pager, next"
-                :total="total">
-              </el-pagination>
-            </div>
+    <div class="mybody">
+      <div class="bodyleft">
+        <div style="background-color: white; border-radius: 10px;">
+          <div class="alltopic">
+            <i class="el-icon-reading">  全部话题</i>
           </div>
-          <div class="bodyright">
-            <myhotlist></myhotlist>
+
+          <el-collapse v-model="activeName" accordion>
+            <el-collapse-item v-for="(item, index) in topics" :name="index">
+              <div slot="title" style="padding-left: 150px;width: 100%;" @click="getConment(item.id)">
+                <div>
+                  <p class="itemnew">new</p>
+                  <p class="itemtitle" @click="gototopicid(item.id)"><strong>{{item.title}}</strong></p>
+                  <i class="el-icon-chat-dot-square" style="float: left;margin-top: 18px;">{{item.content}}</i>
+                </div>
+              </div>
+              <div style="padding-left: 100px;width: 100%;">
+                <div v-for="num in comments.slice(0,6)">
+                  <p class="itemcomment" @click="gototopicid(item.id)">{{num.username}}:{{num.content}}</p>
+                </div>
+                <p class="getmore" @click="gototopicid(item.id)">查看更多</p>
+              </div>
+            </el-collapse-item>
+          </el-collapse>
+
+          <!-- elementUI分页组件 -->
+          <div class="pageblock">
+            <el-pagination
+              background
+              layout="prev, pager, next"
+              :page-size="pageSize"
+              :total="total"
+               v-if="pageSize < total">
+            </el-pagination>
           </div>
         </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+      </div>
+
+      <div class="bodyright">
+        <myhotlist></myhotlist>
+      </div>
+    </div>
     <!-- 主代码 -->
     <Myfoot></Myfoot>
   </div>
@@ -97,22 +79,46 @@
       return{
         message:'',//搜索框输入内容
         topics:[],//服务器返回信息
-        user_id:1  ,//登录用户id
+        user_id:window.sessionStorage.getItem('user_id'),//登录用户id
         total:100,//分页页数
-        // user_id:window.sessionstorage.getItem（‘user_id’）
+        pageSize:10,
+        activeName: '1',
+        show:1,
+        itemTitle:"",
+        comments:[],
       }
     },
     methods:{
+      getConment(topicid) {
+        this.comments = []
+        const _this = this
+        const formData = new FormData()
+        formData.append('id', topicid)
+        //获取topic_id相对应的评论
+        this.$axios({
+          method: 'post',
+          url: '/api/topics/getcomment',
+          data:formData,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        }).then(function (res) {
+          const r=res.data
+          _this.comments=r.data
+          console.log(_this.comments)
+        })
+      },
+
+      /**跳转到话题详情页
+       * @param {Object} id 话题id
+       */
+      gototopicid(id) {
+        this.$router.push("/topic/"+id)
+      },
+
       //搜索框输入
       start:function(){
         console.log(this.message)
-        alert(this.message)
+        // alert(this.message)
       },
-      //跳转到指定的话题详情页
-      totopicid:function(id){
-        console.log(id)
-        // this.$route.push({name:'./topiccom', params:{topic_id:id}})//代码不可用
-      }
     },
     created() {
       const d = {
@@ -132,13 +138,57 @@
         _this.topics=r.data
         console.log(_this.topics)
         _this.total=_this.topics.length
-        console.log(_this.total)
+        console.log("_this.total="+_this.total+",_this.pageSize="+_this.pageSize)
       })
     }
   }
 </script>
 
 <style scoped>
+  .alltopic {
+    background-image: linear-gradient(#239DC2, #F2F2F2);
+    padding: 5%;
+    font-size: xx-large;
+  }
+  .getmore {
+    float: left;
+    padding: 5px;
+    margin: 5px;
+    background-color: #D39819;
+    border-radius: 5px;
+    color: #FFFFFF;
+  }
+  .getmore:hover {
+    background-color: chocolate;
+    color: #FFFFFF;
+  }
+  .itemcomment {
+    float: left;
+    background-color: #73B309;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+  }
+  .itemcomment:hover {
+    background-color: #45A049;
+  }
+  .itemtitle{
+    float: left;
+    margin-top: 18px;
+    margin-right: 8px;
+    font-size: large;
+  }
+  .itemnew{
+    background-color: #CD0A0A;
+    float: left;
+    margin-top: 15px;
+    margin-right: 8px;
+    padding: 1px;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-size: smaller;
+  }
   .singletopic{
     border: 1px solid;
     text-align: left;
@@ -159,6 +209,7 @@
     overflow: hidden;
     background-color: #DDDDDD;
     height: auto;
+    background-color: white;
   }
   .searchbody img {
     float: left;
@@ -211,6 +262,7 @@
     float: left;
     margin-top: 1%;
     width: 77%;
+    min-height: 550px;
     height: auto;
     border-radius: 10px;
     padding: 1%;
@@ -224,5 +276,16 @@
     margin-top: 1%;
     padding-bottom: 1%;
     overflow: hidden;
+    /* background-color: #000000; */
+  }
+  .one {
+    border-radius: 5px;
+    text-align: center;
+    /* margin: 3%; */
+    padding: 10px;
+    background-color: #F0F0F0;
+  }
+  .one:hover {
+    background-color: #CCCCCC;
   }
 </style>

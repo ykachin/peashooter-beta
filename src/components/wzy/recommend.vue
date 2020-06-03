@@ -1,69 +1,213 @@
 <template>
-  <!-- 该组件为推荐页面 -->
-  <!--
-  该页该页的主要功能为:
-  显示所有分享,即share表中 热门 的内容(已经实现)
-  搜索指定的分享(未完成,只做了搜索框的样式,
-          原计划通过start函数获取输入信息,进而对服务器进行信息查询,再渲染到页面)
-  内容分页(未完成,
-          只引入了elementUI的分页样式,然后绑定了页数)
-  进入个人主页功能(未完成,
-          原计划通过tomypage函数获取指定的用户id,然后传递参数进而实现页面跳转)
-
-  该页样式:不建议修改.
-
-  该页业务说明:主页页面是将share当中的数据通过gethot方法获取直接渲染到页面当中,和mainpage页面(主页页面)有些不同
-  -->
   <div id="recommend">
     <!-- 页首 -->
     <myhead></myhead>
-    <!-- 搜做框代码 -->
     <!-- 搜索框代码 -->
-    <div class="searchbody" style="background-color: white;opacity:0.8">
+    <div class="searchbody">
       <!-- <img src="../assets/teamlogo.png" style="padding-left: 20%; width: 60px; height: auto;"/> -->
       <span class="title" style="padding-top: 30px;margin-left: 20%;">豌豆</span>
       <span class="title" style="padding-top: 40px;">射手</span>
       <img src="../../../static/images/pea.png" style="width: 30px; height: auto;" />
-      <input id="userinput" type="text" v-model="message" placeholder="搜索你感兴趣的推荐" @keyup.enter="start()" />
+      <input id="userinput" type="text" v-model="search" placeholder="搜索你感兴趣的推荐" @keyup.enter="start()" />
       <input id="startsearch" type="submit" value="搜索" v-on:click="start()" />
     </div>
     <!-- 搜索框代码 -->
-    <!--<div class="searchbody">
-      &lt;!&ndash; <img src="../assets/teamlogo.png" style="padding-left: 20%; width: 60px; height: auto;"/> &ndash;&gt;
-      <span class="title" style="padding-top: 30px;margin-left: 20%;">豌豆</span>
-      <span class="title" style="padding-top: 40px;">射手</span>
-      <img src="../../../static/images/pea.png" style="width: 30px; height: auto;" />
-      <input id="userinput" type="text" v-model="message" placeholder="搜索你感兴趣的话题" @keyup.enter="start()" />
-      <input id="startsearch" type="submit" value="搜索" v-on:click="start()" />
-    </div>-->
-    <!-- 搜做框代码 -->
 
     <!-- 主题代码 -->
     <div class="mybody">
       <div class="bodyleft">
-        <div class="item1" v-for="num in shares"> <!-- 限制十个推荐 -->
+        <div class="item1" v-for="num in shares">
           <div id="itemleft">
-            <!-- <img v-bind:src="img"/> .slice(pagenum,pagenum+onepagelinum)-->
-            <img src="../../../static/images/pea.png" v-on:click="tomypage(num.user_id)"/>
+            <el-popover
+                placement="bottom"
+                trigger="hover"
+                @after-enter="getShareUser(num.user_id)"
+                @after-leave="cleanUser">
+              <div>
+                <p>用户名：{{num.username}}</p>
+                <p v-show="shareUserNickname === 'nickname'">用户昵称：该用户暂未设置昵称</p>
+                <p v-show="shareUserNickname !== 'nickname'">用户昵称：{{shareUserNickname}}</p>
+                <p v-show="shareUserProfile === null">这个用户很懒，没有个人简介</p>
+                <p v-show="shareUserProfile !== null">个人简介：{{shareUserProfile}}</p>
+                <el-button type="infor" v-show="hadfollow === 1" @click="nofollow(num.user_id)">取消关注</el-button>
+                <el-button type="primary" v-show="hadfollow === 0" @click="setfollow(num.user_id)">关 注</el-button>
+              </div>
+              <div slot="reference">
+                <img src="../../../static/images/pea.png"/>
+                <!-- <img src="../../../static/images/pea.png" @click="tomypage(num.user_id)"/> -->
+                <!-- <img src="../../../static/images/pea.png" @click="getShareImformation(num.user_id)"/> -->
+                <p align="center"><strong>{{num.username}}</strong></p>
+              </div>
+            </el-popover>
           </div>
           <div id="itemright">
-            <div class="name">{{num.title}}</div>
-            <div class="tag">{{num.tags}}</div>
+            <div class="name"> {{num.title}} </div>
+            <div class="tag">
+              <i class="el-icon-price-tag"></i>
+              {{num.tags}}
+            </div>
+            <div style="float: right;margin: 10px;color: #CCCCCC;">
+              <i class="el-icon-date">{{formatDate(new Date(num.create_time*1000))}}</i>
+            </div>
             <div class="article">
               <strong>一句话分享：</strong>{{num.content}}
             </div>
             <div class="article" >
-              <!-- <strong>内容链接：</strong> -->
-              <a v-bind:href="'http://129.204.247.165/'+num.route" title="点击打开链接"> <strong>内容链接</strong> </a>
-              <label readonly="readonly" style="background-color:white">http://129.204.247.165/{{num.route}}</label>
-            </div>
-            <div class="shareto">
-              <strong>分享到：</strong> 微博、微信、QQ
+            <hr align="center" color="cadetblue" size="2" />
+              <!-- 内容链接 -->
+              <p style="float: left;
+                padding: 3px;
+                background-color: #6BC4E0;
+                color: #F2F2F2;
+                border-radius: 3px;"
+                v-bind:title="'http://129.204.247.165/'+num.route">
+              <i class="el-icon-link"></i>
+              内容链接
+              </p>
+
+              <!-- 内容预览 -->
+              <p style="float: left;
+                padding: 3px;
+                background-color: #6BC4E0;
+                color: #F2F2F2;
+                border-radius: 3px;
+                margin-left: 8px;"
+                @click="showimg(num.route)"
+                v-show="num.points === 0">
+              <i class="el-icon-view"></i>
+              预览
+              </p>
+
+              <!-- 需要积分支付 -->
+              <div v-if="num.points > 0">
+                <p style="padding: 3px;
+                    background-color: #D39819;
+                    float: left;
+                    color: #F2F2F2;
+                    border-radius: 4px;
+                    margin-left: 8px;"
+                    @click="readpay(num.title, user_id, num.points, num.route, num.id)"
+                    :title="'累计下载'+num.times+'次'">
+                  <i class="el-icon-lock"></i>
+                  需要 {{num.points}} 积分/
+                  <i class="el-icon-sell"></i>点击支付
+                </p>
+              </div>
+                <!-- 无需积分下载 -->
+              <div v-if="num.points === 0">
+                <a target="_blank" :href="'http://129.204.247.165/'+num.route">
+                  <p style="padding: 3px;
+                      background-color: #42B983;
+                      float: left;
+                      color: #F2F2F2;
+                      border-radius: 4px;
+                      margin-left: 8px;"
+                      @click="downloadfile(num.id,user_id)"
+                      :title="'累计下载'+num.times+'次'">
+                  <i class="el-icon-download"></i>
+                      无需积分
+                  </p>
+                </a>
+              </div>
+              <!-- <p style="float: right;color: #8F949A;">下载次数:{{num.times}}</p> -->
             </div>
           </div>
+
         </div>
         <!--总条数{{total}}-->
         <el-divider></el-divider>
+
+<!--        <el-drawer
+          :visible.sync="drawer"
+          direction="ltr">
+          <el-divider><el-avatar shape="circle" :src="circleUrl"></el-avatar></el-divider>
+          <div style="background-color: #239DC2;color: white;padding: 10px;">{{shareUserUsername}}</div>
+          <div style="background-color: #73B309;color: white;padding: 10px;">
+            <p v-show="shareUserProfile === null">这个用户很懒，没有个人简介</p>
+            <p v-show="shareUserProfile !== null">个人简介：{{shareUserProfile}}</p>
+          </div>
+          <el-table
+            :data="shares"
+            style="width: 100%"
+            max-height="400">
+            <el-table-column
+              fixed
+              prop="title"
+              label="分享标题"
+              width="100">
+            </el-table-column>
+            <el-table-column
+              prop="content"
+              label="分享内容"
+              width="250">
+            </el-table-column>
+            <el-table-column
+              prop="route"
+              label="资源链接"
+              width="250">
+            </el-table-column>
+          </el-table>
+          <div style="color: white;padding: 10px;position: absolute;bottom: 10px;width: 100%;">
+            <el-button type="infor" v-show="hadfollow === 1" @click="nofollow(num.user_id)">取消关注</el-button>
+            <el-button type="primary" v-show="hadfollow === 0" @click="setfollow(num.user_id)">关 注</el-button>
+          </div>
+        </el-drawer> -->
+
+        <!-- 支付积分提示窗口 -->
+        <el-dialog
+          :before-close = "cancel"
+          title="当前进行积分支付"
+          :visible.sync="payDialogVisible"
+          width="30%">
+          <div v-show="hadpayit === 0">
+            <div>
+              <strong style="font-size: x-large;"> 每次积分支付仅允许一次下载 </strong><br /><br />
+              资源标题：{{this.payDialogtitle}}<br />
+              所需积分：{{this.payDialogpoints}}<br />
+              我的积分：{{this.payDialoguserlast}}<br /><br />
+            </div>
+            <span slot="footer" class="dialog-footer">
+              <el-button @click="cancel()">取 消</el-button>
+              <el-button type="primary" @click="paypoints()">支 付</el-button>
+            </span>
+          </div>
+          <div v-show="hadpayit === 1" style="text-align: center; margin: auto;">
+            <strong style="font-size: x-large;"> {{this.message}} </strong><br /><br />
+            <div v-if="candownload === 1">
+              <span slot="footer" class="dialog-footer">
+                <el-button type="primary" @click="cancel()">
+                  <a target="_blank" :href="'http://129.204.247.165/'+this.route">
+                    <p style="color:#DDDDDD" @click="downloadfile(payDialogdocuid, user_id)">点击下载</p>
+                  </a>
+                </el-button>
+              </span>
+            </div>
+            <div v-if="candownload === 0">
+              <span slot="footer" class="dialog-footer">
+                <el-button type="primary" @click="cancel()">
+                  <p style="color:#DDDDDD">关 闭</p>
+                </el-button>
+              </span>
+            </div>
+          </div>
+        </el-dialog>
+
+        <!-- 图片预览窗口 -->
+        <el-dialog
+          title="文件预览"
+          :visible.sync="documentView"
+          width="30%">
+          <div v-if="isPicture == 1">
+            <img width="50%" :src="imgroute" />
+          </div>
+          <div v-else>{{showInView}}</div>
+          <span slot="footer" class="dialog-footer">
+            <!-- <el-button @click="documentView = false">取 消</el-button> -->
+            <el-button type="primary" @click="closeimg()">关 闭</el-button>
+          </span>
+        </el-dialog>
+
+        <!-- 分页控件代码 -->
         <div class="pageblock">
           <el-pagination
             @current-change="handleCurrentChange"
@@ -75,9 +219,9 @@
         </div>
       </div>
       <div class="bodyright">
-        <div class="mybody m-margin-top-large" style="background-color:white" >
+        <!-- <div class="mybody m-margin-top-large" style="background-color:white" > -->
         <myhotlist></myhotlist>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
     <!-- 主题代码 -->
@@ -100,16 +244,313 @@
     },
     data:function(){
       return{
-        message:"",//搜索框输入
+        drawer: false,
+        search:"",//搜索框输入
         shares:[],//服务器返回的信息
-        pagenum:0,//
-        onepagelinum:5,
+        userfollow:[],
+        hadfollow:0,
+        hadpayit:0,
         total:0,
-        // pagetotal:this.shares.length,
+        candownload:0,
+        followid:-1,
+        isPicture:1,
+        payDialogVisible:false,
+        documentView:false,
+        imgroute:"",
+        payDialogtitle:"",
+        payDialogpoints:"",
+        payDialoguserlast:"",
+        payDialogdocuid:"",
+        route:"",
+        message:"",
+        showInView:"",
+        more:0,
+        user_id:window.sessionStorage.getItem('user_id'),//登录用户id
+        shareUserProfile:"",
+        shareUserNickname:"",
+        shareUserUsername:"",
+        circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
       }
     },
     methods:{
+      // async getShareImformation(shareuserid) {
+      //   this.drawer = true
+      //   const _this = this
+      //   const formData = new FormData()
+      //   formData.append('id', shareuserid)
+      //   this.$axios({
+      //     url:'/api/user/searchbyid',
+      //     method:'post',
+      //     data:formData,
+      //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      //   }).then(function(res) {
+      //     console.log(res)
+      //     _this.shareUserNickname = res.data.data.nickname
+      //     _this.shareUserProfile = res.data.data.profile
+      //     _this.shareUserUsername = res.data.data.username
+      //   })
+      //   for (let c=0; c<_this.userfollow.length; c++) {
+      //     if (_this.userfollow[c].to_user_id == shareuserid)
+      //       _this.hadfollow = 1
+      //   }
+      //   console.log("hadfollow="+_this.hadfollow)
+      //   await this.$forceUpdate();
+      // },
 
+      /**计算评论的创建时间
+       * @param {Object} date
+       */
+      formatDate(date) {
+        var year=date.getFullYear();
+        var month=date.getMonth()+1;
+        var day=date.getDate();
+        var hour=date.getHours();
+        var minute=date.getMinutes();
+        return year + '-' +
+          (String(month).length > 1 ? month : '0' + month) + '-' +
+          (String(day).length > 1 ? day : '0' + day) + ' ' +
+          (String(hour).length > 1 ? hour : '0' + hour) + ':' +
+          (String(minute).length > 1 ? minute : '0' + minute)
+      },
+
+      /**
+       * 设置未关注
+       */
+      nofollow(touser) {
+        this.hadfollow = 0
+        const _this = this
+        var c = 0
+        for (let c=0; c<_this.userfollow.length; c++) {
+          if (_this.userfollow[c].to_user_id == touser) {
+            _this.followid = _this.userfollow[c].id
+            break
+          }
+        }
+        if (c == _this.userfollow.length) {
+          _this.$message.warning("无关注该用户")
+        } else {
+          //删除关注表里的记录
+          this.$axios({
+            url:'/api/follows/'+_this.followid,
+            method:'delete',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          }).then(function(res) {
+            console.log("取消关注返回信息")
+            console.log(res)
+            _this.$message.success("已取消关注")
+          })
+          _this.followid = -1
+        }
+      },
+      /**
+       * 设置关注
+       */
+      async setfollow(touser) {
+        this.hadfollow = 1
+        const _this = this
+        var had = 0
+        for (let c=0; c<_this.userfollow.length; c++) {
+          if (_this.userfollow[c].to_user_id == touser) {
+            had = 1
+            break
+          }
+        }
+        if (had == 0) {
+          const formData = new FormData()
+          formData.append('from_user_id', _this.user_id)
+          formData.append('to_user_id',touser)
+          await this.$axios({
+            url:'/api/follows',
+            method:'post',
+            data:formData,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          }).then(function(res) {
+            console.log(res)
+            _this.$message.success("已关注")
+          })
+          //重新获取用户的关注列表
+          const myuserid={id:window.sessionStorage.getItem('user_id')}
+          await this.$axios({
+            method: 'post',
+            url: '/api/user/getfollowed',
+            data: this.$qs.stringify(myuserid),
+          }).then(function (res) {
+            console.log('我的关注',res)
+            _this.userfollow = res.data.data
+          }).catch(function (res) {
+            console.log('我的关注获取失败 ')
+          })
+          await this.$forceUpdate();
+          // _this.$router.go(0);
+        } else {
+          _this.$message.warning("已关注该用户，无需重复关注")
+        }
+      },
+      /**
+       * 清除资源分享者信息
+       */
+      cleanUser() {
+        this.shareUserNickname = ""
+        this.shareUserProfile = ""
+        this.shareUserUsername = ""
+        this.hadfollow = 0
+      },
+
+      /**获取某个资源分享者的信息
+       * @param {Object} userid
+       */
+      async getShareUser(shareuserid) {
+        const _this = this
+        const formData = new FormData()
+        formData.append('id', shareuserid)
+        this.$axios({
+          url:'/api/user/searchbyid',
+          method:'post',
+          data:formData,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function(res) {
+          console.log(res)
+          _this.shareUserNickname = res.data.data.nickname
+          _this.shareUserProfile = res.data.data.profile
+          _this.shareUserUsername = res.data.data.username
+        })
+        for (let c=0; c<_this.userfollow.length; c++) {
+          if (_this.userfollow[c].to_user_id == shareuserid)
+            _this.hadfollow = 1
+        }
+        console.log("hadfollow="+_this.hadfollow)
+        await this.$forceUpdate();
+      },
+
+      /**
+       * 支付弹窗的取消按钮
+       */
+      cancel() {
+        this.payDialogVisible = false
+        this.hadpayit = 0
+        this.payDialogdocuid = ""
+        this.payDialogpoints = ""
+        this.payDialogtitle = ""
+        this.payDialoguserlast = ""
+        this.candownload = 0
+      },
+
+      /**
+       * 支付弹窗的确认支付按钮
+       */
+      paypoints() {
+        this.hadpayit = 1
+        console.log("点击支付按钮后")
+        console.log("this.payDialoguserlast = "+this.payDialoguserlast)
+        console.log("this.payDialogpoints = "+this.payDialogpoints)
+        if (this.payDialogpoints > this.payDialoguserlast) {
+          this.message = "您的积分不足"
+        } else {
+          this.candownload = 1
+          this.message = "进入下载页面之后将自动支付积分"
+        }
+      },
+
+      /**点击资源的支付按钮
+       * @param {Object} title 资源标题
+       * @param {Object} userid 支付积分的用户id
+       * @param {Object} point 资源消耗的积分
+       */
+      readpay(title, userid, point, route, id){
+        const _this = this
+        this.payDialogVisible = true
+        this.payDialogtitle = title
+        this.payDialogpoints = point
+        this.route = route
+        this.payDialogdocuid = id
+        this.judgepay(id, userid)
+        const formData = new FormData()
+        formData.append('id', userid)
+        this.$axios({
+          url:'/api/user/searchbyid',
+          method:'post',
+          data:formData,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function(res) {
+          _this.payDialoguserlast = res.data.data.points
+          console.log("获取用户积分")
+          console.log(res)
+          console.log("this.payDialogpoints = "+point)
+          console.log("_this.payDialoguserlast = "+_this.payDialoguserlast)
+        })
+      },
+
+      /**判断是否支付过改资源
+       * @param {Object} id
+       * @param {Object} userid
+       */
+      judgepay(id, userid) {
+        const _this = this
+        const formData = new FormData()
+        formData.append('id', id)
+        formData.append('user_id', userid)
+        // console.log("id="+id+",userid="+userid+",this.userid="+this.user_id)
+        this.$axios({
+          url: '/api/shares/jud',
+          method: 'post',
+          data: formData,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function (res) {
+          console.log("id="+id+",user_id="+userid)
+          _this.hadpayit = res.data.data
+          _this.candownload = 1
+          _this.message = "您已支付过该资源，可直接点击下载"
+          console.log("_this.hadpayit = ")
+          console.log(_this.hadpayit)
+        })
+      },
+
+      /**请求下载文件，使times属性的值加一
+       * @param {Object} id 文件id
+       * @param {Object} userid 下载文件的用户id
+       */
+      downloadfile(id, userid) {
+        const formData = new FormData()
+        formData.append('id', id)
+        formData.append('user_id', userid)
+        console.log("id="+id+",userid="+userid+",this.userid="+this.user_id)
+        this.$axios({
+          url: '/api/shares/getfile',
+          method: 'post',
+          data: formData,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        }).then(function (res) {
+          console.log("id="+id+",user_id="+userid)
+          console.log(res)
+        })
+      },
+      /**文件预览
+       * @param {Object} route 文件路径
+       */
+      showimg(route) {
+        var list = route.split(".")
+        console.log(list)
+        if (list[1] != "jpg" && list[1] != "JPG" &&
+          list[1] != "png" && list[1] != "PNG" &&
+          list[1] != "gif" && list[1] != "GIF") {
+            this.isPicture = 0
+            this.showInView = "该文件不是.jpg/.png/.gif的图片文件。当前文件格式为."+list[1]+",暂不支持显示"
+            this.documentView = true;
+            console.log("判断该文件不是图片文件,文件格式为："+list[1])
+        } else {
+          this.imgroute = "http://129.204.247.165/"+route;
+          this.documentView = true;
+        }
+      },
+
+      /**
+       * 关闭文件预览，重置变量
+       */
+      closeimg() {
+        this.isPicture = 1
+        this.showInView = ""
+        this.documentView = false
+      },
       //处理页码改变后的shares数据
       async handleCurrentChange(current){
         this.page=current
@@ -136,17 +577,20 @@
         console.log(_this.shares)
       },
 
-      start:function(){
+      start(){
         // console.log(this.message)
         alert(this.message)
       },
-      tomypage:function(id) {
+
+      tomypage(userid) {
+        alert("前往"+userid+"主页")
         //跳转到id对应的用户主页
         //window.sessionstorage.setItem（‘user_id’,id）
       }
     },
     async created() {
       const _this=this;
+      // console.log(_this.hadpayit)
       this.$axios({
         method: 'post',
         url: '/api/shares/gethot',
@@ -171,12 +615,44 @@
         _this.total= parseInt(res.data.data)
         console.log("查找全部shares条数成功")
         console.log(_this.total)
-
       }).catch(function (res) {
         console.log("查找全部shares条数失败")
       })
+      const myuserid={id:window.sessionStorage.getItem('user_id')}
+      this.$axios({
+        method: 'post',
+        url: '/api/user/getfollowed',
+        data: this.$qs.stringify(myuserid),
+      }).then(function (res) {
+        console.log('我的关注',res)
+        _this.userfollow = res.data.data
+      }).catch(function (res) {
+        console.log('我的关注获取失败 ')
+      })
     }
   }
+
+  //设置页面无法进行鼠标右键，防止预览图片时可以对图片进行下载
+  if (window.Event)
+    document.captureEvents(Event.MOUSEUP);
+  function nocontextmenu() {
+    event.cancelBubble = true
+    event.returnValue = false;
+    return false;
+  }
+  function norightclick(e) {
+    if (window.Event) {
+      if (e.which == 2 || e.which == 3)
+        return false;
+    }
+    else if (event.button == 2 || event.button == 3) {
+      event.cancelBubble = true
+      event.returnValue = false;
+      return false;
+    }
+  }
+  document.oncontextmenu = nocontextmenu; // for IE5+
+  document.onmousedown = norightclick; // for all others
 </script>
 
 <style scoped>
@@ -184,6 +660,7 @@
     overflow: hidden;
     background-color: #DDDDDD;
     height: auto;
+    background-color: white;
   }
   .searchbody img {
     float: left;
@@ -250,12 +727,18 @@
     width: 90%;
     margin: auto;
     margin-bottom: 3%;
-    border: 1px solid;
+    /* border: 1px solid; */
     background-color: white;
-    opacity:0.9;
+    /* opacity:0.9; */
     overflow: hidden;
     text-align: left;
-    /* border-radius: 10px; */
+    border-radius: 10px;
+    /* background: url(../../../static/images/background1.jpg); */
+  }
+  .item1:hover {
+    background-color: aliceblue;
+    box-shadow: 0px 0px 15px 15px rgba(0,0,0,0.2);
+    transition: box-shadow 0.5s;
   }
   #itemleft {
     float: left;
@@ -287,11 +770,11 @@
   #itemright .tag{
     text-align: left;
     float: left;
-    padding: 1%;
+    padding: 3px;
     font-family: "幼圆";
     font-weight: bold;
     font-size: x-small;
-    background-color: crimson;
+    background-color: orangered;
     border-radius: 5px;
     color: #FFFFFF;
     margin-top: 2%;
@@ -302,16 +785,6 @@
     width: 96%;
     /* background-color: #CCCCCC; */
     padding: 2%;
-  }
-  #itemright .article a {
-    padding: 3px;
-    background-color: lightseagreen;
-    float: left;
-    border-radius: 5px;
-    color: #CCCCCC;
-  }
-  #itemright .article a:hover {
-    color: black;
   }
   #itemright .shareto{
     text-align: right;
