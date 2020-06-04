@@ -698,6 +698,7 @@
           }else{
             this.list.push({replycomment:this.fathercommentname,username: window.sessionStorage.getItem('personalInfo'), content: this.addComment.content.substring(5)});
             console.log("这条评论是回复comment的")
+            this.addComment.post_id=this.postInfo.id
             this.addComment.comment_id=this.comment_id
             this.addComment.content = this.addComment.content.substring(5)
           }
