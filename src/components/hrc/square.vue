@@ -4525,7 +4525,16 @@
           document.getElementById("state3").style.display="none";
         }
       },
-
+      set_bold()
+      {
+          var dy176=document.getElementById("dy176");
+          var dy190=document.getElementById("dy190");
+          var dy1901=document.getElementById("dy415");
+          dy176.style.fontWeight="700"
+          dy190.style.fontWeight="700"
+          dy1901.style.fontWeight="700"
+      
+      }
     },
 
     mounted:function(){
@@ -4533,6 +4542,7 @@
       this.goto();
       this.move_picture();
       this.click_status();
+      this.set_bold();
     },
     created:function(){
       const _this=this;
@@ -4627,6 +4637,8 @@
           pfspan.innerHTML="  "+pscore;
           if(dres.data[i].title.length>8)
             naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
+          if(pscore=="10.0"&&dres.data[i].title.length>8)
+              naspan.innerHTML=naspan.innerHTML.substring(0,7)+"...";
           s3=s3+1;
           sa2++;
           sap2++;
@@ -4686,6 +4698,8 @@
           pfspan.innerHTML="  "+pscore;
           if(dres.data[i].title.length>8)
             naspan.innerHTML=naspan.innerHTML.substring(0,8)+"...";
+          if(pscore=="10.0"&&dres.data[i].title.length>8)
+            naspan.innerHTML=naspan.innerHTML.substring(0,7)+"...";
           s3=s3+1;
           sa2++;
           sap2++;
