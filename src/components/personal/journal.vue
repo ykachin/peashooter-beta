@@ -36,7 +36,8 @@
                             <a @click="dianzan(item.id,item)"><img  class="middle aligned" :id="'nolike'+item.id" style="width: 18px" v-show="!(item.jud)" :src="likesimage"><img  class="middle aligned" :id="'liked'+item.id" style="width: 18px" v-show="item.jud" :src="likedimage"><span :id="'likenum'+item.id">{{item.likes}}</span></a>
                           </div>
                           <div class="item">
-                            <a @click="getcommentbypostid(item.id,index)" :id="'comment'+index"><img  class="middle aligned" style="width: 18px" src="../../../static/images/comment.png"></a>
+                            <a v-local-test v-if="index === 0" @click="getcommentbypostid(item.id,index)" :id="'comment'+index"><img  class="middle aligned" style="width: 18px" src="../../../static/images/comment.png"></a>
+                            <a v-if="index !== 0" @click="getcommentbypostid(item.id,index)" :id="'comment'+index"><img  class="middle aligned" style="width: 18px" src="../../../static/images/comment.png"></a>
                           </div>
                           <div class="item">
                             <a @click="deletepost(item.id)"><img  class="middle aligned" v-if="parseInt(item.user_id) === parseInt(currentuserid)" style="width: 18px" src="../../../static/images/delete.png"></a>
@@ -180,7 +181,7 @@
                   layout="prev, pager, next"
                   :page-size="5"
                   :total="posttotal"
-                  :current-page="parseInt(page)">
+                  :current-page="parseInt(mypage)">
                 </el-pagination>
               </div>
             </div>
@@ -204,6 +205,8 @@
     },
     data() {
       return {
+        clicked:false,
+
         list:[],
         username:window.sessionStorage.getItem('personalInfo'),
         currentuserid:window.sessionStorage.getItem('user_id'),
@@ -220,6 +223,7 @@
         allposts:[],
         //page第几页
         page:1,
+        mypage:1,
         posttotal:1,
         topics:[],
         tags:[],
@@ -329,11 +333,11 @@
       //处理页码改变后的posts数据
       async handleCurrentChange(current){
         /*this.posts=[]*/
-        this.page=current
+        this.mypage=current
         console.log('当前页码为')
-        console.log(this.page)
+        console.log(this.mypage)
         const _this=this
-        const xx={page:parseInt(this.page),user_id:window.sessionStorage.getItem('user_id')}
+        const xx={page:parseInt(this.mypage),user_id:window.sessionStorage.getItem('user_id')}
         await this.$axios({
           method: 'post',
           url: '/api/posts/getu',
@@ -373,11 +377,11 @@
         console.log('该页下的数据')
         console.log(_this.posts)
         /*this.$router.go(0);*/
-        window.sessionStorage.setItem('primarypagenum',this.page)
+        window.sessionStorage.setItem('mypagenum',this.mypage)
         this.reload()
       },
       async dianzan(postid,thisitem){
-        window.sessionStorage.setItem('primarypagenum',this.page)
+        window.sessionStorage.setItem('mypagenum',this.mypage)
         const _this=this
         thisitem.likesimage='../../../static/images/liked.png'
         const zan={
@@ -532,7 +536,7 @@
       async hanshu(){
         const _this =this
         //获取post
-        const x={page:window.sessionStorage.getItem('primarypagenum'),id:window.sessionStorage.getItem('user_id')}
+        const x={page:window.sessionStorage.getItem('mypagenum'),id:window.sessionStorage.getItem('user_id')}
         await this.$axios({
           method: 'post',
           url: '/api/user/getpost',
@@ -580,7 +584,7 @@
       },
       async getcommentbypostid(param,index){
         this.thispagecomments=[]
-        window.sessionStorage.setItem('primarypagenum',this.page)
+        window.sessionStorage.setItem('mypagenum',this.mypage)
         const _this=this
         this.postInfo.id=param
         console.log('对应postid为')
@@ -660,19 +664,29 @@
           (String(day).length > 1 ? day : '0' + day) + ' ' + (String(hour).length > 1 ? hour : '0' + hour) + ':' + (String(minute).length > 1 ? minute : '0' + minute)
           + ':' + (String(second).length > 1 ? second : '0' + second)
       },
+      clickComment(){
+        console.log("我是定时器")
+        var obj = document.getElementById('comment0');
+        obj.click()
+      },
     },
     components:{
       myhead:myhead,
       myfoot:myfoot
     },
-    updated() {
-      var btn = document.getElementById("comment0");
-      //通用方法
-      btn.click();
+    directives:{
+      'local-test':{
+        bind:function(el,binding,vnode){
+          /** el可以获取当前dom节点，并且进行编译，也可以操作事件 **/
+          /** binding指的是一个对象，一般不用 **/
+          /** vnode 是 Vue 编译生成的虚拟节点 **/
+          el.click()
+        }
+      }
     },
     async created() {
       /*window.sessionStorage.setItem('primarypagenum',1)*/
-      this.page=window.sessionStorage.getItem('primarypagenum')
+      this.mypage=window.sessionStorage.getItem('mypagenum')
       const _this =this
       /*//全部post
       const xx={page:1,id:window.sessionStorage.getItem('user_id')}

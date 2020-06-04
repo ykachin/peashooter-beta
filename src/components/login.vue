@@ -218,6 +218,7 @@
               const res=r.data
               if(res.success){
                 window.sessionStorage.setItem('primarypagenum',1)
+                window.sessionStorage.setItem('mypagenum',1)
                 window.sessionStorage.setItem('token',res.data.access_token)
                 //通过token查找用户信息
                 window.sessionStorage.setItem('personalInfo',_this.ruleForm.username)

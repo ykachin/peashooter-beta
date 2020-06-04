@@ -291,7 +291,7 @@
                   console.log(res)
                   console.log('文件上传成功！')
                   _this.$message.success('发布成功！')
-                  setTimeout(this.$router.push("/primarypage"),1000)
+                  /*setTimeout(this.$router.push("/primarypage"),1000)*/
                 }
               }).catch(error=>{
                 if (error.response) {
@@ -315,6 +315,7 @@
                   _this.$message.success("添加work成功！")
                   console.log(res)
                   console.log("添加work成功")
+                  setTimeout(this.$router.push("/primarypage"),1000)
                 }else{
                   _this.$message.error("添加work失败，请检查网络是否正常...")
                 }

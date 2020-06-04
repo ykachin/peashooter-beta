@@ -99,7 +99,6 @@
       }).catch(err => {
         console.log(err)
       })
-      this.getUserMessageList(window.sessionStorage.getItem('user_id'))
     },
     methods:{
       /**
