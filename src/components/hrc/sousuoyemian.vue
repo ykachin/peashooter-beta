@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <myhead></myhead>
-    <div id="sousuolan1" class="ui container" style="height:300px; background:url(./static/images/bg4.jpg)no-repeat;background-size: cover;">
+    <div id="sousuolan1" class="ui container" style="height:300px; background:url(./static/images/a1.jpg)no-repeat;background-size: cover;">
         <div class="eight wide column">
           <div class="ui stackable grid">
             <div class="wide column two-size-center">
@@ -29,13 +29,13 @@
     <div id="ssdiv1" class="20px Extra large" style="" >{{item.percent}}</div>
     <img id="ssimage1" style="" class="" :src='"http://129.204.247.165/"+item.route'  :value="item.id" >
     <el-row>
-
+      
        <el-col :span="6" class="grid-content"  :value="item.id" >&nbsp;</el-col>
       <el-col :span="6" style="font-size:15px; width:auto" class="grid-content ui red horizontal label"  :value="item.id" >标题:   &laquo;{{item.title}}&raquo;</el-col>
       <el-col :span="6"  style="font-size:15px" class="grid-content ui purple horizontal label "  :value="item.id" >类别:   {{trastatus[item.status]}}</el-col>
     </el-row>
-
-
+     
+               
     </div>
     </div>
     <br>
@@ -49,7 +49,7 @@
     <br>
     <myfoot> </myfoot>
   </div>
-
+  
 </template>
 
 
@@ -65,7 +65,7 @@ export default {
     },
   data(){
     return{
-      posttitle:'',
+      posttitle:'',   
       ssresult:[],
       trastatus:["电影","音乐","书籍","电视剧"],
     }
@@ -121,7 +121,7 @@ export default {
       }).then(function (res) {
           console.log(res);
           const dres=res.data;
-          if(dres.data.length==0)
+          if(dres.data.length==0)  
           {
             _this.$message.info("未找到作品!");
           }

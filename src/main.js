@@ -5,9 +5,6 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import store from './store'
-/*自适应移动端*/
-/*import 'lib-flexible'*/
-
 Vue.prototype.$axios = axios
 axios.defaults.baseURL = process.env.VUE_APP_BASE_API
 /*axios.defaults.baseURL="http://www.yjchen.top:8080"*/
