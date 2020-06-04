@@ -61,7 +61,7 @@
       font-size: 16px;
     }
   }
-  .notfound {
+  /*.notfound {
     max-width: 500px;
     margin: 0 auto;
     text-align: center;
@@ -89,5 +89,5 @@
         cursor: pointer;
       }
     }
-  }
+  }*/
 </style>
