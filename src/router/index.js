@@ -42,7 +42,7 @@ Vue.use(Router)
 
 
 const router= new Router({
-  /*base:'/vue-peashooter/',*/
+  base:'peashooter',
   routes: [
     {
       path: '/work',
