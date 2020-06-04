@@ -4564,7 +4564,10 @@
           var idstring=sa1+s3;
           var phdiv=document.getElementById(idstring)
           s3++
-          phdiv.innerHTML="  "+dres.data[i].title;
+          if(dres.data[i].title.length>8)
+           phdiv.innerHTML="  "+dres.data[i].title.substring(0,7)+"...";
+          else
+           phdiv.innerHTML="  "+dres.data[i].title;
           phdiv.setAttribute("value",dres.data[i].id)
         }
 
@@ -5275,12 +5278,15 @@
 
 
 
-         for(i=0;i<6;i++)
+           for(i=0;i<6;i++)
         {
           var idstring=sa1+s3;
           var phdiv=document.getElementById(idstring)
           s3++
-          phdiv.innerHTML="  《"+dres.data[i].title+"》";
+          if(dres.data[i].title.length>8)
+           phdiv.innerHTML="  "+dres.data[i].title.substring(0,7)+"...";
+          else
+           phdiv.innerHTML="  "+dres.data[i].title;
           phdiv.setAttribute("value",dres.data[i].id)
         }
 
