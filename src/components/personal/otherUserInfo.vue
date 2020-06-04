@@ -5,8 +5,8 @@
       <div class="ui padded vertical segment m-padded-tb-large" >
       <div class="ui middle aligned mobile reversed stackable grid" >
         <div class="five wide column center aligned" >
-          <a href="#"  target="_blank">
-            <img src="https://picsum.photos/1000/1000/?blur=5"   alt="" class="ui rounded image">
+          <a target="_blank">
+            <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"   alt="" class="ui rounded image">
             <br/>
             <div class="ui horizontal label">
               <p class="ui head">{{ userInfo.nickname }} </p>
