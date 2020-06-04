@@ -7,8 +7,8 @@
       <span class="title" style="padding-top: 30px;margin-left: 20%;">豌豆</span>
       <span class="title" style="padding-top: 40px;">射手</span>
       <img src="../../../static/images/pea.png" style="width: 30px; height: auto;" />
-      <input id="userinput" type="text" v-model="message" placeholder="搜索你感兴趣的话题" @keyup.enter="start()" />
-      <input id="startsearch" type="submit" value="搜索" v-on:click="start()" />
+      <!-- <input id="userinput" type="text" v-model="message" placeholder="搜索你感兴趣的话题" @keyup.enter="start()" />
+      <input id="startsearch" type="submit" value="搜索" v-on:click="start()" /> -->
     </div>
     <!-- 搜索框代码 -->
     <!-- 主代码 -->
@@ -208,7 +208,7 @@
   .searchbody {
     overflow: hidden;
     background-color: #DDDDDD;
-    height: auto;
+    height: 85px;
     background-color: white;
   }
   .searchbody img {

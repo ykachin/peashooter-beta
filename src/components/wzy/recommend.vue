@@ -8,8 +8,8 @@
       <span class="title" style="padding-top: 30px;margin-left: 20%;">豌豆</span>
       <span class="title" style="padding-top: 40px;">射手</span>
       <img src="../../../static/images/pea.png" style="width: 30px; height: auto;" />
-      <input id="userinput" type="text" v-model="search" placeholder="搜索你感兴趣的推荐" @keyup.enter="start()" />
-      <input id="startsearch" type="submit" value="搜索" v-on:click="start()" />
+      <!-- <input id="userinput" type="text" v-model="search" placeholder="搜索你感兴趣的推荐" @keyup.enter="start()" />
+      <input id="startsearch" type="submit" value="搜索" v-on:click="start()" /> -->
     </div>
     <!-- 搜索框代码 -->
 
@@ -117,51 +117,17 @@
         <!--总条数{{total}}-->
         <el-divider></el-divider>
 
-<!--        <el-drawer
-          :visible.sync="drawer"
-          direction="ltr">
-          <el-divider><el-avatar shape="circle" :src="circleUrl"></el-avatar></el-divider>
-          <div style="background-color: #239DC2;color: white;padding: 10px;">{{shareUserUsername}}</div>
-          <div style="background-color: #73B309;color: white;padding: 10px;">
-            <p v-show="shareUserProfile === null">这个用户很懒，没有个人简介</p>
-            <p v-show="shareUserProfile !== null">个人简介：{{shareUserProfile}}</p>
-          </div>
-          <el-table
-            :data="shares"
-            style="width: 100%"
-            max-height="400">
-            <el-table-column
-              fixed
-              prop="title"
-              label="分享标题"
-              width="100">
-            </el-table-column>
-            <el-table-column
-              prop="content"
-              label="分享内容"
-              width="250">
-            </el-table-column>
-            <el-table-column
-              prop="route"
-              label="资源链接"
-              width="250">
-            </el-table-column>
-          </el-table>
-          <div style="color: white;padding: 10px;position: absolute;bottom: 10px;width: 100%;">
-            <el-button type="infor" v-show="hadfollow === 1" @click="nofollow(num.user_id)">取消关注</el-button>
-            <el-button type="primary" v-show="hadfollow === 0" @click="setfollow(num.user_id)">关 注</el-button>
-          </div>
-        </el-drawer> -->
-
         <!-- 支付积分提示窗口 -->
         <el-dialog
+          :showClose="showClo"
+          :closeOnClickModal="showClo"
+          :closeOnPressEscape="showClo"
           :before-close = "cancel"
           title="当前进行积分支付"
           :visible.sync="payDialogVisible"
           width="30%">
-          <div v-show="hadpayit === 0">
+          <div v-show="hadpayit === 0 && payit === 0">
             <div>
-              <strong style="font-size: x-large;"> 每次积分支付仅允许一次下载 </strong><br /><br />
               资源标题：{{this.payDialogtitle}}<br />
               所需积分：{{this.payDialogpoints}}<br />
               我的积分：{{this.payDialoguserlast}}<br /><br />
@@ -171,7 +137,20 @@
               <el-button type="primary" @click="paypoints()">支 付</el-button>
             </span>
           </div>
-          <div v-show="hadpayit === 1" style="text-align: center; margin: auto;">
+          <div v-show="hadpayit === 1 && payit === 0" style="text-align: center; margin: auto;">
+            <strong style="font-size: x-large;"> {{this.message}} </strong><br /><br />
+            <span slot="footer" class="dialog-footer">
+              <el-button type="primary" @click="cancel()">
+                <a target="_blank" :href="'http://129.204.247.165/'+this.route">
+                  <p style="color:#DDDDDD">点击下载</p>
+                </a>
+              </el-button>
+              <el-button type="primary" @click="cancel()">
+                <p style="color:#DDDDDD">关 闭</p>
+              </el-button>
+            </span>
+          </div>
+          <div v-show="hadpayit === 0 && payit === 1" style="text-align: center; margin: auto;">
             <strong style="font-size: x-large;"> {{this.message}} </strong><br /><br />
             <div v-if="candownload === 1">
               <span slot="footer" class="dialog-footer">
@@ -245,11 +224,13 @@
     data:function(){
       return{
         drawer: false,
+        showClo:false,
         search:"",//搜索框输入
         shares:[],//服务器返回的信息
         userfollow:[],
         hadfollow:0,
         hadpayit:0,
+        payit:0,
         total:0,
         candownload:0,
         followid:-1,
@@ -273,29 +254,6 @@
       }
     },
     methods:{
-      // async getShareImformation(shareuserid) {
-      //   this.drawer = true
-      //   const _this = this
-      //   const formData = new FormData()
-      //   formData.append('id', shareuserid)
-      //   this.$axios({
-      //     url:'/api/user/searchbyid',
-      //     method:'post',
-      //     data:formData,
-      //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-      //   }).then(function(res) {
-      //     console.log(res)
-      //     _this.shareUserNickname = res.data.data.nickname
-      //     _this.shareUserProfile = res.data.data.profile
-      //     _this.shareUserUsername = res.data.data.username
-      //   })
-      //   for (let c=0; c<_this.userfollow.length; c++) {
-      //     if (_this.userfollow[c].to_user_id == shareuserid)
-      //       _this.hadfollow = 1
-      //   }
-      //   console.log("hadfollow="+_this.hadfollow)
-      //   await this.$forceUpdate();
-      // },
 
       /**计算评论的创建时间
        * @param {Object} date
@@ -433,18 +391,20 @@
         this.payDialogtitle = ""
         this.payDialoguserlast = ""
         this.candownload = 0
+        this.payit = 0
       },
 
       /**
        * 支付弹窗的确认支付按钮
        */
       paypoints() {
-        this.hadpayit = 1
+        this.payit = 1
         console.log("点击支付按钮后")
         console.log("this.payDialoguserlast = "+this.payDialoguserlast)
         console.log("this.payDialogpoints = "+this.payDialogpoints)
         if (this.payDialogpoints > this.payDialoguserlast) {
           this.message = "您的积分不足"
+          this.candownload = 0
         } else {
           this.candownload = 1
           this.message = "进入下载页面之后将自动支付积分"
@@ -579,7 +539,7 @@
 
       start(){
         // console.log(this.message)
-        alert(this.message)
+        // alert(this.message)
       },
 
       tomypage(userid) {
@@ -659,7 +619,7 @@
   .searchbody {
     overflow: hidden;
     background-color: #DDDDDD;
-    height: auto;
+    height: 85px;
     background-color: white;
   }
   .searchbody img {
