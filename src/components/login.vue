@@ -161,6 +161,10 @@
           _this.$store.state.userId = r.data.data.id
           _this.$store.state.UserName = r.data.data.username
           _this.$store.state.points = r.data.data.points
+          window.sessionStorage.setItem('points', r.data.data.points)
+
+          console.log("用户信息-------------------------")
+          console.log(r.data.data)
 
           _this.$message.success('获取用户信息成功')
         }).catch(function (res) {

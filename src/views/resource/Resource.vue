@@ -5,7 +5,14 @@
     <el-container>
       <!-- 顶部内容 -->
       <el-header height="height: auto;background: bottom;">
-        <top-bar></top-bar>
+        <div class="searchbody" style="background-color: white;opacity: 0.8">
+          <!-- <img src="../assets/teamlogo.png" style="padding-left: 20%; width: 60px; height: auto;"/> -->
+          <span class="top-bar-title" style="padding-top: 30px;margin-left: 20%;">豌豆</span>
+          <span class="top-bar-title" style="padding-top: 40px;">射手</span>
+          <img src="../../../static/images/pea.png" style="width: 30px; height: auto;" />
+          <input id="userinput" type="text" v-model="searchResTitle" placeholder="搜索你感兴趣的资源" @keyup.enter="searchRes()"  />
+          <input id="startsearch" type="submit" value="搜索" @click="searchRes()" />
+        </div>
       </el-header>
 
       <!-- 主要内容显示 -->
@@ -70,12 +77,21 @@
                       v-else
                       slot="route"
                       type="warning"
-                      @click="readyPay(item.id, item.title, item.points)">
+                      @click="readyPay(item.id, item.title, item.points, item.user_id)">
                 需要积分:{{ item.points }}
               </el-link>
             </res-list-item>
 
             <div style="padding-top: 1em !important;border-radius: 10px;background-color: white;" class="m-margin-top">
+              <!-- 资源为空的提示 -->
+              <el-alert
+                title= "这里空空如也"
+                type="info"
+                :closable="false"
+                class="none-res-tip"
+                v-show="resNull">
+              </el-alert>
+
             <!-- 页码 -->
             <el-pagination
               style="text-align: center"
@@ -85,18 +101,10 @@
               :current-page="curPage"
               :total="100"
               :page-size="20"
-              v-show="!resNull"
+              v-if="searchResTitle === ''"
               @current-change="pageChange">
             </el-pagination>
             </div>
-            <!-- 资源为空的提示 -->
-            <el-alert
-              title= "这里空空如也"
-              type="info"
-              :closable="false"
-              class="none-res-tip"
-              v-show="resNull">
-            </el-alert>
           </res-list>
 
         </el-main>
@@ -194,7 +202,9 @@
     downloadFile2,
     judUserDownloadRes,
     getResByTag,
-    getTags
+    getTags,
+    searchResByTitle,
+    addUserPoints
   } from "../../network/resource";
 
   import { HOSTURL } from "../../network/resource";
@@ -218,6 +228,8 @@
         curPage: 1,
 
         curResId: 0,
+        // 支付资源的所有者
+        payResUserId: 0,
         inputSearch: '',
         // 为 true 时列表显示加载动画
         loadingResList: true,
@@ -228,7 +240,9 @@
         payResPoints: 0,
         hadPayIt: 0,
         allTagName: [],
-        drawer: false
+        drawer: false,
+
+        searchResTitle: ''
       }
     },
     components: {
@@ -291,6 +305,7 @@
        */
       getResByTagAndOrderZhIndex(tag, order, page) {
         this.curTag = tag
+        this.searchResTitle = ''
 
         getResByTag(tag, order, page).then(res => {
           this.storeState.resourcesZhIndex[tag].list = res.data.data
@@ -342,6 +357,7 @@
        * @param type  资源展示形式 'time': 最新 'hot': 精华
        */
       getResBy(type, page) {
+        this.searchResTitle = ''
         if (this.curTag != '所有') {
           this.getResByTagAndOrderZhIndex(this.curTag, type, page)
         }
@@ -364,18 +380,19 @@
        * @param title 资源标题
        * @param points  资源需要的积分值
        */
-      readyPay(id, title, points) {
+      readyPay(id, title, points, resUserId) {
         this.payDialogVisible = true
         this.judUserDownloadRes(id, this.storeState.userId)
         this.payResId = id
         this.hadPayIt = 0
         this.payResTitle = title
         this.payResPoints = points
+        this.payResUserId = resUserId
       },
 
       /**
        * 支付积分
-       * @param id  用户id
+       * @param id  资源id
        * @param points  资源需要的积分值
        */
       payPoints(id, points) {
@@ -397,6 +414,11 @@
               else {
                 // 2.1 用户扣去相应积分
                 this.storeState.points -= points
+                window.sessionStorage.setItem('points', this.storeState.points)
+
+                // 资源所有者添加相应积分
+                this.addUserPoints(this.payResUserId, points)
+
                 // 2.2 该资源的 points 设为 0
                 obj.points = 0
                 this.downloadFile(obj.id, this.storeState.userId)
@@ -547,6 +569,30 @@
         }).catch(err => {
           console.log(err)
         })
+      },
+
+      /**
+       * 搜索资源
+       */
+      searchRes() {
+        searchResByTitle(this.searchResTitle).then(res => {
+          this.resourcesZhIndex['所有'].list = res.data.data
+        }).catch(err => {
+          console.log(err)
+        })
+      },
+
+      /**
+       * 用户添加积分
+       * @param userId  用户id
+       * @param points  积分值
+       */
+      addUserPoints(userId, points) {
+        addUserPoints(userId, points).then(res => {
+          console.log(res)
+        }).then(err => {
+          console.log(err)
+        })
       }
     }
   }
@@ -597,5 +643,44 @@
     background-color: #A9AAAA;
     height: 27px;
     margin: 5px 0px -9px 5px;
+  }
+  .searchbody {
+    overflow: hidden;
+    background-color: #DDDDDD;
+    height: auto;
+  }
+  .top-bar-title{
+    font-family:"幼圆";
+    font-size: 30px;
+    font-weight: bold;
+    color: #42B983;
+    float: left;
+  }
+  .searchbody img {
+    float: left;
+    display: block;
+    padding-top: 1%;
+  }
+  .searchbody input[type=text]{
+    width: 30%;
+    padding: 1%;
+    margin: 2% 0 2% 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .searchbody input[type=submit] {
+    width: 5%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 1%;
+    margin: 2% 0 2% 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .searchbody input[type=submit]:hover {
+    background-color: #45a049;
   }
 </style>
