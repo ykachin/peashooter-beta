@@ -52,7 +52,7 @@
                               </div>
                               <div class="item">
                                 <!--<a @click="dianzan(item.id,item)"><img  class="middle aligned" :id="'nolike'+item.id" style="width: 18px" v-if="!(item.jud)" :src="likesimage"><img  class="middle aligned" :id="'liked'+item.id" style="width: 18px" v-if="item.jud" :src="likedimage"><span :id="'likenum'+item.id">{{item.likes}}</span></a>-->
-                                <a @click="dianzan(item.id,item)"><img  class="middle aligned" :id="'nolike'+item.id" style="width: 18px" v-show="!(item.jud)" :src="likesimage"><img  class="middle aligned" :id="'liked'+item.id" style="width: 18px" v-show="item.jud" :src="likedimage"><span :id="'likenum'+item.id">{{item.likes}}</span></a>
+                                <a @click="dianzan(item.id,item)"><img  class="middle aligned" :id="'nolike'+item.id" style="width: 18px" v-show="!(item.jud)" src="../../static/images/like.png"><img  class="middle aligned" :id="'liked'+item.id" style="width: 18px" v-show="item.jud" src="../../static/images/liked.png"><span :id="'likenum'+item.id">{{item.likes}}</span></a>
                               </div>
                               <div class="item">
                                 <a @click="getcommentbypostid(item.id,index)"><img  class="middle aligned" style="width: 18px" src="../../static/images/comment.png"></a>
@@ -116,7 +116,7 @@
                                         {{item2.content}}
                                       </div>
                                       <div class="actions" >
-                                        <a class="reply" data-commentid="1" data-commentnickname="Matt"  @click="reply(item2.user_id,item.id)" >回复</a>
+                                        <a class="reply" data-commentid="1" data-commentnickname="Matt"  @click="reply(item2.user_id,item.id,item2.username)" >回复</a>
                                         <!--删除评论-->
                                         <a @click="deletecomment(item2.id)"><img  class="middle aligned" v-if="parseInt(item2.user_id) === parseInt(currentuserid)" style="width: 18px" src="../../static/images/delete.png"></a>
                                       </div>
@@ -321,8 +321,8 @@
           hasliked:false,
           convert:["电影","音乐","书籍","电视剧"],
           isRouterAlive :false,
-          likesimage:'../../static/images/like.png',
-          likedimage:'../../static/images/liked.png',
+          likesimage:require('../../static/images/like.png'),
+          likedimage:require('../../static/images/liked.png'),
           allposts:[],
           //page第几页
           page:1,

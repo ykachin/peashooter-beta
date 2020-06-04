@@ -36,6 +36,7 @@
     background-color: #333;
   }
   .headbody .op{
+
     float: left;
     display: block;
     color: #f2f2f2;

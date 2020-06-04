@@ -65,6 +65,7 @@
     max-width: 500px;
     margin: 0 auto;
     text-align: center;
+  }
     img {
       width: 50%;
     }
@@ -81,6 +82,7 @@
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
+    }
       span {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         border-radius: 0.5em;
@@ -88,6 +90,6 @@
         color: rgba(65, 184, 131, 1);
         cursor: pointer;
       }
-    }
-  }
+
+
 </style>
