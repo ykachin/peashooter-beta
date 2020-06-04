@@ -33,7 +33,7 @@
                           </div>
                           <div class="item">
                             <!--<a @click="dianzan(item.id,item)"><img  class="middle aligned" :id="'nolike'+item.id" style="width: 18px" v-if="!(item.jud)" :src="likesimage"><img  class="middle aligned" :id="'liked'+item.id" style="width: 18px" v-if="item.jud" :src="likedimage"><span :id="'likenum'+item.id">{{item.likes}}</span></a>-->
-                            <a @click="dianzan(item.id,item)"><img  class="middle aligned" :id="'nolike'+item.id" style="width: 18px" v-show="!(item.jud)" :src="likesimage"><img  class="middle aligned" :id="'liked'+item.id" style="width: 18px" v-show="item.jud" :src="likedimage"><span :id="'likenum'+item.id">{{item.likes}}</span></a>
+                            <a @click="dianzan(item.id,item)"><img  class="middle aligned" :id="'nolike'+item.id" style="width: 18px" v-show="!(item.jud)" src="../../../static/images/like.png"><img  class="middle aligned" :id="'liked'+item.id" style="width: 18px" v-show="item.jud" src="../../../static/images/liked.png"><span :id="'likenum'+item.id">{{item.likes}}</span></a>
                           </div>
                           <div class="item">
                             <a v-local-test v-if="index === 0" @click="getcommentbypostid(item.id,index)" :id="'comment'+index"><img  class="middle aligned" style="width: 18px" src="../../../static/images/comment.png"></a>
