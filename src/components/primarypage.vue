@@ -150,6 +150,8 @@
                                     </div>
                                   </div>
                                 </div>
+                                <!--查看更多-->
+                                <a @click="gotowork(currentPostid)">查看更多</a>
                               </div>
                             </div>
                           </div>
@@ -310,6 +312,7 @@
       },
       data() {
         return {
+          currentPostid:0,
           list:[],
           username:window.sessionStorage.getItem('username'),
           currentuserid:window.sessionStorage.getItem('user_id'),
@@ -346,6 +349,9 @@
         }
       },
       methods:{
+        gotowork(workid){
+          this.$router.push("/squareinfo/"+workid)
+        },
         deletecomment(comment_id){
           const _this=this
           console.log("要删除的commentid：",comment_id)
@@ -798,6 +804,7 @@
           this.$router.push("/addpost")
         },
         async getcommentbypostid(param,index){
+          this.currentPostid=param
           this.thispagecomments=[]
           window.sessionStorage.setItem('primarypagenum',this.page)
           const _this=this
