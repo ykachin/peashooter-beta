@@ -6,6 +6,7 @@
     <a class="op"  @click="f4">资源</a>
     <a class="op"  @click="f5">话题</a>
     <a class="op"  @click="f6">广场</a>
+    <a class="op"  @click="f7">我的</a>
     <!--<a class="op"  @click="f2">作品讨论区</a>-->
     <el-dropdown class="op2">
       <span class="el-dropdown-link">
@@ -48,6 +49,9 @@
       },
       f6(){
         this.$router.push("/square")
+      },
+      f7(){
+        this.$router.push("/personal/information")
       },
       logout(){
         window.sessionStorage.clear()

@@ -8,7 +8,7 @@
     <div class="ui attached  segment">
       <div class="ui padded vertical segment" >
         <el-collapse v-model="activeName">
-          <el-collapse-item title="我的赞" name="1">
+          <el-collapse-item title="我的最新点赞" name="1">
             <div id="like" class="ui padded vertical segment m-padded-tb-large">
               <div id="message-content" class="m-margin-top">
                 <el-alert v-if="myLikeList.length === 0" title="我没有被赞" type="info"></el-alert>
@@ -23,7 +23,7 @@
               </div>
             </div>
           </el-collapse-item>
-          <el-collapse-item title="我的评论" name="2">
+          <el-collapse-item title="我的最新评论" name="2">
             <div id="comment" class="ui padded vertical segment m-padded-tb-large">
               <div id="comment-content" class="m-margin-top">
                 <el-alert v-if="myCommentList.length === 0" title="我没有被评论" type="info"></el-alert>

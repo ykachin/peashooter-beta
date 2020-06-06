@@ -166,7 +166,7 @@
           console.log("用户信息-------------------------")
           console.log(r.data.data)
 
-          _this.$message.success('获取用户信息成功')
+          //_this.$message.success('获取用户信息成功')
         }).catch(function (res) {
           _this.$message.error('获取用户信息失败')
         })

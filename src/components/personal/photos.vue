@@ -8,8 +8,9 @@
     <br/><br/>
     <div class="ui attached  segment">
       <div class="ui padded vertical segment" >
+        <el-alert v-if="album.length === 0" title="相册为空" type="info"></el-alert>
         <el-row>
-          <el-col :span="8" v-for="(o, index) in album" :key="o" >
+          <el-col :span="8" v-for="(o, index) in album" :key="o" v-if="album.length !== 0">
             <el-card :body-style="{ padding: '0px' }">
               <img :src=url+o.route class="image" height="100" width="100" >
               <div style="padding: 10px;">
@@ -100,8 +101,12 @@
           url: '/api/user/getpicture',
           data: this.$qs.stringify(myuserid),
         }).then(function (res) {
-          console.log('我的相册',res)
-          _this.album=res.data.data
+          if(res.data.data.message!=="相册为空"){
+            console.log('我的相册',res)
+            _this.album=res.data.data
+          }
+          console.log('现在album中是什么内容：',_this.album)
+
         }).catch(function (res) {
           console.log('我的相册获取失败 ')
         })
