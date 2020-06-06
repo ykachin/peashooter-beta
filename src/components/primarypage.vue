@@ -312,6 +312,9 @@
       },
       data() {
         return {
+          //快速点击当做一次点击
+          fastlike:true,
+
           currentPostid:0,
           list:[],
           username:window.sessionStorage.getItem('username'),
@@ -601,74 +604,85 @@
           this.reload()
         },
         async dianzan(postid,thisitem){
-          window.sessionStorage.setItem('primarypagenum',this.page)
           const _this=this
-          thisitem.likesimage='../../static/images/liked.png'
-          const zan={
-            post_id:postid,
-            user_id:window.sessionStorage.getItem('user_id')
-          }
-          console.log('点赞表参数')
-          await this.$axios({
-            method: 'post',
-            url: '/api/likes/jud',
-            data:this.$qs.stringify(zan)
-          }).then(function (res) {
-            if(!res.data.data){
-              _this.$axios({
-                method: 'post',
-                url: '/api/likes',
-                data:_this.$qs.stringify(zan)
-              }).then(function (res) {
-                _this.$message.success("点赞成功！")
-                console.log(res)
-                _this.hasliked = true
-                console.log('点赞成功')
+          if(this.fastlike){
+            this.fastlike=false
 
-                /*隐藏nolike*/
-                $("#nolike"+postid).toggle();
-                $("#liked"+postid).toggle();
-                /*前端数据+1*/
-                thisitem.likes=parseInt(thisitem.likes)+1
-                $("#likenum"+postid).html(thisitem.likes);
+            window.sessionStorage.setItem('primarypagenum',this.page)
 
-                console.log('报错了吗')
-              })
-            }else{
-              _this.$axios({
-                method: 'post',
-                url: '/api/likes/del',
-                data:_this.$qs.stringify(zan)
-              }).then(function (res) {
-
-                /*隐藏liked*/
-                $("#liked"+postid).toggle();
-                $("#nolike"+postid).toggle();
-                /*前端数据-1*/
-                thisitem.likes=parseInt(thisitem.likes)-1
-                $("#likenum"+postid).html(thisitem.likes);
-
-                _this.$message.error("您已经取消赞！")
-              })
-              /*_this.$message.error("点赞失败！您已经点赞！")*/
-              console.log(res)
-              console.log('点赞失败')
+            thisitem.likesimage='../../static/images/liked.png'
+            const zan={
+              post_id:postid,
+              user_id:window.sessionStorage.getItem('user_id')
             }
+            console.log('点赞表参数')
+            await this.$axios({
+              method: 'post',
+              url: '/api/likes/jud',
+              data:this.$qs.stringify(zan)
+            }).then(function (res) {
+              if(!res.data.data){
+                _this.$axios({
+                  method: 'post',
+                  url: '/api/likes',
+                  data:_this.$qs.stringify(zan)
+                }).then(function (res) {
+                  _this.$message.success("点赞成功！")
+                  console.log(res)
+                  _this.hasliked = true
+                  console.log('点赞成功')
 
-            /*_this.getList()*/
-          }).catch(function (res) {
-            console.log(res)
-            console.log("点赞异常！请稍后重试...")
-          })
-          //thisitem.likes=parseInt(thisitem.likes)+1
-          console.log('前端点赞数+1后的结果')
-          console.log(thisitem.likes)
-          thisitem.likesimage='../../static/images/liked.png'
-          //this.reload()
-          //感受一下jquery的威力
-          console.log(202006012336)
-          /*setTimeout(this.reload(), 1000);*/
-          /*this.$router.go(0);*/
+                  /*隐藏nolike*/
+                  $("#nolike"+postid).toggle();
+                  $("#liked"+postid).toggle();
+                  /*前端数据+1*/
+                  thisitem.likes=parseInt(thisitem.likes)+1
+                  $("#likenum"+postid).html(thisitem.likes);
+
+                  console.log('报错了吗')
+                })
+              }else{
+                _this.$axios({
+                  method: 'post',
+                  url: '/api/likes/del',
+                  data:_this.$qs.stringify(zan)
+                }).then(function (res) {
+
+                  /*隐藏liked*/
+                  $("#liked"+postid).toggle();
+                  $("#nolike"+postid).toggle();
+                  /*前端数据-1*/
+                  thisitem.likes=parseInt(thisitem.likes)-1
+                  $("#likenum"+postid).html(thisitem.likes);
+
+                  _this.$message.error("您已经取消赞！")
+                })
+                /*_this.$message.error("点赞失败！您已经点赞！")*/
+                console.log(res)
+                console.log('点赞失败')
+              }
+
+              /*_this.getList()*/
+            }).catch(function (res) {
+              console.log(res)
+              console.log("点赞异常！请稍后重试...")
+            })
+            //thisitem.likes=parseInt(thisitem.likes)+1
+            console.log('前端点赞数+1后的结果')
+            console.log(thisitem.likes)
+            thisitem.likesimage='../../static/images/liked.png'
+            //this.reload()
+            //感受一下jquery的威力
+            console.log(202006012336)
+            /*setTimeout(this.reload(), 1000);*/
+            /*this.$router.go(0);*/
+
+            setTimeout(function () {
+              _this.fastlike=true;
+            },1000)
+          }
+
+
         },
         async submitForm(){
 
