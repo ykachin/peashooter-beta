@@ -8,7 +8,7 @@
     <!-- 留言显示 -->
     <div id="message-title">我的最新留言</div>
     <div id="message-content" class="m-margin-top">
-      <el-alert v-if="userMessageList.length === 0" title="ta暂时没有留言" type="info"></el-alert>
+      <el-alert v-if="userMessageList.length === 0" title="我暂时没有留言" type="info"></el-alert>
       <div class="message-content-item" v-for="(item, index) in userMessageList" v-if="index < 5">
         <el-input
           style="margin-bottom: 10px;"

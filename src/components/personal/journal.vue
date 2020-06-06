@@ -542,36 +542,39 @@
           url: '/api/user/getpost',
           data:this.$qs.stringify(x),
         }).then(function (res) {
-          const __this =_this
-          const r=res.data
-          _this.posts=r.data
-          console.log("得到的发布表总信息")
-          console.log(_this.posts)
+          if(res.data.code===200){
+            const __this =_this
+            const r=res.data
+            _this.posts=r.data
+            console.log("得到的发布表总信息")
+            console.log(_this.posts)
 
-          //posts增加属性username
-          for(let c in _this.posts){
-            const cc=c
-            console.log('拿到用户名了吗')
-            console.log(_this.posts[c].user_id)
-            //user_id换用户名
-            const ddd={id:_this.posts[c].user_id}
-            _this.$axios({
-              method: 'post',
-              url: '/api/user/searchbyid',
-              data:_this.$qs.stringify(ddd),
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-              }
-            }).then(function (res) {
-              const r=res.data
-              _this.posts[cc].username=r.data.username
-              console.log("得到的用户名成功")
-            }).catch(function (res) {
-              console.log("得到的用户名发生异常！请稍后重试...")
-            })
+            //posts增加属性username
+            for(let c in _this.posts){
+              const cc=c
+              console.log('拿到用户名了吗')
+              console.log(_this.posts[c].user_id)
+              //user_id换用户名
+              const ddd={id:_this.posts[c].user_id}
+              _this.$axios({
+                method: 'post',
+                url: '/api/user/searchbyid',
+                data:_this.$qs.stringify(ddd),
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+                }
+              }).then(function (res) {
+                const r=res.data
+                _this.posts[cc].username=r.data.username
+                console.log("得到的用户名成功")
+              }).catch(function (res) {
+                console.log("得到的用户名发生异常！请稍后重试...")
+              })
+            }
+            console.log('拿到添加用户名的post')
+            console.log(_this.posts)
           }
-          console.log('拿到添加用户名的post')
-          console.log(_this.posts)
+
 
         }).catch(function (res) {
           console.log(res)
