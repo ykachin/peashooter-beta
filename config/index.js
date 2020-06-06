@@ -70,7 +70,9 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: true,
+    //1，去掉编译文件中map文件。在编译好后，我们会看到文件夹下有特别多的.map文件，这些文件主要是帮助我们线上调试代码，查看样式。所以为了避免部署包过大，通常都不生成这些文件。
+    /*productionSourceMap: true,*/
+    productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 
