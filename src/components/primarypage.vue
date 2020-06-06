@@ -144,7 +144,7 @@
                                       {{item.content}}
                                     </div>
                                     <div class="actions" >
-                                      <a class="reply" data-commentid="1" data-commentnickname="Matt"  @click="reply(item.user_id,item.id)" >回复</a>
+                                      <a class="reply" data-commentid="1" data-commentnickname="Matt"  @click="reply(item.user_id,item.id,item.username)" >回复</a>
                                       <!--删除评论-->
                                       <a @click="deletecomment(item.id)"><img  class="middle aligned" v-if="parseInt(item.user_id) === parseInt(currentuserid)" style="width: 18px" src="../../static/images/delete.png"></a>
                                     </div>
