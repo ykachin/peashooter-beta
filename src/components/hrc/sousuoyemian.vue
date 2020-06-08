@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <myhead></myhead>
-    <div id="sousuolan1" class="ui container" style="height:300px; background:url(./static/images/a1.jpg)no-repeat;background-size: cover;">
+    <div id="sousuolan1" class="ui container" style="height:300px; background:url(./static/images/bg4.jpg)no-repeat;background-size: cover;">
         <div class="eight wide column">
           <div class="ui stackable grid">
             <div class="wide column two-size-center">
