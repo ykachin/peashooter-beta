@@ -4552,7 +4552,7 @@
         method: 'post',
         url: '/api/posts/gethotbystatus',
         data:qs.stringify({
-          day:7,
+          day:20,
           status:0
         }),
         headers: {
@@ -5275,7 +5275,7 @@
         method: 'post',
         url: '/api/posts/gethotbystatus',
         data:qs.stringify({
-          day:7,
+          day:20,
           status:2
         }),
         headers: {
@@ -5314,7 +5314,7 @@
         method: 'post',
         url: '/api/posts/gethotbystatus',
         data:qs.stringify({
-          day:7,
+          day:20,
           status:1
         }),
         headers: {
